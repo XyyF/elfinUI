@@ -1,0 +1,29 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+
+#before_script:
+ # - npm install -g gulp
+
+script:
+  - git build
+
+after_script:
+  - git init
+  - git config user.name "xiaoyufei"
+  - git config user.email "915724526@qq.com"
+  - git add .
+  - git commit -m "build docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: git@github.com:XyyF/xiaojing0UI.git
