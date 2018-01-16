@@ -1,6 +1,6 @@
 # home
 
-> A Vue.js project
+> xiaojing0 UI
 
 ## Build Setup
 
