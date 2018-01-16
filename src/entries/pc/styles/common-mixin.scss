@@ -1,0 +1,14 @@
+@mixin empty-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+    div {
+        margin-bottom: 20px;
+    }
+    p {
+        color: $text-hint;
+    }
+}

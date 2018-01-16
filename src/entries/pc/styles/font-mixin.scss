@@ -1,0 +1,25 @@
+// 参考来源 https://github.com/AlloyTeam/Mars/blob/master/solutions/font-family.md
+
+@mixin default-font-thin {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC Thin", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei Light", "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+@mixin default-font-extralight {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC ExtraLight", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei Light", "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+@mixin default-font-light {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC Light", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei Light", "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+@mixin default-font-regular {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+@mixin default-font-semibold {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC Semibold", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei Bold", "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+@mixin default-font-bold {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "PingFang SC Bold", "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei Bold", "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}

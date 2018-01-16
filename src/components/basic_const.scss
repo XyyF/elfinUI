@@ -1,0 +1,62 @@
+/*********************视觉设计规范*********************/
+
+// 基本-主色
+$basic-primary: #36B459;
+$basic-primary-highlight: mix($basic-primary, #fff, 80%);
+// 基本-辅色
+$basic-secondary: #63c59e;
+$basic-secondary-highlight: mix($basic-secondary, #fff, 80%);
+// 基本-提示色
+$basic-warning: #ff5702;
+$basic-warning-highlight: mix($basic-warning, #fff, 80%);
+
+// 基本-弱提示
+$basic-weak: #8ebff1;
+// 基本-高亮态
+$basic-selected: #dbebfb;
+// 基本-背景色
+$basic-body: #e9eef5;
+// 基本-更浅的背景色
+$basic-background: #f4f5f8;
+
+// 文字-强调。最深的文字颜色，一般用做标题
+$text-strong: #242d33;
+// 文字-正文
+$text-normal: #63737f;
+// 文字-次要
+$text-weak: #9fb9cc;
+// 文字-提示。最浅的文字颜色，一般用做placeholder
+$text-hint: #b4c1cc;
+// 文字-凸显
+$text-highlight: #36b459;
+// 文字-反白。用在深色背景上
+$text-white: #ffffff;
+
+// 线框-分隔线
+$line-separator: #def0f2;
+// 线框-表单框线
+$line-border: #D3D9DE;
+// 线框-弹出框背景色
+$dlg-background: #f3f7f8;
+
+/***********************常用样式***********************/
+
+// 侧边栏宽度
+$sideMenuWidth: 244px;
+// 头部高度
+$headerHeight: 80px;
+// 工作台顶部快捷方式大小
+$shortcut-block-size: 160px;
+
+@mixin button {
+    text-decoration: none;
+    // 不能合并成border，否则include时可能覆盖组件中的border-color属性
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    &.disabled {
+        cursor: default;
+    }
+}
