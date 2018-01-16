@@ -26,4 +26,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: git@github.com:XyyF/xiaojing0UI.git
+   - GH_REF: github.com/XyyF/xiaojing0UI.git
