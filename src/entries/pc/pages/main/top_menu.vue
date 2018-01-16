@@ -1,13 +1,18 @@
 <template>
-    <div class="hello">
-        <el-menu>
-            <el-menu-item v-for="menu, index in vxTopMenu" :key="index">{{menu}}</el-menu-item>
-        </el-menu>
+    <div class="top-menu">
+        <header class="header">
+            <el-menu :default-active="String(0)">
+                <el-menu-item
+                    v-for="menu, topIndex in vxTopMenu"
+                    :key="topIndex"
+                    :index="`${topIndex}`">{{menu}}</el-menu-item>
+            </el-menu>
+        </header>
     </div>
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+    import { mapState } from 'vuex'
     import { Menu, MenuItem } from 'meetin-sass-ui'
 
     export default {
@@ -25,22 +30,21 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h1, h2 {
-        font-weight: normal;
-    }
+<style lang="scss" rel="stylesheet/scss">
+    @import "../../../../components/pc/styles/basic_const";
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
+    .top-menu {
+        width: 100%;
+        height: $topMenuHeight;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: #fff;
+        line-height: 80px;
+        .header {
+            width: $mainContentWidth;
+            margin: 0 auto;
+        }
     }
 </style>

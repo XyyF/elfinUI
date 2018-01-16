@@ -1,9 +1,10 @@
 <template>
     <div class="page-index">
-        31231
         <top-menu></top-menu>
-        <side-menu></side-menu>
-        <router-view class="content"></router-view>
+        <div class="main-content">
+            <side-menu></side-menu>
+            <router-view class="content"></router-view>
+        </div>
     </div>
 </template>
 
@@ -27,13 +28,16 @@
         height: 100%;
         width: 100%;
         background: white;
+        display: flex;
+        flex-flow: row nowrap;
+        .main-content {
+            width: $mainContentWidth;
+            margin: $topMenuHeight auto 0;
+        }
         .content {
             margin-left: $sideMenuWidth;
             overflow: auto;
             position: relative;
-        }
-        &.hidden-scroll {
-            overflow: hidden;
         }
     }
 </style>

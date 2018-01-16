@@ -16,6 +16,8 @@ import VueRouter from 'vue-router';
 const page404 = r => import(/* webpackChunkName: "workbench_404" */'./pages/404.vue').then(r)
 const indexPage = r => import(/* webpackChunkName: "workbench_index" */'./pages/main/index.vue').then(r)
 const workbench = r => import(/* webpackChunkName: "workbench_index" */'./pages/workbench/index.vue').then(r)
+const calendar = r => import(/* webpackChunkName: "workbench_index" */'./pages/calendar/index.vue').then(r)
+const avatarList = r => import(/* webpackChunkName: "workbench_index" */'./pages/avatar_list/index.vue').then(r)
 
 // 定义路由映射。 其中"component" 可以是通过 Vue.extend() 创建的组件构造器，或者组件配置对象
 const routes = [
@@ -28,6 +30,8 @@ const routes = [
             // 重定向到工作台页面，而不给工作台设置path为空的别名，是为了让侧边栏能识别到当前打开了哪个子页面
             {path: '', redirect: {name: 'workbench'}},
             {path: 'workbench', name: 'workbench', component: workbench},
+            {path: 'calendar', name: 'calendar', component: calendar},
+            {path: 'avatarList', name: 'avatarList', component: avatarList},
         ]
     },
     // 必须放最后

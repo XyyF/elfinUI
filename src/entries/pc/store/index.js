@@ -3,13 +3,32 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
+import { SideMenuEnum } from '../js/enums'
 
 Vue.use(Vuex)
 
 // initial state
 const state = {
     topMenu: ['组件'],
-    sideMenu: ['日历'],
+    sideMenu: [{
+        id: SideMenuEnum.PC,
+        name: 'pc端',
+        childItems: [{
+            id: SideMenuEnum.AVATAR_LIST,
+            name: '头像列表',
+            routeName: 'avatarList',
+            unread: 0,
+        }],
+    }, {
+        id: SideMenuEnum.MOBILE,
+        name: 'mobile端',
+        childItems: [{
+            id: SideMenuEnum.CALENDAR,
+            name: '日历',
+            routeName: 'calendar',
+            unread: 0,
+        }],
+    }],
 }
 
 const store = new Vuex.Store({
@@ -18,8 +37,7 @@ const store = new Vuex.Store({
     getters,
     actions,
     mutations,
-    modules: {
-    }
+    modules: {}
 })
 
 // 热更新
