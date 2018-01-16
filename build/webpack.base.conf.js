@@ -24,6 +24,8 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.common.js',
             'vue-router': 'vue-router/dist/vue-router.min.js',
+            // 可通过绝对路径引入的文件
+            'components': resolve('src/components'),
             'vue_plugins': resolve('src/vue_plugins'),
         }
     },
@@ -49,31 +51,17 @@ module.exports = {
                 include: [resolve('src'), resolve('test')]
             },
             {test: /\.s[c|a]ss$/, loader: 'style-loader!css-loader!sass-loader'},
-            {test: /\.css$/, loader: 'style-loader!css-loader'},
+            {test: /\.css$/, loader: 'vue-loader'},
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
-                }
+                options: {limit: 100, name: '[name]_[hash:8].[ext]'}
             },
             {
-                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                test: /\.(woff2?|eot|ttf|otf)$/,
                 loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: utils.assetsPath('media/[name].[hash:7].[ext]')
-                }
+                options: {limit: 8192, name: '[name]_[hash:8].[ext]'}
             },
-            {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-                }
-            }
         ]
     }
 }

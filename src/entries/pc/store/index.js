@@ -8,6 +8,8 @@ Vue.use(Vuex)
 
 // initial state
 const state = {
+    topMenu: ['组件'],
+    sideMenu: ['日历'],
 }
 
 const store = new Vuex.Store({

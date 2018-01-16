@@ -21,7 +21,7 @@
             [
                 {
                     "libraryName": "meetin-sass-ui",
-                    "styleLibraryName": "~src/styles/el-theme"
+                    "styleLibraryName": "~src/entries/pc/styles/el-theme"
                 }
             ]
         ],
