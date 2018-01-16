@@ -10,7 +10,7 @@ install:
  # - npm install -g gulp
 
 script:
-  - git build
+  - npm run build
 
 after_script:
   - git init
