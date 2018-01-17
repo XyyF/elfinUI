@@ -12,7 +12,7 @@ const state = {
     topMenu: [{
         id: SideMenuEnum.COMPONENTS,
         name: '组件',
-        routeName: 'components'
+        routeName: 'avatarList'
     }],
     sideMenu: [{
         id: SideMenuEnum.PC,
@@ -21,7 +21,10 @@ const state = {
             id: SideMenuEnum.AVATAR_LIST,
             name: '头像列表',
             routeName: 'avatarList',
-            unread: 0,
+        }, {
+            id: SideMenuEnum.WATER_MARK,
+            name: '水位标志',
+            routeName: 'waterMark',
         }],
     }, {
         id: SideMenuEnum.MOBILE,
@@ -30,7 +33,6 @@ const state = {
             id: SideMenuEnum.CALENDAR,
             name: '日历',
             routeName: 'calendar',
-            unread: 0,
         }],
     }],
 }

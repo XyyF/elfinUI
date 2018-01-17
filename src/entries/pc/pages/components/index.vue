@@ -1,7 +1,7 @@
 <template>
-    <div class="main-content">
+    <div class="page-components">
         <side-menu></side-menu>
-        <router-view class="main-content-router"></router-view>
+        <router-view class="page-components-router"></router-view>
     </div>
 </template>
 
@@ -19,9 +19,10 @@
 <style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../../../components/pc/styles/basic_const";
 
-    .main-content {
+    .page-components {
         &-router {
             margin-left: $sideMenuWidth;
+            padding: 50px 20px;
             overflow: auto;
             position: relative;
         }

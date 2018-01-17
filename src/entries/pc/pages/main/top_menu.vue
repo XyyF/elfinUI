@@ -56,6 +56,7 @@
         background-color: #fff;
         line-height: 80px;
         .header {
+            border-bottom: 1px solid #e7eef0;
             width: $mainContentWidth;
             margin: 0 auto;
             display: flex;
@@ -83,7 +84,9 @@
             }
             .menu-wrap {
                 width: 755px;
-                height: 100%;
+                height: $topMenuHeight;
+                display: flex;
+                align-items: center;
             }
         }
     }

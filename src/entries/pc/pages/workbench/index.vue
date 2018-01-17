@@ -1,6 +1,8 @@
 <template>
     <div class="page-workbench">
-        workbench
+        xiaojing0UI
+        <a href="http://xiaojing0.com/#/">官网</a>
+        成员：Nate、Butters、Rengar
     </div>
 </template>
 
@@ -11,8 +13,6 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../components/pc/styles/basic_const";
-
     .page-workbench {
         height: 100%;
     }

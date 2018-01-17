@@ -2,7 +2,7 @@
     <div class="side-menu">
         <el-menu class="el-menu-vertical-demo">
             <template v-for="(sideMenu, sideIndex) in vxSideMenu">
-                <el-submenu :index="sideIndex">
+                <el-submenu :index="String(sideIndex)">
                     <template slot="title">
                         <i class="el-icon-location"></i>
                         <span>{{sideMenu.name}}</span>
@@ -44,6 +44,7 @@
 
     .side-menu {
         margin-top: $topMenuHeight;
+        padding-top: 40px;
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.02);
         border-right: 1px solid #e7eef0;
         width: $sideMenuWidth;
@@ -57,6 +58,9 @@
         background-color: #fff;
         display: flex;
         flex-direction: column;
+        .el-menu {
+            border: none !important;
+        }
         .el-submenu__title {
             padding: 0 !important;
         }

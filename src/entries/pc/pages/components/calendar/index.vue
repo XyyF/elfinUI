@@ -1,6 +1,6 @@
 <template>
     <div class="calendar">
-        calendar
+        calendar 日历
         <el-button>123</el-button>
     </div>
 </template>
