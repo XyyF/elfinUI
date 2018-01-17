@@ -1,12 +1,25 @@
 <template>
     <div class="top-menu">
         <header class="header">
-            <el-menu :default-active="String(0)">
-                <el-menu-item
-                    v-for="menu, topIndex in vxTopMenu"
-                    :key="topIndex"
-                    :index="`${topIndex}`">{{menu}}</el-menu-item>
-            </el-menu>
+            <div class="xiaojing0-logo-wrap">
+                <router-link to="/admin/workbench">
+                    <div class="xiaojing0-logo">
+                        <img src="../../images/logo-login.png"/>
+                    </div>
+                </router-link>
+            </div>
+            <div class="menu-wrap">
+                <el-menu :default-active="String(0)">
+                    <template v-for="menu, topIndex in vxTopMenu">
+                        <router-link :to="{name: menu.routeName}" class="sub-link">
+                            <el-menu-item
+                                :key="topIndex"
+                                :index="`${topIndex}`">{{menu.name}}
+                            </el-menu-item>
+                        </router-link>
+                    </template>
+                </el-menu>
+            </div>
         </header>
     </div>
 </template>
@@ -34,7 +47,7 @@
     @import "../../../../components/pc/styles/basic_const";
 
     .top-menu {
-        width: 100%;
+        width: 100vw;
         height: $topMenuHeight;
         position: fixed;
         top: 0;
@@ -45,6 +58,33 @@
         .header {
             width: $mainContentWidth;
             margin: 0 auto;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            .xiaojing0-logo-wrap {
+                width: 54px;
+                height: $topMenuHeight;
+                display: flex;
+                align-items: center;
+                .xiaojing0-logo {
+                    background-image: linear-gradient(-229deg, #4EE41A 0%, #1BA7EB 99%);
+                    width: 54px;
+                    height: 54px;
+                    border-radius: 100%;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+            .menu-wrap {
+                width: 755px;
+                height: 100%;
+            }
         }
     }
 </style>

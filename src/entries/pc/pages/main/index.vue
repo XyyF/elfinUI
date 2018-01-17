@@ -1,16 +1,13 @@
 <template>
     <div class="page-index">
         <top-menu></top-menu>
-        <div class="main-content">
-            <side-menu></side-menu>
-            <router-view class="content"></router-view>
-        </div>
+        <router-view class="page-index-router"></router-view>
     </div>
 </template>
 
 <script>
     import topMenu from './top_menu.vue'
-    import sideMenu from './side_menu.vue'
+    import sideMenu from '../components/side_menu.vue'
 
     export default {
         name: 'index',
@@ -30,14 +27,9 @@
         background: white;
         display: flex;
         flex-flow: row nowrap;
-        .main-content {
+        .page-index-router {
             width: $mainContentWidth;
             margin: $topMenuHeight auto 0;
-        }
-        .content {
-            margin-left: $sideMenuWidth;
-            overflow: auto;
-            position: relative;
         }
     }
 </style>

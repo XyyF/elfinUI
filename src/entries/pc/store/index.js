@@ -9,7 +9,11 @@ Vue.use(Vuex)
 
 // initial state
 const state = {
-    topMenu: ['组件'],
+    topMenu: [{
+        id: SideMenuEnum.COMPONENTS,
+        name: '组件',
+        routeName: 'components'
+    }],
     sideMenu: [{
         id: SideMenuEnum.PC,
         name: 'pc端',

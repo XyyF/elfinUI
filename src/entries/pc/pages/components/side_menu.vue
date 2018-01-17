@@ -57,5 +57,8 @@
         background-color: #fff;
         display: flex;
         flex-direction: column;
+        .el-submenu__title {
+            padding: 0 !important;
+        }
     }
 </style>

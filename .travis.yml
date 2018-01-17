@@ -13,6 +13,7 @@ script:
   - npm run build
 
 after_script:
+  - cd ./dist
   - git init
   - git config user.name "xiaoyufei"
   - git config user.email "915724526@qq.com"
@@ -26,4 +27,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/XyyF/xiaojing0UI.git
+   - GH_REF: github.com/XyyF/xiaojing0UI-dist.git

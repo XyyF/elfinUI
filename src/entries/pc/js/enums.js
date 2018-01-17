@@ -1,6 +1,8 @@
 export const SideMenuEnum = {
-    PC: '1',
-    MOBILE: '2',
-    AVATAR_LIST: '3',
-    CALENDAR: '4',
+    COMPONENTS: '1',
+    WORKBENCH: '2',
+    PC: '3',
+    MOBILE: '4',
+    AVATAR_LIST: '5',
+    CALENDAR: '6',
 }

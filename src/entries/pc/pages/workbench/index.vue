@@ -1,6 +1,6 @@
 <template>
     <div class="page-workbench">
-        12312
+        workbench
     </div>
 </template>
 
@@ -15,22 +15,5 @@
 
     .page-workbench {
         height: 100%;
-        .main-content {
-            background: $dlg-background;
-            min-height: 100%;
-            width: 100%;
-        }
-        .white-card {
-            background: #fff;
-            border-radius: 2px;
-            margin-top: 16px;
-        }
-        .workbench-main {
-            margin: 0;
-            &.hide {
-                padding: 0 !important;
-            }
-            padding: 30px 28px 24px;
-        }
     }
 </style>
