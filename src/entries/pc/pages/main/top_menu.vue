@@ -7,6 +7,7 @@
                         <img src="../../images/logo-login.png"/>
                     </div>
                 </router-link>
+                <span class="logo-title">xiaojing0</span>
             </div>
             <div class="menu-wrap">
                 <el-menu :default-active="String(0)">
@@ -47,13 +48,12 @@
     @import "../../../../components/pc/styles/basic_const";
 
     .top-menu {
-        width: 100vw;
+        width: 100%;
         height: $topMenuHeight;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1000;
-        background-color: #fff;
         line-height: 80px;
         .header {
             border-bottom: 1px solid #e7eef0;
@@ -62,6 +62,7 @@
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
+            background: #fff;
             .xiaojing0-logo-wrap {
                 width: 54px;
                 height: $topMenuHeight;
@@ -81,12 +82,19 @@
                         height: 30px;
                     }
                 }
+                .logo-title {
+                    margin-left: 20px;
+                    font-size: 24px;
+                }
             }
             .menu-wrap {
                 width: 755px;
                 height: $topMenuHeight;
                 display: flex;
                 align-items: center;
+                .el-menu {
+                    border: none;
+                }
             }
         }
     }

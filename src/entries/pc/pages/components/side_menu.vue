@@ -43,7 +43,6 @@
     @import "../../../../components/pc/styles/basic_const";
 
     .side-menu {
-        margin-top: $topMenuHeight;
         padding-top: 40px;
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.02);
         border-right: 1px solid #e7eef0;
@@ -52,7 +51,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         position: fixed;
-        top: 0;
+        top: $topMenuHeight;
         bottom: 0;
         z-index: 100;
         background-color: #fff;

@@ -43,6 +43,8 @@
     }
 
     #app {
+        overflow-x: hidden;
+        width: 100vw;
         height: 100%;
 
         @when component {

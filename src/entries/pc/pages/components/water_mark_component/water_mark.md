@@ -46,18 +46,20 @@
 </template>
 
 <script>
-  import waterMark from './water_mark.vue'
-  
   export default {
     data() {
           return {
             msg: '自定义文字',
           };
     },
-    components: {
-        waterMark,
-    }
   }
 </script>
 ```
 :::
+
+### waterMark Attributes
+
+| 参数          | 说明            | 类型            | 可选值                 | 默认值   |
+|------------- |---------------- |---------------- |---------------------- |-------- |
+| img | 图片路径 | String | — | — |
+| msg | 文字 | String | — | 没有任何记录哦 |
