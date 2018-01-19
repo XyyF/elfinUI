@@ -1,24 +1,21 @@
 <template>
     <div class="water-mark-component">
-        waterMark 水位标志
-        <water-mark></water-mark>
+        <water-mark-md></water-mark-md>
     </div>
 </template>
 
 <script>
-    import waterMark from './water_mark.vue'
+    import waterMarkMd from './water_mark.md'
 
     export default {
         name: 'water-mark-component',
         components: {
-            waterMark,
+            waterMarkMd,
         },
     }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../../components/pc/styles/basic_const";
-
     .water-mark-component {
     }
 </style>
