@@ -21,8 +21,8 @@
 
     .page-components {
         &-router {
-            margin-left: $sideMenuWidth;
-            padding: 50px 20px;
+            margin-left: $sideMenuWidth + 40px;
+            margin-bottom: 40px;
             overflow: auto;
             position: relative;
         }

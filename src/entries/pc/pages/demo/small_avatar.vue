@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../pc/styles/basic_const";
+    @import "../../../../components/pc/styles/basic_const";
 
     .small-avatar {
         position: relative;

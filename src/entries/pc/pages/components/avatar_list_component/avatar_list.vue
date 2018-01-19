@@ -49,9 +49,8 @@
 </template>
 
 <script>
-    import Vue from 'vue'
     import { Popover, Checkbox, Button } from 'meetin-sass-ui'
-    import smallAvatar from 'components/common/small_avatar.vue'
+    import smallAvatar from '../../demo/small_avatar.vue'
     import { Gender } from 'common/student_enums'
     import waterMark from '../water_mark_component/water_mark.vue'
 

@@ -64,5 +64,8 @@
         .el-submenu__title {
             padding: 0 !important;
         }
+        ul {
+            padding-bottom: 50px;
+        }
     }
 </style>
