@@ -45,7 +45,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../components/pc/styles/basic_const";
+    @import "../../../../../common/basic_const";
 
     .top-menu {
         width: 100%;

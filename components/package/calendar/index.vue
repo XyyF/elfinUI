@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../../components/pc/styles/basic_const";
+    @import "../../../common/basic_const";
 
     .calendar {
     }

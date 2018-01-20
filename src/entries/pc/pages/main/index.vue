@@ -7,19 +7,17 @@
 
 <script>
     import topMenu from './top_menu.vue'
-    import sideMenu from '../components/side_menu.vue'
 
     export default {
         name: 'index',
         components: {
             topMenu,
-            sideMenu,
         }
     }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../components/pc/styles/basic_const";
+    @import "../../../../../common/basic_const";
 
     .page-index {
         height: 100%;
@@ -28,6 +26,7 @@
         display: flex;
         flex-flow: row nowrap;
         .page-index-router {
+            margin-top: $topMenuHeight;
             width: 100vw;
         }
     }

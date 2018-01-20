@@ -7,8 +7,8 @@
 
 <script type="text/babel">
     import { Gender } from 'common/student_enums'
-    import manAvatar from './images/man-avatar.png'
-    import womanAvatar from './images/woman-avatar.png'
+    import manAvatar from '../../../../src/entries/pc/pages/demo/images/man-avatar.png'
+    import womanAvatar from '../../../../src/entries/pc/pages/demo/images/woman-avatar.png'
 
     export default {
         name: 'small-avatar',
@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../components/pc/styles/basic_const";
+    @import "../../../../common/basic_const";
 
     .small-avatar {
         position: relative;

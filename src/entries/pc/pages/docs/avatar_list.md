@@ -1,5 +1,5 @@
 <script>
-  import avatarList from './avatar_list.vue'
+  import avatarList from 'package/avatar_list_component/src/main.vue'
   
   export default {
       data() {

@@ -50,9 +50,9 @@
 
 <script>
     import { Popover, Checkbox, Button } from 'meetin-sass-ui'
-    import smallAvatar from '../../demo/small_avatar.vue'
     import { Gender } from 'common/student_enums'
-    import waterMark from '../water_mark_component/water_mark.vue'
+    import smallAvatar from './small_avatar.vue'
+    import waterMark from '../../water_mark_component/src/main.vue'
 
     export default {
         name: 'avatar-list',
@@ -178,7 +178,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../../components/pc/styles/basic_const";
+    @import "../../../../common/basic_const";
 
     .avatar-list {
         .info-list-number {

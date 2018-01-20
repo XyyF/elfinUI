@@ -44,6 +44,7 @@ module.exports = {
             'vue-router': 'vue-router/dist/vue-router.min.js',
             // 可通过绝对路径引入的文件
             'common': resolve('common'),
+            'package': resolve('components/package'),
             'components': resolve('src/components'),
             'vue_plugins': resolve('src/vue_plugins'),
         }

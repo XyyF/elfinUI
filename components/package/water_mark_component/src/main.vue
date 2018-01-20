@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    const defaultImg = require('./images/default_water_mark.png')
+    const defaultImg = require('../images/default_water_mark.png')
 
     export default {
         name: 'water-mark',
@@ -18,7 +18,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../../components/pc/styles/basic_const";
+    @import "../../../../common/basic_const";
 
     .profile-water-mark {
         display: flex;

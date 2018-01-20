@@ -40,7 +40,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../components/pc/styles/basic_const";
+    @import "../../../../../common/basic_const";
 
     .side-menu {
         padding-top: 40px;

@@ -1,5 +1,5 @@
 <script>
-  import waterMark from './water_mark.vue'
+  import waterMark from 'package/water_mark_component/src/main.vue'
   
   export default {
     data() {

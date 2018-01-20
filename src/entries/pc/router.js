@@ -16,10 +16,10 @@ import VueRouter from 'vue-router';
 const page404 = r => import(/* webpackChunkName: "workbench_404" */'./pages/404.vue').then(r)
 const indexPage = r => import(/* webpackChunkName: "workbench_index" */'./pages/main/index.vue').then(r)
 const workbench = r => import(/* webpackChunkName: "workbench_index" */'./pages/workbench/index.vue').then(r)
-const components = r => import(/* webpackChunkName: "workbench_index" */'./pages/components/index.vue').then(r)
-const calendar = r => import(/* webpackChunkName: "workbench_index" */'./pages/components/calendar/index.vue').then(r)
-const avatarList = r => import(/* webpackChunkName: "workbench_index" */'./pages/components/avatar_list_component/index.vue').then(r)
-const waterMark = r => import(/* webpackChunkName: "workbench_index" */'./pages/components/water_mark_component/index.vue').then(r)
+const components = r => import(/* webpackChunkName: "workbench_index" */'./pages/components_body/index.vue').then(r)
+const calendar = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/calender.md').then(r)
+const avatarList = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/avatar_list.md').then(r)
+const waterMark = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/water_mark.md').then(r)
 
 // 定义路由映射。 其中"component" 可以是通过 Vue.extend() 创建的组件构造器，或者组件配置对象
 const routes = [
