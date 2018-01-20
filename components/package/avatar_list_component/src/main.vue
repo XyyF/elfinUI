@@ -178,7 +178,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../common/basic_const";
+    @import "../../../../common/pc/basic_const";
 
     .avatar-list {
         .info-list-number {

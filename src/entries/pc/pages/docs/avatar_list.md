@@ -71,7 +71,7 @@
 
 只是显示头像列表，没有操作
 
-:::demo 定义`propInfoList`属性，接受`Array`类型，用于展示的列表。`avatar`属性是头像图片，没有会使用默认的；`gender`是性别，可选值有1、2、3；`name`是姓名
+:::pc 定义`propInfoList`属性，接受`Array`类型，用于展示的列表。`avatar`属性是头像图片，没有会使用默认的；`gender`是性别，可选值有1、2、3；`name`是姓名
 ```html
 <template>
   <avatar-list :prop-info-list="propInfoList"></avatar-list>
@@ -97,7 +97,7 @@
 
 对列表中的角色进行简单的筛选操作
 
-:::demo `showCheckedWrap`属性控制显示筛选、全选按钮，此时需要唯一的`accountId`字段进行区分。
+:::pc `showCheckedWrap`属性控制显示筛选、全选按钮，此时需要唯一的`accountId`字段进行区分。
 ```html
 <template>
   <avatar-list :show-checked-wrap="showCheckedWrap" :prop-info-list="propInfoList2"></avatar-list>
@@ -135,7 +135,7 @@
 
 对列表中进行关系筛选操作
 
-:::demo `propRelation`属性控制关系数组，此时角色需要`groupIds`来包含自己所拥有的关系。
+:::pc `propRelation`属性控制关系数组，此时角色需要`groupIds`来包含自己所拥有的关系。
 ```html
 <template>
   <avatar-list

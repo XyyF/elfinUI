@@ -1,4 +1,4 @@
-@import "../../../../common/basic_const";
+@import "../../../../common/pc/basic_const";
 @import "font-mixin";
 
 // 显式引用一下这个字体，否则在生产环境打包时可能会把这个字体文件删掉

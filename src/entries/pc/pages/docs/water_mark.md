@@ -27,7 +27,7 @@
 
 由图片和文字组成。
 
-:::demo 在waterMark组件中，如果不设置props，那么会使用默认的图片和文字。
+:::pc 在waterMark组件中，如果不设置props，那么会使用默认的图片和文字。
 ```html
 <template>
   <water-mark></water-mark>
@@ -39,7 +39,7 @@
 
 可自定义图片和文字。
 
-:::demo 定义`img`属性、`msg`属性，接受`String`类型。
+:::pc 定义`img`属性、`msg`属性，接受`String`类型。
 ```html
 <template>
   <water-mark :msg="msg"></water-mark>

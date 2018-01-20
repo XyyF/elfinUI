@@ -8,13 +8,15 @@
     import Vue from 'vue';
     import VueRouter from 'vue-router';
     import 'highlight.js/styles/color-brewer.css';
-    import demo from './pages/demo/demo.vue'
+    import demoPc from './pages/demo/demo-pc.vue'
+    import demoMobile from './pages/demo/demo-mobile.vue'
     import router from './router.js';
     import store from './store';
 
     Vue.use(VueRouter)
 
-    Vue.component(demo.name, demo)
+    Vue.component(demoPc.name, demoPc)
+    Vue.component(demoMobile.name, demoMobile)
 
     export default {
         name: 'app',

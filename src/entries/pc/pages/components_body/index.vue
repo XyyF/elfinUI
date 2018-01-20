@@ -28,7 +28,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../../common/basic_const";
+    @import "../../../../../common/pc/basic_const";
 
     .page-components {
         .page-components-content {

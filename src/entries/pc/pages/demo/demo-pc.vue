@@ -26,7 +26,7 @@
     import transitionAutoHeight from 'components/vue/transition_auto_height.vue'
 
     export default {
-        name: 'demo',
+        name: 'demo-pc',
         data () {
             return {
                 showMeta: false,
@@ -61,7 +61,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-    @import "../../../../../common/basic_const";
+    @import "../../../../../common/pc/basic_const";
 
     .demo-components {
         border: 1px solid #ebebeb;
@@ -106,6 +106,10 @@
             color: #d3dce6;
             cursor: pointer;
             position: relative;
+            &:hover {
+                background-color: #f9fafc;
+                color: #409eff;
+            }
             .el-icon-caret-bottom, .el-icon-caret-top {
                 font-size: 16px;
                 line-height: 44px;

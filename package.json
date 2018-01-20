@@ -26,6 +26,7 @@
         "xml-loader": "1.2.1"
     },
     "devDependencies": {
+        "moment": "2.19.1",
         "highlight.js": "^9.3.0",
         "autoprefixer": "^7.1.2",
         "babel-core": "^6.22.1",

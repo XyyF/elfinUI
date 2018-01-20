@@ -76,29 +76,60 @@ module.exports = {
                             permalink: true,
                             permalinkBefore: true
                         }],
-                        [require('markdown-it-container'), 'demo', {
+                        [require('markdown-it-container'), 'pc', {
                             validate: function (params) {
-                                return params.trim().match(/^demo\s*(.*)$/)
+                                return params.trim().match(/^pc\s*(.*)$/)
                             },
 
                             render: function (tokens, idx) {
-                                var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
+                                var m = tokens[idx].info.trim().match(/^pc\s*(.*)$/)
                                 if (tokens[idx].nesting === 1) {
                                     var description = (m && m.length > 1) ? m[1] : ''
                                     var content = tokens[idx + 1].content
                                     var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1')
+                                    /*console.log('---html---', html)
+                                    const title = /pc/.test(html)
+                                    console.log('---title---', title)*/
                                     var script = striptags.fetch(content, 'script')
                                     var style = striptags.fetch(content, 'style')
                                     var descriptionHTML = description
                                         ? md.render(description)
                                         : ''
 
-                                    return `<demo class="demo-box">
+                                    return `<demo-pc class="demo-box">
                                                 <div class="source" slot="source">${html}</div>
                                                     ${descriptionHTML}
                                                 <div class="highlight" slot="highlight">`
                                 }
-                                return '</div></demo>\n'
+                                return '</div></demo-pc>\n'
+                            }
+                        }],
+                        [require('markdown-it-container'), 'mobile', {
+                            validate: function (params) {
+                                return params.trim().match(/^mobile\s*(.*)$/)
+                            },
+
+                            render: function (tokens, idx) {
+                                var m = tokens[idx].info.trim().match(/^mobile\s*(.*)$/)
+                                if (tokens[idx].nesting === 1) {
+                                    var description = (m && m.length > 1) ? m[1] : ''
+                                    var content = tokens[idx + 1].content
+                                    var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1')
+                                    /*console.log('---html---', html)
+                                    const title = /pc/.test(html)
+                                    console.log('---title---', title)*/
+                                    var script = striptags.fetch(content, 'script')
+                                    var style = striptags.fetch(content, 'style')
+                                    var descriptionHTML = description
+                                        ? md.render(description)
+                                        : ''
+
+                                    return `<demo-mobile class="demo-box">
+                                                <div class="source" slot="source">${html}</div>
+                                                    ${descriptionHTML}
+                                                <div class="highlight" slot="highlight">`
+                                }
+                                return '</div></demo-mobile>\n'
                             }
                         }],
                         [require('markdown-it-container'), 'tip'],
