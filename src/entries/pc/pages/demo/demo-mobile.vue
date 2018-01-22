@@ -29,31 +29,32 @@
     </div>
 </template>
 
-<script>
-    import marked from 'marked'
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
     import transitionAutoHeight from 'components/vue/transition_auto_height.vue'
 
-    export default {
+    const marked = require('marked')
+
+    @Component({
         name: 'demo-mobile',
-        data () {
-            return {
-                showMeta: true,
-            }
-        },
-        computed: {
-            textSlideName () {
-                return this.showMeta ? '隐藏代码' : '显示代码'
-            },
-        },
-        methods: {
-            showMetaSta () {
-                this.showMeta = !this.showMeta
-            },
-        },
         components: {
             transitionAutoHeight,
         },
+    })
+    export default class DemoMobile extends Vue {
+        showMeta = true
+
+        get textSlideName(): string {
+            return this.showMeta ? '隐藏代码' : '显示代码'
+        }
+
+        showMetaSta() {
+            this.showMeta = !this.showMeta
+        }
+
         mounted () {
+            debugger
             marked.setOptions({
                 renderer: new marked.Renderer(),
                 gfm: true,

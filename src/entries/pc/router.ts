@@ -1,4 +1,4 @@
-import VueRouter from 'vue-router';
+import VueRouter, { RouteConfig } from 'vue-router';
 
 /**
  * 深度链接query参数说明：
@@ -13,29 +13,37 @@ import VueRouter from 'vue-router';
  */
 
 // 注释里的是分块js名，加workbench_前缀是为避免和某个入口或chunk同名，否则会无法运行
-const page404 = r => import(/* webpackChunkName: "workbench_404" */'./pages/404.vue').then(r)
-const indexPage = r => import(/* webpackChunkName: "workbench_index" */'./pages/main/index.vue').then(r)
-const workbench = r => import(/* webpackChunkName: "workbench_index" */'./pages/workbench/index.vue').then(r)
-const components = r => import(/* webpackChunkName: "workbench_index" */'./pages/components_body/index.vue').then(r)
-const calendar = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/calender.md').then(r)
-const avatarList = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/avatar_list.md').then(r)
-const waterMark = r => import(/* webpackChunkName: "workbench_index" */'./pages/docs/water_mark.md').then(r)
+import NotFound from './pages/404.vue'
+import Main from './pages/main/index.vue'
+import Workbench from './pages/workbench/index.vue'
+import ComponentBody from './pages/components_body/index.vue'
+/* const NotFund: AsyncComponent = (): any => require('./pages/404.vue')
+const Main: AsyncComponent = (): any => require('./pages/main/index.vue')
+const Workbench: AsyncComponent = (): any => require('./pages/workbench/index.vue')
+const ComponentBody: AsyncComponent = (): any => require('./pages/components_body/index.vue') */
+const avatarList = require('./pages/docs/avatar_list.md').default;
+const waterMark = require('./pages/docs/water_mark.md').default;
+const calendar = require('./pages/docs/calender.md').default;
+/* const calendar = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/calender.md').then(r) */
+/* const avatarList = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/avatar_list.md').then(r) */
+/* const waterMark = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/water_mark.md').then(r) */
 
 // 定义路由映射。 其中"component" 可以是通过 Vue.extend() 创建的组件构造器，或者组件配置对象
-const routes = [
+
+const routes: RouteConfig[] = [
     {path: '', redirect: {name: 'workbench'}},
     {
         path: '/admin',
-        component: indexPage,
+        component: Main,
         name: 'index',
         children: [
             // topMenu的走向
             {path: '', redirect: {name: 'workbench'}},
-            {path: 'workbench', component: workbench, name: 'workbench'},
+            {path: 'workbench', component: Workbench, name: 'workbench'},
             {
                 path: 'components',
                 name: 'components',
-                component: components,
+                component: ComponentBody,
                 children: [
                     // sideMenu的走向
                     {path: '', redirect: {name: 'avatarList'}},
@@ -47,11 +55,11 @@ const routes = [
         ]
     },
     // 必须放最后
-    {path: '/admin/*', component: page404, meta: {}},
-]
+    {path: '/admin/*', component: NotFound, meta: {}},
+];
 
 // 创建 router 实例
-const router = new VueRouter({
+const router: VueRouter = new VueRouter({
     // 不使用hash模式，用/连接各级路径，需要在服务端进行相关配置
     mode: 'history',
     routes,
@@ -61,7 +69,7 @@ const router = new VueRouter({
         }
         return {x: 0, y: 0}
     },
-})
+});
 
 router.beforeEach((to, from, next) => {
     console.log(`${from.fullPath} -> ${to.fullPath}`);

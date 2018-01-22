@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "es6",
+        "moduleResolution": "node",
+        // 打包后的版本
+        "target": "es5",
+        "lib": ["dom", "es6"],
+        "types": [ "node" ],
+        // 启用 vue-class-component 及 vuex-class 需要开启此选项
+        "experimentalDecorators": true
+    }
+}

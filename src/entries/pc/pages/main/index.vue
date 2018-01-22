@@ -5,14 +5,18 @@
     </div>
 </template>
 
-<script>
-    import topMenu from './top_menu.vue'
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import TopMenu from './top_menu.vue'
 
-    export default {
-        name: 'index',
+    @Component({
+        name: 'main',
         components: {
-            topMenu,
+            TopMenu,
         }
+    })
+    export default class Main extends Vue {
     }
 </script>
 

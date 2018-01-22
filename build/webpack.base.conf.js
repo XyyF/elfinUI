@@ -26,9 +26,26 @@ function convert (str) {
     return str
 }
 
+var babelLoader = {
+    loader: 'babel-loader',
+    options: {
+        cacheDirectory: true,
+        presets: [
+            "react",
+            [
+                "es2015",
+                {
+                    "modules": false
+                }
+            ],
+            "es2016"
+        ]
+    }
+};
+
 module.exports = {
     entry: {
-        app: './src/entries/pc/main.js'
+        app: './src/entries/pc/main.ts'
     },
     output: {
         path: config.build.assetsRoot,
@@ -38,9 +55,9 @@ module.exports = {
             : config.dev.assetsPublicPath
     },
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
+        extensions: [ '.ts', '.js', '.vue', '.json'],
         alias: {
-            'vue$': 'vue/dist/vue.common.js',
+            'vue$': 'vue/dist/vue.esm.js',
             'vue-router': 'vue-router/dist/vue-router.min.js',
             // 可通过绝对路径引入的文件
             'common': resolve('common'),
@@ -52,7 +69,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|vue)$/,
+                test: /\.(ts|js|vue)$/,
                 loader: 'eslint-loader',
                 enforce: 'pre',
                 include: [resolve('src'), resolve('test')],
@@ -65,8 +82,10 @@ module.exports = {
                 loader: 'vue-loader',
                 options: vueLoaderConfig
             },
+            { test: /\.ts$/, loader: 'ts-loader', options: { appendTsSuffixTo: [/\.vue$/] } },
+            { test: /\.tsx$/, loader: 'babel-loader!ts-loader', options: { appendTsxSuffixTo: [/TSX\.vue$/] } },
             {
-                test: /\.md/,
+                test: /\.md$/,
                 loader: 'vue-markdown-loader',
                 options: {
                     use: [

@@ -38,7 +38,6 @@ const state = {
 }
 
 const store = new Vuex.Store({
-    strict: window.devEnv,
     state,
     getters,
     actions,
@@ -46,21 +45,23 @@ const store = new Vuex.Store({
     modules: {}
 })
 
-// 热更新
+
+// todo 热更新同步
+/* // 热更新
 if (module.hot) {
     module.hot.accept([
         // state不支持热更新
-        './getters',
-        './actions',
-        './mutations',
+        './getters.ts',
+        './actions.ts',
+        './mutations.ts',
     ], () => {
         store.hotUpdate({
             // 获取更新后的模块。因为 babel 6 的模块编译格式问题，这里需要加上 .default
-            getters: require('./getters').default,
-            actions: require('./actions').default,
-            mutations: require('./mutations').default
+            getters: require('./getters.ts').default,
+            actions: require('./actions.ts').default,
+            mutations: require('./mutations.ts').default
         })
     })
-}
+} */
 
 export default store

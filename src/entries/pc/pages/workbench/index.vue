@@ -8,9 +8,18 @@
     </div>
 </template>
 
-<script>
-    export default {
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import { Input } from 'meetin-sass-ui'
+
+    @Component({
         name: 'workbench-page',
+        components: {
+            [Input.name]: Input,
+        }
+    })
+    export default class Workbench extends Vue {
     }
 </script>
 

@@ -4,28 +4,29 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import Vue from 'vue';
+    import Component from 'vue-class-component'
     import VueRouter from 'vue-router';
     import 'highlight.js/styles/color-brewer.css';
-    import demoPc from './pages/demo/demo-pc.vue'
-    import demoMobile from './pages/demo/demo-mobile.vue'
-    import router from './router.js';
-    import store from './store';
+    /* todo 无法导入样式问题 */
+    import './styles/el-theme/index.css'
+    import DemoPc from './pages/demo/demo-pc.vue'
+    import DemoMobile from './pages/demo/demo-mobile.vue'
+    import router from './router';
+    import store from './store/index.ts';
 
     Vue.use(VueRouter)
 
-    Vue.component(demoPc.name, demoPc)
-    Vue.component(demoMobile.name, demoMobile)
+    Vue.component('demo-pc', DemoPc)
+    Vue.component('demo-mobile', DemoMobile)
 
-    export default {
+    @Component({
         name: 'app',
-        data() {
-            return {};
-        },
-        // 通过 router 配置参数注入路由，从而让整个应用都有路由功能
         router,
         store,
+    })
+    export default class App extends Vue {
     }
 </script>
 

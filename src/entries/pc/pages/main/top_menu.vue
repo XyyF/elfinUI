@@ -25,21 +25,23 @@
     </div>
 </template>
 
-<script>
-    import { mapState } from 'vuex'
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import {
+        State
+    } from 'vuex-class'
     import { Menu, MenuItem } from 'meetin-sass-ui'
 
-    export default {
+    @Component({
         name: 'top-menu',
-        computed: {
-            ...mapState({
-                vxTopMenu: state => state.topMenu,
-            })
-        },
         components: {
             [Menu.name]: Menu,
             [MenuItem.name]: MenuItem
         }
+    })
+    export default class SideMenu extends Vue {
+        @State(state => state.topMenu) vxTopMenu: Array<Object>
     }
 </script>
 

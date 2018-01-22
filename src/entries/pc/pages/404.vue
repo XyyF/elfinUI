@@ -6,11 +6,14 @@
     </div>
 </template>
 
-<script type="text/babel">
-    export default {
+<script type="text/babel" lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+
+    @Component({
         name: 'page-404',
-        data() {
-        },
+    })
+    export default class NotFund extends Vue {
     }
 </script>
 

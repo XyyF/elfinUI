@@ -11,19 +11,18 @@
     </div>
 </template>
 
-<script>
-    import sideMenu from './side_menu.vue'
+<script lang="ts">
+    import Vue from 'vue'
+    import Component from 'vue-class-component'
+    import SideMenu from './side_menu.vue'
 
-    export default {
-        name: 'index',
-        data () {
-            return {
-                showBackToTop: false,
-            }
-        },
+    @Component({
+        name: 'component-body',
         components: {
-            sideMenu,
+            SideMenu,
         },
+    })
+    export default class ComponentsBody extends Vue {
     }
 </script>
 
