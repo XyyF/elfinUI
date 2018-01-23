@@ -5,11 +5,13 @@
         </div>
         <transition-auto-height>
             <template slot-scope="props">
-                <div class="meta" v-if="showMeta" :style="props.transStyle">
-                    <div class="description">
-                        <slot></slot>
+                <div class="meta-wrap" ref="metaWrap">
+                    <div class="meta" v-if="showMeta" :style="props.transStyle">
+                        <div class="description">
+                            <slot></slot>
+                        </div>
+                        <slot name="highlight"></slot>
                     </div>
-                    <slot name="highlight"></slot>
                 </div>
             </template>
         </transition-auto-height>
@@ -30,18 +32,16 @@
 
     @Component({
         name: 'demo-pc',
-        components: {
-            transitionAutoHeight,
-        },
+        components: {transitionAutoHeight},
     })
     export default class DemoPc extends Vue {
-        showMeta = true
+        showMeta = false
 
         get textSlideName(): string {
             return this.showMeta ? '隐藏代码' : '显示代码'
         }
 
-        showMetaSta() {
+        showMetaSta(): void {
             this.showMeta = !this.showMeta
         }
 

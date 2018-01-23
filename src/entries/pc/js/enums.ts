@@ -6,4 +6,6 @@ export const SideMenuEnum = {
     AVATAR_LIST: '5',
     CALENDAR: '6',
     WATER_MARK: '7',
+    FORM: '8',
+    MULTIPLE_BOX: '9',
 }

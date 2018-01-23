@@ -14,7 +14,7 @@
     import DemoPc from './pages/demo/demo-pc.vue'
     import DemoMobile from './pages/demo/demo-mobile.vue'
     import router from './router';
-    import store from './store/index.ts';
+    import store from './store/index';
 
     Vue.use(VueRouter)
 

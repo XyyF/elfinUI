@@ -18,9 +18,7 @@
 
     @Component({
         name: 'component-body',
-        components: {
-            SideMenu,
-        },
+        components: { SideMenu },
     })
     export default class ComponentsBody extends Vue {
     }
@@ -65,7 +63,7 @@
             width: 100vw;
         }
         .page-components-wrap {
-            width: $mainContentWidth;
+            max-width: $mainContentWidth;
             margin: 0 auto;
             position: relative;
         }

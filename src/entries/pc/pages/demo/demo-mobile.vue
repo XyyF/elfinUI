@@ -38,9 +38,7 @@
 
     @Component({
         name: 'demo-mobile',
-        components: {
-            transitionAutoHeight,
-        },
+        components: { transitionAutoHeight },
     })
     export default class DemoMobile extends Vue {
         showMeta = true
@@ -54,7 +52,6 @@
         }
 
         mounted () {
-            debugger
             marked.setOptions({
                 renderer: new marked.Renderer(),
                 gfm: true,
@@ -134,6 +131,7 @@
         .phone {
             width: 320px;
             height: 486px;
+            cursor: url('../../images/circlr_32X32.ico'), default;
             background: url('../../images/preview/phone.svg');
             position: relative;
             .scroll {

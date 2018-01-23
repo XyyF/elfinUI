@@ -1,5 +1,5 @@
 <script>
-  import waterMark from 'package/water_mark_component/src/main.vue'
+  import ReWaterMark from 'package/water_mark_component/src/main.vue'
   
   export default {
     data() {
@@ -8,7 +8,7 @@
           };
     },
     components: {
-        waterMark,
+        ReWaterMark,
     }
   }
 </script>
@@ -19,7 +19,7 @@
 }
 </style>
 
-## waterMark 水位标志-占位符
+## WaterMark 水位标志-占位符
 
 用于页面中没有信息时的展示。
 
@@ -30,7 +30,7 @@
 :::pc 在waterMark组件中，如果不设置props，那么会使用默认的图片和文字。
 ```html
 <template>
-  <water-mark></water-mark>
+  <re-water-mark></re-water-mark>
 </template>
 ```
 :::
@@ -42,7 +42,7 @@
 :::pc 定义`img`属性、`msg`属性，接受`String`类型。
 ```html
 <template>
-  <water-mark :msg="msg"></water-mark>
+  <re-water-mark :msg="msg"></re-water-mark>
 </template>
 
 <script>
@@ -57,7 +57,7 @@
 ```
 :::
 
-### waterMark Attributes
+### WaterMark Attributes
 
 | 参数          | 说明            | 类型            | 可选值                 | 默认值   |
 |------------- |---------------- |---------------- |---------------------- |-------- |

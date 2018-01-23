@@ -59,7 +59,7 @@
         line-height: 80px;
         .header {
             border-bottom: 1px solid #e7eef0;
-            width: $mainContentWidth;
+            max-width: $mainContentWidth;
             margin: 0 auto;
             display: flex;
             flex-flow: row nowrap;

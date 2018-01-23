@@ -12,9 +12,7 @@
 
     @Component({
         name: 'main',
-        components: {
-            TopMenu,
-        }
+        components: { TopMenu }
     })
     export default class Main extends Vue {
     }

@@ -23,9 +23,7 @@
 <script lang="ts">
     import Vue from 'vue'
     import Component from 'vue-class-component'
-    import {
-        State
-    } from 'vuex-class'
+    import { State } from 'vuex-class'
     import { Menu, MenuItem, Submenu } from 'meetin-sass-ui'
 
     @Component({

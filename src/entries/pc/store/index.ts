@@ -25,6 +25,14 @@ const state = {
             id: SideMenuEnum.WATER_MARK,
             name: '水位标志',
             routeName: 'waterMark',
+        }, {
+            id: SideMenuEnum.FORM,
+            name: '表单',
+            routeName: 'form',
+        }, {
+            id: SideMenuEnum.MULTIPLE_BOX,
+            name: '远程搜索',
+            routeName: 'multipleBox',
         }],
     }, {
         id: SideMenuEnum.MOBILE,

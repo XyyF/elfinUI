@@ -170,7 +170,7 @@ module.exports = {
             },
             {test: /\.s[c|a]ss$/, loader: 'style-loader!css-loader!sass-loader'},
             {
-                test: /\.(png|jpe?g|gif|svg)$/,
+                test: /\.(png|jpe?g|gif|svg|ico)$/,
                 loader: 'url-loader',
                 options: {limit: 100, name: '[name]_[hash:8].[ext]'}
             },

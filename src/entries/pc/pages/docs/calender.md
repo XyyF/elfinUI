@@ -1,6 +1,6 @@
 <script>
   import moment from 'moment'
-  import calendar from 'package/calendar_component/src/main.vue'
+  import ReCalendar from 'package/calendar_component/src/main.vue'
   
   export default {
       data() {
@@ -18,12 +18,12 @@
           }
       },
       components: {
-          calendar
+          ReCalendar
       }
   }
 </script>
 
-## calendar 日历
+## Calendar 日历
 
 用于显示日历，以及一些基本的交互；除特殊，这里选中的时间都代表前一天的0点。
 
@@ -34,7 +34,7 @@
 :::mobile 基本使用，`defaultSelectDay`接受任意时间戳，表示第一次打开时，选中时间戳对应的日期，不传入默认选中今天
 ```html
 <template>
-  <calendar :default-select-day="defaultSelectDay"></calendar>
+  <re-calendar :default-select-day="defaultSelectDay"></re-calendar>
 </template>
 
 <script>
@@ -56,7 +56,7 @@
 :::mobile `showBottomCircle`接受Array类型，包含时间戳。
 ```html
 <template>
-  <calendar :show-bottom-circle="showBottomCircle"></calendar>
+  <re-calendar :show-bottom-circle="showBottomCircle"></re-calendar>
 </template>
 
 <script>
@@ -78,7 +78,7 @@
 :::mobile 接受`click-calendar`事件，用于执行点击日历中任一天触发的事件，返回的是时间戳。
 ```html
 <template>
-  <calendar @click-calendar="clickCalendar"></calendar>
+  <re-calendar @click-calendar="clickCalendar"></calendar>
   <div>{{selectDay}}</div>
   <div>{{new Date(selectOldDay)}}</div>
 </template>
@@ -102,7 +102,7 @@
 ```
 :::
 
-### calendar Attributes
+### Calendar Attributes
 
 | 参数          | 说明            | 类型            | 可选值                 | 默认值   |
 |------------- |---------------- |---------------- |---------------------- |-------- |

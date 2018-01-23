@@ -29,7 +29,7 @@
     .page-workbench {
         height: 100%;
         &-wrap {
-            width: $mainContentWidth;
+            max-idth: $mainContentWidth;
             margin: 0 auto;
             padding-top: $topMenuHeight;
         }
