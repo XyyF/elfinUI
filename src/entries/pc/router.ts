@@ -26,6 +26,7 @@ const waterMark = require('./pages/docs/water_mark.md').default;
 const calendar = require('./pages/docs/calender.md').default;
 const form = require('./pages/docs/form.md').default;
 const multipleBox = require('./pages/docs/multiple_box.md').default;
+const popupBoard = require('./pages/docs/popup_board.md').default;
 /* const calendar = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/calender.md').then(r) */
 /* const avatarList = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/avatar_list.md').then(r) */
 /* const waterMark = r => import(/!* webpackChunkName: "workbench_index" *!/'./pages/docs/water_mark.md').then(r) */
@@ -54,6 +55,7 @@ const routes: RouteConfig[] = [
                     {path: 'waterMark', name: 'waterMark', component: waterMark},
                     {path: 'form', name: 'form', component: form},
                     {path: 'multipleBox', name: 'multipleBox', component: multipleBox},
+                    {path: 'popupBoard', name: 'popupBoard', component: popupBoard},
                 ],
             },
         ]

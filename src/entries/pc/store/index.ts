@@ -33,6 +33,10 @@ const state = {
             id: SideMenuEnum.MULTIPLE_BOX,
             name: '远程搜索',
             routeName: 'multipleBox',
+        }, {
+            id: SideMenuEnum.POPUP_BOARD,
+            name: '弹出板',
+            routeName: 'popupBoard',
         }],
     }, {
         id: SideMenuEnum.MOBILE,

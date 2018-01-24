@@ -172,12 +172,16 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg|ico)$/,
                 loader: 'url-loader',
-                options: {limit: 100, name: '[name]_[hash:8].[ext]'}
+                options: {
+                    limit: 100,
+                    name: '[name]_[hash:8].[ext]',
+                    publicPath: '/'
+                }
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)$/,
                 loader: 'url-loader',
-                options: {limit: 8192, name: '[name]_[hash:8].[ext]'}
+                options: {limit: 8192, name: '[name]_[hash:8].[ext]', publicPath: '/'}
             },
         ]
     },

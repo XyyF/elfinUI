@@ -182,7 +182,7 @@
 
      */
     import {Form, FormItem, Radio, RadioGroup, RadioButton, Input, DatePicker, Select, Option, Switch} from 'meetin-sass-ui'
-    import FormItemType from '../../form-type/index.js'
+    import FormItemType from './item-type.js'
 
     export default {
         name: 'ReForm',

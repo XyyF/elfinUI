@@ -8,4 +8,5 @@ export const SideMenuEnum = {
     WATER_MARK: '7',
     FORM: '8',
     MULTIPLE_BOX: '9',
+    POPUP_BOARD: '10',
 }
