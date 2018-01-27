@@ -4,12 +4,12 @@
   export default {
       data() {
           return {
-              propInfoList: [{
+              infoList: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
               }],
-              propInfoList2: [{
+              infoList2: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
@@ -26,7 +26,7 @@
                   accountId: '3',
               }],
               showCheckedWrap: true,
-              propRelation: [{
+              relation: [{
                   groupId: 'GUAN_XI_1',
                   name: '关系1',
               }, {
@@ -36,7 +36,7 @@
                   groupId: 'GUAN_XI_3',
                   name: '关系3',
               }],
-              propInfoList3: [{
+              infoList3: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
@@ -71,17 +71,17 @@
 
 只是显示头像列表，没有操作
 
-:::pc 定义`propInfoList`属性，接受`Array`类型，用于展示的列表。`avatar`属性是头像图片，没有会使用默认的；`gender`是性别，可选值有1、2、3；`name`是姓名
+:::pc 定义`infoList`属性，接受`Array`类型，用于展示的列表。`avatar`属性是头像图片，没有会使用默认的；`gender`是性别，可选值有1、2、3；`name`是姓名
 ```html
 <template>
-  <re-avatar-list :prop-info-list="propInfoList"></re-avatar-list>
+  <re-avatar-list :info-list="infoList"></re-avatar-list>
 </template>
 
 <script>
   export default {
       data() {
           return {
-              propInfoList: [{
+              infoList: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
@@ -100,14 +100,14 @@
 :::pc `showCheckedWrap`属性控制显示筛选、全选按钮，此时需要唯一的`accountId`字段进行区分。
 ```html
 <template>
-  <re-avatar-list :show-checked-wrap="showCheckedWrap" :prop-info-list="propInfoList2"></re-avatar-list>
+  <re-avatar-list :show-checked-wrap="showCheckedWrap" :info-list="infoList2"></re-avatar-list>
 </template>
 
 <script>
   export default {
       data() {
           return {
-              propInfoList2: [{
+              infoList2: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
@@ -135,20 +135,20 @@
 
 对列表中进行关系筛选操作
 
-:::pc `propRelation`属性控制关系数组，此时角色需要`groupIds`来包含自己所拥有的关系。
+:::pc `relation`属性控制关系数组，此时角色需要`groupIds`来包含自己所拥有的关系。
 ```html
 <template>
   <re-avatar-list
         :show-checked-wrap="showCheckedWrap"
-        :prop-relation="propRelation"
-        :prop-info-list="propInfoList3"></re-avatar-list>
+        :relation="relation"
+        :info-list="infoList3"></re-avatar-list>
 </template>
 
 <script>
   export default {
       data() {
           return {
-              propInfoList3: [{
+              infoList3: [{
                   avatar: '',
                   gender: 3,
                   name: 'rengar',
@@ -168,7 +168,7 @@
                   groupIds: ['GUAN_XI_1', 'GUAN_XI_3'],
               }],
               showCheckedWrap: true,
-              propRelation: [{
+              relation: [{
                   groupId: 'GUAN_XI_1',
                   name: '关系1',
               }, {
@@ -189,6 +189,6 @@
 
 | 参数          | 说明            | 类型            | 可选值                 | 默认值   |
 |------------- |---------------- |---------------- |---------------------- |-------- |
-| propInfoList | 列表数据         | Array           | —                     | []     |
+| infoList | 列表数据         | Array           | —                     | []     |
 | showCheckAll | 控制显示筛选     | Boolean         | —                      | false   |
-| propRelation | 关系筛选         | Array           | —                     | []      |
+| relation | 关系筛选         | Array           | —                     | []      |

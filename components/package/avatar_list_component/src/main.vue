@@ -6,15 +6,15 @@
             width="690"
             v-model="showPopover"
             trigger="click">
-            <div class="popover-wrap" v-if="relation.length">
+            <div class="popover-wrap" v-if="relationOptions.length">
                 <span class="popover-selected"
-                      v-for="item in relation"
+                      v-for="item in relationOptions"
                       :class="{'selected': relationChecked(item.groupId)}"
                       @click="changeRelationChecked(item.groupId)">{{item.name}}</span>
             </div>
             <div class="avatar-wraps">
-                <template v-if="infoList.length">
-                    <div v-for="item in infoList" class="avatar-wrap">
+                <template v-if="filterInfoList.length">
+                    <div v-for="item in filterInfoList" class="avatar-wrap">
                         <small-avatar :url="item.avatar"
                                       class="avatar clickable"
                                       :gender="item.gender"></small-avatar>
@@ -31,20 +31,19 @@
                     </div>
                 </template>
                 <template v-else>
-                    <water-mark
-                        :msg="'没有任何内容哦'"
-                        class="avatar-water-mark"></water-mark>
+                    <water-mark :msg="'没有任何内容哦'" class="avatar-water-mark"></water-mark>
                 </template>
             </div>
             <div class="check-all">
-                <el-checkbox @change="changeRadio" class="check-box" v-model="radio" v-if="showCheckedWrap">全选</el-checkbox>
+                <el-checkbox @change="changeRadio" class="check-box" v-model="radio" v-if="showCheckedWrap">全选
+                </el-checkbox>
                 <el-button type="primary" class="click-sure" @click="hiddenPopover">确定</el-button>
             </div>
         </el-popover>
         <el-button v-popover:popover2>
             <slot>查看</slot>
         </el-button>
-        <span class="info-list-number">共{{showCheckedWrap ? checkedList.length : propInfoList.length}}人</span>
+        <span class="info-list-number">共{{showCheckedWrap ? checkedList.length : infoList.length}}人</span>
     </div>
 </template>
 
@@ -56,7 +55,7 @@
 
     export default {
         name: 'avatar-list',
-        data () {
+        data() {
             return {
                 // 控制显示弹出框
                 showPopover: false,
@@ -70,12 +69,12 @@
         },
         props: {
             // 父组件下发的关系数组
-            propRelation: {
+            relation: {
                 type: Array,
                 default: () => [],
             },
             // 父组件下发的列表数组
-            propInfoList: {
+            infoList: {
                 type: Array,
                 default: () => [],
             },
@@ -85,19 +84,26 @@
                 default: false,
             },
         },
+        components: {
+            [Popover.name]: Popover,
+            [Button.name]: Button,
+            [Checkbox.name]: Checkbox,
+            [smallAvatar.name]: smallAvatar,
+            [waterMark.name]: waterMark,
+        },
         computed: {
             // 关系数组-添加ALL(全部)
-            relation () {
-                return this.propRelation.length ? [
+            relationOptions() {
+                return this.relation.length ? [
                     {
                         name: '全部',
                         groupId: 'ALL',
-                    }, ...this.propRelation] : []
+                    }, ...this.relation] : []
             },
             // 关系筛选后显示的列表
-            infoList () {
-                if (this.propInfoList && !!this.propInfoList.length) {
-                    return this.propInfoList
+            filterInfoList() {
+                if (this.infoList && !!this.infoList.length) {
+                    return this.infoList
                         .filter(item => {
                             // 若是选中全部，则不筛选
                             return this.relationCheck.includes('ALL') ? true
@@ -115,25 +121,25 @@
         },
         methods: {
             // 点击改变全选状态
-            changeRadio (val) {
+            changeRadio(val) {
                 if (val) {
-                    this.infoList.forEach(list => {
+                    this.filterInfoList.forEach(list => {
                         if (!this.checkedList.find(check => check.accountId === list.accountId)) {
                             this.checkedList.push(list)
                         }
                     })
                 } else {
-                    this.infoList.forEach(list => this.changeCheck(list))
+                    this.filterInfoList.forEach(list => this.changeCheck(list))
                 }
             },
             // 关系筛选模块
-            relationChecked (groupId) { // 判断是否是选中该项职位
+            relationChecked(groupId) { // 判断是否是选中该项职位
                 return this.relationCheck.includes(groupId)
             },
-            changeRelationChecked (groupId) { // 切换关系
+            changeRelationChecked(groupId) { // 切换关系
                 this.relationCheck = [groupId]
             },
-            changeCheck (item) { // 选中/取消选中角色
+            changeCheck(item) { // 选中/取消选中角色
                 const index = this.checkedList.findIndex(check => check.accountId === item.accountId)
                 if (index === -1) {
                     this.checkedList.push(item)
@@ -141,14 +147,14 @@
                     this.checkedList.splice(index, 1)
                 }
             },
-            isChecked (item) { // 判断是否是选中该角色
+            isChecked(item) { // 判断是否是选中该角色
                 return this.checkedList.find(e => e.accountId === item.accountId)
             },
-            hiddenPopover () {
+            hiddenPopover() {
                 this.showPopover = false
             },
             // 检查判断是否是全选状态
-            checkIsAll (infoList, checkedList) {
+            checkIsAll(infoList, checkedList) {
                 let out = false
                 this.radio = true
                 infoList.forEach(list => {
@@ -159,18 +165,11 @@
                 })
             },
         },
-        components: {
-            [Popover.name]: Popover,
-            [Button.name]: Button,
-            [Checkbox.name]: Checkbox,
-            [smallAvatar.name]: smallAvatar,
-            [waterMark.name]: waterMark,
-        },
         watch: {
-            checkedList: function checklist (val) {
-                this.checkIsAll(this.infoList, val)
+            checkedList: function checklist(val) {
+                this.checkIsAll(this.filterInfoList, val)
             },
-            infoList: function infolist (val) {
+            filterInfoList: function infolist(val) {
                 this.checkIsAll(val, this.checkedList)
             },
         },
@@ -178,7 +177,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-    @import "../../../../common/pc/basic_const";
+    @import "../../../../common/mobile/basic_const";
 
     .avatar-list {
         .info-list-number {
