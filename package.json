@@ -12,6 +12,7 @@
         "lint": "eslint --ext .js,.vue src"
     },
     "dependencies": {
+        "alloyfinger": "^0.1.13",
         "exports-loader": "0.6.4",
         "marked": "^0.3.12",
         "meetin-sass-ui": "2.0.10",
