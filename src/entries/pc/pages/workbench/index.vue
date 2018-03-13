@@ -19,6 +19,7 @@
             <p>manager层将数据库筛选和变量筛选字段集合提出展示</p>
             <p>数据库model层分为：监听列表、数据库方法、对外接口</p>
             <p>函数的参数：若有可选参数，就用解构赋值</p>
+            <p>edit函数，注意筛选不能修改的字段gDeleteFixedFields</p>
         </div>
     </div>
 </template>
