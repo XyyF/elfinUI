@@ -8,6 +8,7 @@
         "lib": ["dom", "es6"],
         "types": [ "node" ],
         // 启用 vue-class-component 及 vuex-class 需要开启此选项
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "strictPropertyInitialization": false
     }
 }
