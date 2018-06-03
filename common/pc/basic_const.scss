@@ -44,7 +44,7 @@ $dlg-background: #f3f7f8;
 // 主体宽度
 $mainContentWidth: 1140px;
 // 顶栏高度
-$topMenuHeight: 80px;
+$topMenuHeight: 144px;
 // 侧边栏宽度
 $sideMenuWidth: 240px;
 // 头部高度
@@ -64,3 +64,6 @@ $shortcut-block-size: 160px;
         cursor: default;
     }
 }
+
+// 顶栏高度
+$large-topMenuHeight: 144px;

@@ -11,7 +11,7 @@
     import TopMenu from './top_menu.vue'
 
     @Component({
-        name: 'main',
+        name: 'xiaojing0-main',
         components: { TopMenu }
     })
     export default class Main extends Vue {

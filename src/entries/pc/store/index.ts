@@ -10,8 +10,16 @@ Vue.use(Vuex)
 // initial state
 const state = {
     topMenu: [{
+        id: SideMenuEnum.WORKBENCH,
+        name: '首页',
+        routeName: 'workbench'
+    }, {
         id: SideMenuEnum.COMPONENTS,
         name: '组件',
+        routeName: 'avatarList'
+    }, {
+        id: SideMenuEnum.ABOUT_US,
+        name: 'About Us',
         routeName: 'avatarList'
     }],
     sideMenu: [{
