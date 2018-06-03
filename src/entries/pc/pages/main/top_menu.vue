@@ -20,7 +20,7 @@
                     </template>
                 </nav>
                 <nav class="menus--right">
-                    <a href="https://github.com/XyyF/xiaojing0UI">
+                    <a class="sub-link" href="https://github.com/XyyF/xiaojing0UI">
                         <span class="menu__link">github</span>
                     </a>
                 </nav>
@@ -81,7 +81,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
     @import "../../../../../common/pc/basic_const";
 
     .top-menu {
@@ -116,6 +116,7 @@
                 .logo-title {
                     margin-left: 20px;
                     font-size: 24px;
+                    color: #fff;
                 }
             }
             .menu-wrap {
@@ -138,7 +139,6 @@
                     display: inline-block;
                     font-weight: 500;
                     font-size: 13px;
-                    text-transform: uppercase;
                     height: 64px;
                     padding: 0 20px;
                     color: #fff;

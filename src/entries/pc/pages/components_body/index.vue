@@ -1,9 +1,9 @@
 <template>
     <div class="page-components" ref="componentScrollBar">
+        <side-menu></side-menu>
         <div class="page-components-content">
             <div class="page-components-scroll">
                 <div class="page-components-wrap">
-                    <side-menu></side-menu>
                     <router-view class="page-components-router"></router-view>
                 </div>
             </div>

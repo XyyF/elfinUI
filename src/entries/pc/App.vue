@@ -35,12 +35,14 @@
 <!--<style src="./styles/iconfont.css"></style>
 <style src="./styles/iconfont_all/iconfont.css"></style>-->
 
-<style>
+<style lang="scss" rel="stylesheet/scss">
+    @import "../../../common/pc/basic_const";
+
     html, body {
         margin: 0;
         padding: 0;
         height: 100%;
-        font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
     }
@@ -67,10 +69,63 @@
                 top: 0;
                 z-index: 1500;
 
-            .container {
-                padding: 0;
+                .container {
+                    padding: 0;
+                }
             }
         }
     }
-}
+
+    @media screen and (max-width: 1024px) {
+        #app {
+            // top_menu.vue
+            .top-menu {
+                padding: 0 40px;
+                height: $small-topMenuHeight;
+                .header {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    .menu-wrap {
+                        position: relative;
+                        flex-grow: 1;
+                    }
+                }
+            }
+            // main/index.vue
+            .page-index-router {
+                margin-top: $small-topMenuHeight;
+            }
+            // side_menu.vue
+            .side-menu-root {
+                top: $small-topMenuHeight;
+            }
+        }
+    }
+
+    @media screen and (max-width: 850px) {
+        #app {
+            // main/index.vue
+            .page-index-router {
+                margin-top: $large-topMenuHeight;
+            }
+            // side_menu.vue
+            .side-menu-root {
+                width: 100%;
+                height: 80px;
+                padding-top: 0;
+                box-shadow: rgba(0, 0, 0, 0.137255) 0 4px 5px 0, rgba(0, 0, 0, 0.117647) 0 1px 10px 0, rgba(0, 0, 0, 0.2) 0 2px 4px -1px;
+                overflow: initial;
+                .side-menus--horizontal {
+                    display: block;
+                }
+                .side-menus--vertical {
+                    display: none;
+                }
+            }
+            .page-components-router {
+                padding: 10px;
+                margin: 0;
+            }
+        }
+    }
 </style>
