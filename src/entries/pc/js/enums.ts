@@ -9,5 +9,6 @@ export const SideMenuEnum = {
     FORM: '8',
     MULTIPLE_BOX: '9',
     POPUP_BOARD: '10',
-    ABOUT_US: '11'
+    ABOUT_US: '11',
+    SLIDE_FULL_PAGE: '12',
 }

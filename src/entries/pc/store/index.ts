@@ -5,7 +5,7 @@ import getters from './getters'
 import mutations from './mutations'
 import { SideMenuEnum } from '../js/enums'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 // initial state
 const state = {
@@ -31,7 +31,7 @@ const state = {
             routeName: 'avatarList',
         }, {
             id: SideMenuEnum.WATER_MARK,
-            name: '水位标志',
+            name: '占位图',
             routeName: 'waterMark',
         }, {
             id: SideMenuEnum.FORM,
@@ -45,6 +45,10 @@ const state = {
             id: SideMenuEnum.POPUP_BOARD,
             name: '弹出板',
             routeName: 'popupBoard',
+        }, {
+            id: SideMenuEnum.SLIDE_FULL_PAGE,
+            name: '全屏滚动',
+            routeName: 'slidFullPage',
         }],
     }, {
         id: SideMenuEnum.MOBILE,

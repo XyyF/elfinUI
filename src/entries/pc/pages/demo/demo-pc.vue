@@ -1,8 +1,6 @@
 <template>
     <div class="demo-components">
-        <div class="source">
-            <slot name="source"></slot>
-        </div>
+        <slot name="source"></slot>
         <transition-auto-height>
             <template slot-scope="props">
                 <div class="meta-wrap" ref="metaWrap">

@@ -7,6 +7,7 @@ import recalendar from './package/calendar_component/index';
 import remultipleBox from './package/multiple_box_component/index';
 import reform from './package/form_component/index';
 import repopupBoard from './package/popup_board_component/index';
+import {reSlideContainer, reSlideSection} from './package/slide_full_page_component/index';
 
 export const ReAvatarList = reavatarList;
 export const ReWaterMark = rewaterMark;
@@ -14,6 +15,8 @@ export const ReCalendar = recalendar;
 export const ReMultipleBox = remultipleBox;
 export const ReForm = reform;
 export const RePopupBoard = repopupBoard;
+export const ReSlideContainer = reSlideContainer;
+export const ReSlideSection = reSlideSection;
 
 export default {
     ReAvatarList,
@@ -22,4 +25,6 @@ export default {
     ReMultipleBox,
     ReForm,
     RePopupBoard,
+    ReSlideContainer,
+    ReSlideSection,
 }
