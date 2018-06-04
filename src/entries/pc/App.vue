@@ -10,7 +10,8 @@
     import VueRouter from 'vue-router';
     import 'highlight.js/styles/color-brewer.css';
     /* todo 无法导入样式问题 */
-    import './styles/el-theme/index.css'
+    // import './styles/el-theme/index.css'
+    import 'element-ui/lib/theme-chalk/index.css';
     import DemoPc from './pages/demo/demo-pc.vue'
     import DemoMobile from './pages/demo/demo-mobile.vue'
     import router from './router';
@@ -49,8 +50,9 @@
 
     #app {
         overflow-x: hidden;
-        width: 100vw;
+        width: 100%;
         height: 100%;
+        min-width: 320px;
 
         @when component {
             overflow-y: hidden;
@@ -72,6 +74,65 @@
                 .container {
                     padding: 0;
                 }
+            }
+        }
+
+        .slide-scroll-root {
+            overflow: scroll;
+            overflow-x: hidden;
+            &::-webkit-scrollbar { /* 滚动条整体部分 */
+                width: 6px;
+            }
+            &::-webkit-scrollbar-button { /* 滚动条两端的按钮 */
+                width: 0;
+                height: 0;
+            }
+            &::-webkit-scrollbar-track { /* 外层轨道 */
+                border-right: 1px solid transparent;
+                border-left: 1px solid transparent;
+            }
+            &::-webkit-scrollbar-track-piece { /*内层轨道，滚动条中间部分 */
+                background-color: #FFF;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb { /* 滑块 */
+                border-radius: 8px;
+                background: #CBCBCB;
+            }
+            &::-webkit-scrollbar-corner { /* 边角 */
+                display: block;
+            }
+            &::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */
+                background: #909090;
+            }
+        }
+        .bottom-scroll-root {
+            overflow: scroll;
+            overflow-y: hidden;
+            &::-webkit-scrollbar { /* 滚动条整体部分 */
+                height: 4px;
+            }
+            &::-webkit-scrollbar-button { /* 滚动条两端的按钮 */
+                width: 0;
+                height: 0;
+            }
+            &::-webkit-scrollbar-track { /* 外层轨道 */
+                border-right: 1px solid transparent;
+                border-left: 1px solid transparent;
+            }
+            &::-webkit-scrollbar-track-piece { /*内层轨道，滚动条中间部分 */
+                background-color: #FFF;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb { /* 滑块 */
+                border-radius: 8px;
+                background: #CBCBCB;
+            }
+            &::-webkit-scrollbar-corner { /* 边角 */
+                display: block;
+            }
+            &::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */
+                background: #909090;
             }
         }
     }
@@ -116,7 +177,8 @@
                 box-shadow: rgba(0, 0, 0, 0.137255) 0 4px 5px 0, rgba(0, 0, 0, 0.117647) 0 1px 10px 0, rgba(0, 0, 0, 0.2) 0 2px 4px -1px;
                 overflow: initial;
                 .side-menus--horizontal {
-                    display: block;
+                    display: flex;
+                    flex-flow: row nowrap;
                 }
                 .side-menus--vertical {
                     display: none;

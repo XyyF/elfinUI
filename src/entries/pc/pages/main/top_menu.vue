@@ -7,8 +7,8 @@
                 </div>
                 <span class="logo-title">xiaojing0</span>
             </div>
-            <div class="menu-wrap">
-                <nav class="menus--left">
+            <div class="menu-wrap bottom-scroll-root">
+                <nav class="menus--nowrap ">
                     <template v-for="menu in vxTopMenu">
                         <router-link
                             :to="{name: menu.routeName}"
@@ -19,24 +19,11 @@
                         </router-link>
                     </template>
                 </nav>
-                <nav class="menus--right">
+                <nav class="menus--nowrap">
                     <a class="sub-link" href="https://github.com/XyyF/xiaojing0UI">
                         <span class="menu__link">github</span>
                     </a>
                 </nav>
-                <!--<el-menu
-                    background-color="#C2185B"
-                    text-color="#fff"
-                    :default-active="String(0)">
-                    <template v-for="menu, topIndex in vxTopMenu">
-                        <router-link :to="{name: menu.routeName}" class="sub-link">
-                            <el-menu-item
-                                :key="topIndex"
-                                :index="`${topIndex}`">{{menu.name}}
-                            </el-menu-item>
-                        </router-link>
-                    </template>
-                </el-menu>-->
             </div>
         </header>
     </div>
@@ -70,6 +57,7 @@
         setMenuId(id: string): void {
             this.menuId = id
         }
+
         // life
         mounted() {
             const nowRouter = this.vxTopMenu.find((t: TopMenu) => {
@@ -126,14 +114,21 @@
                 right: 20px;
                 height: 64px;
                 line-height: 64px;
+                display: flex;
+                justify-content: space-between;
+                &::-webkit-scrollbar-thumb { /* 滑块 */
+                    background: #fff !important;
+                }
+                &::-webkit-scrollbar-track-piece { /*内层轨道，滚动条中间部分 */
+                    background: #C2185B !important;
+                }
                 .menu__link {
                     color: #fff;
                 }
-                .menus--left {
-                    float: left;
-                }
-                .menus--right {
-                    float: right;
+                .menus--nowrap {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    flex-shrink: 0;
                 }
                 .sub-link {
                     display: inline-block;
@@ -143,9 +138,12 @@
                     padding: 0 20px;
                     color: #fff;
                     box-sizing: border-box;
-                    border-bottom: 3px solid transparent;
+                    flex-shrink: 0;
                     &.is-active {
-                        border-bottom-color: #fff;
+                        .menu__link {
+                            border-bottom: 1px solid #fff;
+                            padding: 5px 0;
+                        }
                     }
                 }
             }

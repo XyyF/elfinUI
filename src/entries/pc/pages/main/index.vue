@@ -23,13 +23,13 @@
 
     .page-index {
         height: 100%;
-        width: 100vw;
+        width: 100%;
         background: white;
         display: flex;
         flex-flow: row nowrap;
         .page-index-router {
             margin-top: $topMenuHeight;
-            width: 100vw;
+            width: 100%;
         }
     }
 </style>
