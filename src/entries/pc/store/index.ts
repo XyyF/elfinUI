@@ -8,7 +8,7 @@ import { SideMenuEnum } from '../js/enums'
 const pcIcon = require('./../images/side_menu/pc.svg');
 const mobileIcon = require('./../images/side_menu/mobile.svg');
 const avatarIcon = require('./../images/side_menu/avatar.svg');
-const formIcon = require('./../images/side_menu/form.svg');
+// const formIcon = require('./../images/side_menu/form.svg');
 const searchIcon = require('./../images/side_menu/search.svg');
 const slideIcon = require('./../images/side_menu/slide.svg');
 const popupBoardIcon = require('./../images/side_menu/popupBoard.svg');
@@ -46,12 +46,12 @@ const state = {
             name: '占位图',
             routeName: 'waterMark',
             icon: waterMarkIcon,
-        }, /*{
+        }, /* {
             id: SideMenuEnum.FORM,
             name: '表单',
             routeName: 'form',
             icon: formIcon,
-        },*/ {
+        }, */ {
             id: SideMenuEnum.MULTIPLE_BOX,
             name: '远程搜索',
             routeName: 'multipleBox',
