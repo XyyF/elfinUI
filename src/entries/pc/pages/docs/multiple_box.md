@@ -21,7 +21,7 @@
                "Utah", "Vermont", "Virginia",
                "Washington", "West Virginia", "Wisconsin",
                 "Wyoming"],
-            students: [],
+            students1: [],
             list: [],
             students2: [],
             list2: [],
@@ -167,7 +167,7 @@
         remote
         placeholder="请输入学员姓名"
         :remote-method="remoteMethod2"
-        :loading="loading">
+        :loading="loading2">
         <template slot="cell" slot-scope="props">
              <span style="float: left">{{ props.option.label }}</span>
              <span style="float: right; color: #8492a6; font-size: 13px">右侧信息</span>
@@ -198,8 +198,8 @@
                 "Wyoming"],
             students2: [],
             list2: [],
-            formData2: {
-                students: [],
+            formData: {
+                students2: [],
             },
             loading2: false,
           };

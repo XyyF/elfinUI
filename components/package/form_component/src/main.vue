@@ -37,7 +37,8 @@
                         :loading="formatItem.loading || false"
                         :loading-icon="formatItem.loading || false"
                         :loading-text="formatItem.loadingText"
-                        :no-data-text="formatItem.noDataText">
+                        :no-data-text="formatItem.noDataText"
+                        :value-key="formatItem.valueKey">
                         <el-option
                             v-for="(item, index) in formatItem.options"
                             :key="item.label"
@@ -74,10 +75,10 @@
                 </template>
                 <!--单选-->
                 <template v-else-if="formatItem.type === FormItemType.RADIO">
-                    <el-radio-group class="same-width" v-model="mFormData[formatItem.prop]">
+                    <el-radio-group class="same-width" v-model="mFormData[formatItem.prop]"
+                                    :disabled="formatItem.disabled">
                         <el-radio-button
                             v-for="_item in formatItem.options"
-                            :disabled="_item.disabled"
                             :label="_item.value"
                             :key="_item.value">
                             {{_item.label}}
@@ -109,10 +110,10 @@
                         v-model="mFormData[formatItem.prop]"
                         filterable
                         remote
-                        allow-create
                         placeholder=""
                         :remote-method="formatItem.remoteMethod"
-                        :loading-icon="formatItem.loading">
+                        :loading="formatItem.loading"
+                        @change="formatItem.changeEvent">
                         <el-option
                             v-for="option in formatItem.options"
                             :key="option.label"
@@ -121,21 +122,33 @@
                         </el-option>
                     </el-select>
                 </template>
+                <!--组件-->
                 <template v-else-if="formatItem.type === FormItemType.COMPONENT">
                     <component :is="formatItem.component" v-model="mFormData[formatItem.prop]"
                                :format="formatItem"></component>
                 </template>
+                <!--开关-->
                 <template v-else-if="formatItem.type === FormItemType.SWITCH">
                     <el-switch
                         v-model="mFormData[formatItem.prop]"
-                        :active-text="formatItem.activeText || ''"
-                        :inactive-text="formatItem.inactiveText || ''"
-                        :active-color="formatItem.activeColor"
-                        :inactive-color="formatItem.inactiveColor"
+                        :on-text="formatItem.onText || ''"
+                        :off-text="formatItem.offText || ''"
+                        :on-color="formatItem.onColor"
+                        :off-color="formatItem.offColor"
                         :disabled="formatItem.disabled || false"
-                        :active-value="formatItem.activeValue"
-                        :inactive-value="formatItem.inactiveValue">
+                        :on-value="formatItem.onValue"
+                        :off-value="formatItem.offValue">
                     </el-switch>
+                </template>
+                <!--数字-->
+                <template v-else-if="formatItem.type === FormItemType.NUMBER">
+                    <el-input-number
+                        v-model="mFormData[formatItem.prop]"
+                        :controls-position="formatItem.controlsPosition || 'right'"
+                        :min="formatItem.hasOwnProperty('min') ? formatItem.min : -Infinity"
+                        :max="formatItem.hasOwnProperty('max') ? formatItem.max : Infinity"
+                        :size="formatItem.size || 'large'">
+                    </el-input-number>
                 </template>
             </el-form-item>
         </transition-group>
@@ -150,6 +163,7 @@
 
 <script>
 
+    // todo 完善文档
     /**
      * 表单组件，支持各种样式的表单项
      * 如果有不支持的表单项，form_enum.js 中添加一个表单项类型，在此文件 template 中写样式 HTML
@@ -181,11 +195,23 @@
         }]
 
      */
-    import {Form, FormItem, Radio, RadioGroup, RadioButton, Input, DatePicker, Select, Option, Switch} from 'meetin-sass-ui'
-    import FormItemType from './item-type.js'
+    import {
+        Form,
+        FormItem,
+        Radio,
+        RadioGroup,
+        RadioButton,
+        Input,
+        DatePicker,
+        Select,
+        Option,
+        Switch,
+        InputNumber,
+    } from 'meetin-sass-ui'
+    import formItemType from './item-type'
 
     export default {
-        name: 'ReForm',
+        name: 'XjlForm',
         components: {
             [Form.name]: Form,
             [FormItem.name]: FormItem,
@@ -196,55 +222,56 @@
             [DatePicker.name]: DatePicker,
             [Select.name]: Select,
             [Switch.name]: Switch,
-            [Option.name]: Option
+            [Option.name]: Option,
+            [InputNumber.name]: InputNumber,
         },
-        data () {
+        data() {
             return {
                 mFormData: assignWithDefaultValue(this.value, this.formFormatData),
                 loading: false,
                 unwatchformData: null,
-                FormItemType,
-            };
+                FormItemType: formItemType,
+            }
         },
         props: {
             // 表单格式数据，参照 example
             formFormatData: {
                 type: Array,
-                default: () => []
+                default: () => [],
             },
             // v-model 表单数据，可以是空对象 object = {}
             value: {
                 type: Object,
                 default: () => {
                     return {}
-                }
+                },
             },
             // 表单项 label 宽度
             labelWidth: {
                 type: String,
-                default: '90px'
+                default: '100px',
             },
             // 表单项 label 相对位置，left、right，可以参照下饿了么form组件
             labelPosition: {
                 type: String,
-                default: 'right'
-            }
+                default: 'right',
+            },
         },
         computed: {
             formRules() {
-                const rules = {};
+                const rules = {}
                 this.formFormatData.forEach((formatItem) => {
                     if (formatItem.validator) {
                         rules[formatItem.prop] = formatItem.validator
                     }
                 })
-                return rules;
-            }
+                return rules
+            },
         },
         methods: {
             // 重置表单验证
             resetFields() {
-                this.$refs.formatForm.resetFields();
+                this.$refs.formatForm.resetFields()
             },
             // 表单验证
             validate() {
@@ -275,7 +302,7 @@
             },
             animationEnter(el, done) {
                 console.log('before enter', el.clientHeight)
-                el.originalHeight = el.clientHeight + 'px'
+                el.originalHeight = `${el.clientHeight}px`
                 el.style.height = '0'
                 el.style['margin-bottom'] = '0'
                 done()
@@ -301,7 +328,7 @@
             animationAfterLeave(el) {
                 el.style.height = ''
                 el.style['margin-bottom'] = '0'
-            }
+            },
         },
         watch: {
             value: {
@@ -311,15 +338,15 @@
                     if (this.unwatchformData) {
                         this.unwatchformData()
                     }
-                    this.mFormData = assignWithDefaultValue(newVal, this.formFormatData);
+                    this.mFormData = assignWithDefaultValue(newVal, this.formFormatData)
                     this.unwatchformData = this.$watch('mFormData', (val) => {
-                        this.$emit('input', val);
+                        this.$emit('input', val)
                     }, {
-                        deep: true
-                    });
-                }
-            }
-        }
+                        deep: true,
+                    })
+                },
+            },
+        },
     }
 
     /**
@@ -335,11 +362,11 @@
      * @returns {*}
      */
     function assignWithDefaultValue(formData, formatData) {
-        const defaultData = {};
+        const defaultData = {}
         formatData.forEach((formatItem) => {
-            defaultData[formatItem.prop] = formatItem.defaultValue || '';
+            defaultData[formatItem.prop] = formatItem.defaultValue || ''
         })
-        return Object.assign({}, defaultData, formData);
+        return Object.assign({}, defaultData, formData)
     }
 </script>
 

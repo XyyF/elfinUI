@@ -43,18 +43,18 @@
       computed: {
           format() {
             return [{
-                prop: 'this.form.input',
+                prop: 'input',
                 label: '输入框',
                 type: 1,
                 validator: {type: 'string', required: true, message: '请输入input', trigger: 'change'},     // validator 更多用法请参照饿了么 表单组件 文档
             }, {
-                prop: 'this.form.selection',
+                prop: 'selection',
                 label: '选择框',
                 type: 2,
                 options: [{label: '选项1', value: 1}, {label: '选项2', value: 2}],
                 validator: {type: 'numebr', required: true, message: '请选择selection', trigger: 'change'},
             }, {
-                prop: 'this.form.date',
+                prop: 'date',
                 label: '日期选择',
                 type: 3,
                 placeholder: '请选择日期',
@@ -65,37 +65,37 @@
                 },
                 validator: {type: 'date', required: true, message: '请选择date', trigger: 'change'},
             }, {
-                prop: 'this.form.textarea',
+                prop: 'textarea',
                 label: '文本区',
                 type: 4,
                 maxlength: 100,
                 placeholder: '请输入文本区',
                 validator: {type: 'string', required: true, message: '请输入textarea', trigger: 'change'},
             }, {
-                prop: 'this.form.radio',
+                prop: 'radio',
                 label: '单选框',
                 type: 5,
                 options: [{label: '单选1', value: 1}, {label: '单选2', value: 2}, {label: '单选3', value: 3, disabled: true,}],
                 validator: {type: 'number', required: true, message: '请选择radio', trigger: 'change'},
             }, {
-                prop: 'this.form.date_year',
+                prop: 'date_year',
                 label: '年选择器',
                 type: 6,
                 placeholder: '请选择年',
                 validator: {type: 'date', required: true, message: '请选择data_year', trigger: 'change'},
             }, {
-                prop: 'this.form.file_list',
+                prop: 'file_list',
                 label: '文件列表',
                 type: 7,
                 placeholder: '',
                 validator: {type: 'date', required: true, message: '请输入file_list', trigger: 'change'},
             }, {
-                prop: 'this.form.password',
+                prop: 'password',
                 label: '密码',
                 type: 8,
                 validator: {type: 'date', required: true, message: '请输入password', trigger: 'change'},
             }, {
-                prop: 'this.form.selection_remote',
+                prop: 'selection_remote',
                 label: '远程搜索',
                 loading: this.loading,
                 remoteMethod: this.remoteMethod.bind(this),
@@ -103,11 +103,11 @@
                 type: 9,
                 validator: {type: 'date', required: true, message: '请选择selection_remote', trigger: 'change'},
             }, {
-                prop: 'this.form.component',
+                prop: 'component',
                 label: '自定义组件',
                 type: 10,
             }, {
-                prop: 'this.form.switch',
+                prop: 'switch',
                 label: '开关',
                 type: 11,
                 activeText: 'active-text',
@@ -211,18 +211,18 @@
       computed: {
           format() {
             return [{
-                prop: 'this.form.input',
+                prop: 'input',
                 label: '输入框',
                 type: 1,
                 validator: {type: 'string', required: true, message: '请输入input', trigger: 'change'},     // validator 更多用法请参照饿了么 表单组件 文档
             }, {
-                prop: 'this.form.selection',
+                prop: 'selection',
                 label: '选择框',
                 type: 2,
                 options: [{label: '选项1', value: 1}, {label: '选项2', value: 2}],
                 validator: {type: 'numebr', required: true, message: '请选择selection', trigger: 'change'},
             }, {
-                prop: 'this.form.date',
+                prop: 'date',
                 label: '日期选择',
                 type: 3,
                 placeholder: '请选择日期',
@@ -233,20 +233,20 @@
                 },
                 validator: {type: 'date', required: true, message: '请选择date', trigger: 'change'},
             }, {
-                prop: 'this.form.textarea',
+                prop: 'textarea',
                 label: '文本区',
                 type: 4,
                 maxlength: 100,
                 placeholder: '请输入文本区',
                 validator: {type: 'string', required: true, message: '请输入textarea', trigger: 'change'},
             }, {
-                prop: 'this.form.radio',
+                prop: 'radio',
                 label: '单选框',
                 type: 5,
                 options: [{label: '单选1', value: 1}, {label: '单选2', value: 2}, {label: '单选3', value: 3, disabled: true,}],
                 validator: {type: 'number', required: true, message: '请选择radio', trigger: 'change'},
             }, {
-                prop: 'this.form.date_year',
+                prop: 'date_year',
                 label: '年选择器',
                 type: 6,
                 placeholder: '请选择年',
@@ -258,12 +258,12 @@
                 placeholder: '',
                 validator: {type: 'date', required: true, message: '请输入file_list', trigger: 'change'},
             }, {
-                prop: 'this.form.password',
+                prop: 'password',
                 label: '密码',
                 type: 8,
                 validator: {type: 'date', required: true, message: '请输入password', trigger: 'change'},
             }, {
-                prop: 'this.form.selection_remote',
+                prop: 'selection_remote',
                 label: '远程搜索',
                 loading: this.loading,
                 remoteMethod: this.remoteMethod.bind(this),
@@ -271,11 +271,11 @@
                 type: 9,
                 validator: {type: 'date', required: true, message: '请选择selection_remote', trigger: 'change'},
             }, {
-                prop: 'this.form.component',
+                prop: 'component',
                 label: '自定义组件',
                 type: 10,
             }, {
-                prop: 'this.form.switch',
+                prop: 'switch',
                 label: '开关',
                 type: 11,
                 activeText: 'active-text',

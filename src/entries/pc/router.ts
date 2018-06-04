@@ -24,7 +24,7 @@ const ComponentBody: AsyncComponent = (): any => require('./pages/components_bod
 const avatarList = require('./pages/docs/avatar_list.md').default;
 const waterMark = require('./pages/docs/water_mark.md').default;
 const calendar = require('./pages/docs/calender.md').default;
-const form = require('./pages/docs/form.md').default;
+// const form = require('./pages/docs/form.md').default;
 const multipleBox = require('./pages/docs/multiple_box.md').default;
 const popupBoard = require('./pages/docs/popup_board.md').default;
 const slidFullPage = require('./pages/docs/slide_full_page.md').default;
@@ -54,7 +54,7 @@ const routes: RouteConfig[] = [
                     {path: 'avatarList', name: 'avatarList', component: avatarList},
                     {path: 'calendar', name: 'calendar', component: calendar},
                     {path: 'waterMark', name: 'waterMark', component: waterMark},
-                    {path: 'form', name: 'form', component: form},
+                    // 带整改{path: 'form', name: 'form', component: form},
                     {path: 'multipleBox', name: 'multipleBox', component: multipleBox},
                     {path: 'popupBoard', name: 'popupBoard', component: popupBoard},
                     {path: 'slidFullPage', name: 'slidFullPage', component: slidFullPage}

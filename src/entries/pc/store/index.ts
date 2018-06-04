@@ -46,12 +46,12 @@ const state = {
             name: '占位图',
             routeName: 'waterMark',
             icon: waterMarkIcon,
-        }, {
+        }, /*{
             id: SideMenuEnum.FORM,
             name: '表单',
             routeName: 'form',
             icon: formIcon,
-        }, {
+        },*/ {
             id: SideMenuEnum.MULTIPLE_BOX,
             name: '远程搜索',
             routeName: 'multipleBox',

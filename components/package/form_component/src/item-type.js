@@ -1,5 +1,5 @@
 /**
- * Created by rengar on 2018/1/23.
+ * Created by gukong on 2017/3/24.
  */
 
 export const FormItemType = {
@@ -14,6 +14,7 @@ export const FormItemType = {
     SELECTION_REMOTE: 9,
     COMPONENT: 10,
     SWITCH: 11,
+    NUMBER: 12,
 }
 
 export default FormItemType
