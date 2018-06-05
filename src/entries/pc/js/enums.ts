@@ -11,4 +11,5 @@ export const SideMenuEnum = {
     POPUP_BOARD: '10',
     ABOUT_US: '11',
     SLIDE_FULL_PAGE: '12',
+    SELECT_BY_PAGED: '13',
 }

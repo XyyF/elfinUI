@@ -66,6 +66,11 @@ const state = {
             name: '全屏滚动',
             routeName: 'slidFullPage',
             icon: slideIcon,
+        }, {
+            id: SideMenuEnum.SELECT_BY_PAGED,
+            name: '分页筛选框',
+            routeName: 'selectByPaged',
+            icon: slideIcon,
         }],
     }, {
         id: SideMenuEnum.MOBILE,
