@@ -29,11 +29,8 @@ module.exports = {
         '<rootDir>babel.config.js',
     ],
     'modulePathIgnorePatterns': [
-        '/node_modules/(?!vant)',
-        '/node_modules/(?!@xiaojing0/vant)',
     ],
     'moduleDirectories': [
-        '__external-libraries',
         'node_modules',
     ],
     'modulePaths': [
