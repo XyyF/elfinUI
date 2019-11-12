@@ -22,9 +22,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                packages: path.resolve(__dirname, 'packages/'),
-                '@external': path.resolve('__external-libraries'),
-                'edu-saas-fe-ui': path.resolve('./'),
+                'elfin-ui': path.resolve(__dirname, 'packages/'),
             }
         }
     },
