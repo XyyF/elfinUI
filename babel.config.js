@@ -8,6 +8,7 @@ module.exports = api => {
                 'test': {
                     'presets': [
                         ['env', {'targets': {'node': 'current'}}],
+                        '@elfin-fe/elfin',
                     ],
                 },
             },
@@ -23,6 +24,7 @@ module.exports = api => {
         presets: [
             '@vue/app',
             ['@babel/env', {'modules': 'commonjs'}],
+            '@elfin-fe/elfin',
         ],
         plugins: [
             'lodash',
