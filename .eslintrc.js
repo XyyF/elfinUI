@@ -19,6 +19,8 @@ module.exports = {
     // false 表示不可以修改
     globals: {
         Vue: true,
+        RouteNamesChain: false,
+        glodash: false,
     },
     // add your custom rules here
     rules: {
