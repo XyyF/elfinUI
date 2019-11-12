@@ -3,7 +3,7 @@
         <el-scrollbar class="app__menus" wrapClass="menu-scrollbar">
             <el-menu
                 ref="menu"
-                :default-active="menuLst[0].name"
+                :defaultActive="menuLst[0].name"
                 :router="true"
                 class="menus">
                 <el-menu-item
@@ -12,7 +12,7 @@
                     :index="menu.name"
                     class="menu__item"
                     :route="{name: menu.router}">
-                    {{menu.name}}
+                    {{ menu.name }}
                 </el-menu-item>
             </el-menu>
         </el-scrollbar>
@@ -21,39 +21,23 @@
 </template>
 
 <script>
-    import Routers from './routers.json'
-
     export default {
         name: 'app',
         data() {
             return {
-                menuLst: Routers.map(([key]) => {
-                    return {
-                        name: key,
-                        router: key
-                    }
-                })
+                menuLst: [
+                    {
+                        name: 'complex-row',
+                        router: RouteNamesChain.ComplexRow,
+                    },
+                ],
             }
-        }
+        },
     }
 </script>
 
 <!-- 全局样式 -->
 <style lang="scss">
-    // 引用修改主题样式
-    @import './assets/scss/theme';
-
-    html, body {
-        width: 100vw;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
     #app {
         width: 100%;
         height: 100%;

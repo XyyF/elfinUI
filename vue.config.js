@@ -19,12 +19,22 @@ module.exports = {
             // 提取出来的通用 chunk 和 vendor chunk。
         },
     },
+    css: {
+        extract: true,
+        loaderOptions: {
+            sass: {
+                data: [
+                    '@import "examples/styles/basic.scss";',
+                ],
+            },
+        },
+    },
     configureWebpack: {
         resolve: {
             alias: {
-                'elfin-ui': path.resolve(__dirname, 'packages/'),
-            }
-        }
+                '@elfinUI': path.resolve(__dirname, 'packages/'),
+            },
+        },
     },
     chainWebpack: config => {
         config.module

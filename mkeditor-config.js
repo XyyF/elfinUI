@@ -92,8 +92,8 @@ exports.use = [
                            <div slot="highlight">`
             }
             return '</div></component-demo>\n'
-        }
-    }]
+        },
+    }],
 ]
 
 exports.preprocess = function (MarkdownIt, source) {

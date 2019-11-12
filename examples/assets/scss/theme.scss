@@ -1,5 +1,0 @@
-/* 改变 icon 字体路径变量，必需 */
-// 如果 URL 以 ~ 开头，其后的任何内容都会作为一个模块请求被解析
-$--font-path: '~meetin-sass-ui/lib/theme-chalk/fonts';
-
-@import '~meetin-sass-ui/packages/theme-chalk/src/index';

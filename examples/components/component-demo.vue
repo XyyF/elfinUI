@@ -38,8 +38,8 @@
         methods: {
             showMetaSta() {
                 this.showMeta = !this.showMeta
-            }
-        }
+            },
+        },
     }
 </script>
 

@@ -1,0 +1,41 @@
+/* 改变 icon 字体路径变量，必需 */
+// 如果 URL 以 ~ 开头，其后的任何内容都会作为一个模块请求被解析
+$--font-path: '~meetin-sass-ui/lib/theme-chalk/fonts';
+
+@import '~meetin-sass-ui/packages/theme-chalk/src/index';
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
