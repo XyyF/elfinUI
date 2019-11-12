@@ -1,0 +1,10 @@
+.xjl-form-image-choice {
+    border: 1px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xjl-form-image-choice .el-icon-upload {
+    font-size: 60px;
+}
