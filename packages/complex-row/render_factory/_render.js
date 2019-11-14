@@ -3,7 +3,7 @@
  */
 
 export default class Render {
-    static DefaultClassName = 'xjl-button-item'
+    static DefaultClassName = 'complex-row-item'
 
     constructor(h, config, delegate = null) {
         /**

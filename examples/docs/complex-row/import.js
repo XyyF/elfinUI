@@ -7,10 +7,17 @@ export default {
     },
     data() {
         return {
-            buttonsConfig: [
+            buttonConfigs: [
                 {
                     type: ItemType.BUTTON,
-                    label: 'button',
+                    itemOptions: {
+                        props: {
+                            type: 'primary',
+                        },
+                        scopedSlots: {
+                            default: (h) => h('span', '按钮'),
+                        },
+                    },
                 },
             ],
         }

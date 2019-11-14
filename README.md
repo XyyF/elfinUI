@@ -7,7 +7,7 @@ npm install
 
 ### 运行服务
 ```
-npm run serve
+npm run dev
 ```
 
 ### 构建
@@ -20,4 +20,8 @@ npm run build
 npm run test:unit
 ```
 
-> base on elementUI，采用JSX render形式构建
+> 约定：
+>
+> itemOptions 行配置
+>
+> slot渲染 scopedSlots.xxx

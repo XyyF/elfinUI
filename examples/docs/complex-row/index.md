@@ -3,22 +3,41 @@
 
     export default baseVue
 </script>
-## xjl-buttons  按钮控件
-一共七种不同类型（1-7）的按钮控件,根据传入不同参数的type与其他属性使用 </br>
+## Complex-row  复杂行组件
+复杂行组件,根据传入不同参数的type与其他属性来指定渲染不同功能的组件 </br>
 *每个组件的参数不一样，请参考案例*
 ### 标准用法 (所有用法)
 可以一次配置多个或全部
 
-### type 1 按钮用法
+类型值参考 complex-row/item-type
+
+### 按钮
 :::component
 ```html
 <template>
-    <div>
-         1231
-    </div>
+   <complex-row :button-configs="buttonConfigs"></complex-row>
 </template>
 
 <script>
+export default {
+    components: {
+        ComplexRow,
+    },
+    data() {
+        return {
+            buttonConfigs: [
+                {
+                    type: ItemType.BUTTON,
+                    compOptions: {
+                        scopedSlots: {
+                            default: '按钮',
+                        },
+                    },
+                },
+            ],
+        }
+    },
+}
 </script>
 ```
 :::

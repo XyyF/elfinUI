@@ -89,18 +89,18 @@
         },
         render(h) {
             const {
-                buttonsConfig,
+                buttonConfigs,
                 $slots,
                 searchable,
                 isButtonEmptyRender,
             } = this
 
             // 如果buttons为空 && 在button为空不渲染
-            if (buttonsConfig.length === 0 && !isButtonEmptyRender) {
+            if (buttonConfigs.length === 0 && !isButtonEmptyRender) {
                 return null
             }
 
-            const leftButtons = buttonsConfig.filter(e => !e.right).map(config => {
+            const leftButtons = buttonConfigs.filter(e => !e.right).map(config => {
                 if (config.label) {
                     return h('div', {class: 'button__wrap'}, [
                         h('label', {class: 'select__label'}, config.label),
@@ -110,7 +110,7 @@
                 return renderFactory.render(h, config)
             })
 
-            const rightButtons = buttonsConfig.filter(e => e.right).map(config => {
+            const rightButtons = buttonConfigs.filter(e => e.right).map(config => {
                 if (config.label) {
                     return h('div', {class: 'button__wrap'}, [
                         h('label', {class: 'select__label'}, config.label),
