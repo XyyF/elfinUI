@@ -6,9 +6,7 @@
 ## Complex-row  复杂行组件
 复杂行组件,根据传入不同参数的type与其他属性来指定渲染不同功能的组件 </br>
 *每个组件的参数不一样，请参考案例*
-### 标准用法 (所有用法)
-可以一次配置多个或全部
-
+### type 渲染指定类型的组件
 类型值参考 complex-row/item-type
 
 ### 按钮
@@ -27,15 +25,38 @@ export default {
         return {
             buttonConfigs: [
                 {
+                    label: 'label信息:',
                     type: ItemType.BUTTON,
-                    compOptions: {
+                    itemOptions: {
+                        props: {
+                            type: 'primary',
+                        },
+                        on: {
+                            click: this.handleClickBtn.bind(this),
+                        },
                         scopedSlots: {
-                            default: '按钮',
+                            default: (h) => h('span', '按钮'),
+                        },
+                    },
+                },
+                {
+                    type: ItemType.BUTTON,
+                    itemOptions: {
+                        props: {
+                            type: 'text',
+                        },
+                        scopedSlots: {
+                            default: () => '文本按钮',
                         },
                     },
                 },
             ],
         }
+    },
+    methods: {
+        handleClickBtn() {
+            this.$message.success('触发click')
+        },
     },
 }
 </script>

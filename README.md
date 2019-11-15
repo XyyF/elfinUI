@@ -1,24 +1,6 @@
 # elfinUI
 
-### 安装依赖
-```
-npm install
-```
-
-### 运行服务
-```
-npm run dev
-```
-
-### 构建
-```
-npm run build
-```
-
-### 测试
-```
-npm run test:unit
-```
+采用JSX render形式的聚合UI渲染工厂
 
 > 约定：
 >

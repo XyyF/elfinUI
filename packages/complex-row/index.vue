@@ -102,7 +102,7 @@
 
             const leftButtons = buttonConfigs.filter(e => !e.right).map(config => {
                 if (config.label) {
-                    return h('div', {class: 'button__wrap'}, [
+                    return h('div', {class: 'buttons__item'}, [
                         h('label', {class: 'select__label'}, config.label),
                         renderFactory.render(h, config),
                     ])
@@ -112,7 +112,7 @@
 
             const rightButtons = buttonConfigs.filter(e => e.right).map(config => {
                 if (config.label) {
-                    return h('div', {class: 'button__wrap'}, [
+                    return h('div', {class: 'buttons__item'}, [
                         h('label', {class: 'select__label'}, config.label),
                         renderFactory.render(h, config),
                     ])
@@ -128,8 +128,8 @@
                         'div',
                         {class: 'container'},
                         [
-                            h('div', {class: 'buttons__left main'}, leftButtons),
-                            h('div', {class: 'buttons__right main'}, rightButtons),
+                            h('div', {class: 'buttons__left buttons__wrap'}, leftButtons),
+                            h('div', {class: 'buttons__right buttons__wrap'}, rightButtons),
                             searchable ? this.renderSearch(h) : null,
                         ],
                     ),
@@ -151,35 +151,24 @@
         flex-shrink: 0;
     }
 
-    .container {
+    .complex-row-root .container {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
     }
 
-    .main {
+    .container .buttons__wrap {
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
     }
 
-    .main /deep/ .el-button {
-        height: 35px;
-        border-radius: 2px;
-    }
-
-    // 所有的按钮大小相同  -- 非文本的按钮
-    .main /deep/ .el-button:not(.el-button--text) {
-        min-width: 115px;
-    }
-
-    .buttons__left {
+    .container .buttons__left {
         flex-grow: 1;
         flex-wrap: wrap;
         align-items: center;
     }
 
-    .buttons__right {
+    .container .buttons__right {
         flex-shrink: 0;
         flex-wrap: nowrap;
         align-items: center;
@@ -232,7 +221,7 @@
     }
 
     /*el-select样式*/
-    .complex-row-root /deep/ .button__wrap > .el-select {
+    .complex-row-root /deep/ .buttons__wrap .el-select {
         width: 200px;
         height: 35px;
         /*margin: 5px 10px 5px 0;*/
@@ -248,9 +237,22 @@
     .complex-row-root /deep/ .update-root {
         display: flex;
     }
-    .button__wrap{
+
+    .buttons__item {
         display: flex;
         align-items: center;
-        margin-right: 15px;
+        margin: 5px 10px 5px 0;
+    }
+</style>
+<style lang="scss" scoped>
+    /* button.js 按钮 */
+    .complex-row-root /deep/ .complex-row__button {
+        height: 35px;
+        border-radius: 2px;
+    }
+
+    // 所有的按钮大小相同  -- 非文本的按钮
+    .complex-row-root /deep/ .complex-row__button:not(.el-button--text) {
+        min-width: 115px;
     }
 </style>
