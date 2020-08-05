@@ -1,0 +1,20 @@
+{
+    "presets": [
+        [
+            "@vue/app",
+            {
+                "useBuiltIns": "entry",
+                "jsx": {
+                    "injectH": false
+                }
+            }
+        ],
+        "@vue/babel-preset-jsx",
+        ["@babel/env", {"modules": "commonjs"}]
+    ],
+    "sourceType": "unambiguous",
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@vue/babel-plugin-transform-vue-jsx"
+    ]
+}
