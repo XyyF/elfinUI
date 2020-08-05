@@ -1,66 +1,36 @@
 {
-    "name": "elfinUI",
-    "version": "1.0.0",
-    "description": "elfin组件UI",
-    "main": "lib/index.js",
-    "private": true,
-    "author": "rengar",
-    "license": "ISC",
-    "scripts": {
-        "dev": "vue-cli-service serve",
-        "dist": "vue-cli-service build",
-        "inspect": "vue-cli-service inspect",
-        "build:router": "node build/routerInit.js",
-        "test:unit": "vue-cli-service test:unit",
-        "libraries-npm-install": "node external-libraries.installer.js --needClone false --needInstall true"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
-    },
-    "dependencies": {
-        "@elfin-fe/babel-preset-elfin": "1.0.1",
-        "@elfin-fe/eslint-plugin-elfin": "0.0.3",
-        "babel-plugin-add-module-exports": "1.0.0",
-        "cheerio": "1.0.0-rc.2",
-        "markdown-it": "8.4.2",
-        "markdown-it-anchor": "5.0.2",
-        "markdown-it-container": "2.0.0",
-        "meetin-sass-ui": "2.4.6-beta.6",
-        "transliteration": "2.1.2",
-        "vue": "2.6.10",
-        "vue-animation": "0.1.0",
-        "vue-markdown-loader": "2.4.1",
-        "vue-router": "3.0.1"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "3.2.0",
-        "@vue/cli-plugin-eslint": "3.2.0",
-        "@vue/cli-plugin-unit-jest": "3.2.0",
-        "@vue/cli-service": "3.2.0",
-        "@vue/eslint-config-airbnb": "4.0.0",
-        "@vue/test-utils": "1.0.0-beta.20",
-        "babel-core": "7.0.0-bridge.0",
-        "babel-eslint": "10.0.1",
-        "babel-jest": "23.6.0",
-        "babel-plugin-lodash": "^3.3.4",
-        "eslint": "5.8.0",
-        "eslint-plugin-html": "3.2.2",
-        "eslint-plugin-vue": "5.2.3",
-        "highlight.js": "9.3.0",
-        "html-loader": "0.5.1",
-        "jest": "23.6.0",
-        "node-sass": "4.9.0",
-        "photoswipe": "4.1.2",
-        "sass-loader": "7.0.1",
-        "shelljs": "0.7.8",
-        "vue-jest": "3.0.1",
-        "vue-loader": "14.2.3",
-        "vue-template-compiler": "2.6.10"
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+  "name": "elfinUI",
+  "version": "1.0.0",
+  "description": "elfin组件UI",
+  "main": "lib/index.js",
+  "private": true,
+  "author": "rengar",
+  "license": "ISC",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
+  },
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/vue": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
