@@ -1,7 +1,7 @@
 import {storiesOf} from '@storybook/vue'
-import { withOptions } from '@storybook/addon-options'
+import {withOptions} from '@storybook/addon-options'
 import navConfig from './nav.config'
-import ElementComponent from './element'
+import ElementComponent from '../../components/element'
 
 loopConfigs(navConfig['zh-CN'])
 

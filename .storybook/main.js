@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const secret = require('../secret')
 
 const isBuilding = process.env.NODE_ENV === 'production'
-const isInExternal = process.env.STORYBOOK_IN_EXTERNAL === '1'
 
 module.exports = {
     managerWebpack: (config) => {

@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: 'HelloWorld',
+        name: 'element-component',
         props: {
             src: {
                 type: String,
@@ -14,8 +14,7 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss" scoped>
     .iframe-element {
         display: block;
         box-sizing: content-box;

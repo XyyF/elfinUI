@@ -25,7 +25,7 @@ addParameters({
 
 // 加载story
 function loadStories() {
-    require('../main/stories');
-};
+    require('../main/stories')
+}
 
-configure(loadStories, module);
+configure(loadStories, module)
