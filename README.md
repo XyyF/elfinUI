@@ -6,4 +6,4 @@
 >
 > itemOptions 行配置
 >
-> slot渲染 scopedSlots.xxx
+> slot渲染 通过指定作用域插槽 scopedSlots.xxx 来渲染静态插槽
