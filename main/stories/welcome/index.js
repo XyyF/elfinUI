@@ -4,12 +4,12 @@
 import {storiesOf} from '@storybook/vue'
 import {withOptions} from '@storybook/addon-options'
 
-storiesOf('Welcome', module)
+storiesOf('导航|Welcome', module)
     .addDecorator(
         withOptions({
             showPanel: false,
         })
     )
-    .add('Welcome', () => ({
+    .add('欢迎页', () => ({
         render: h => h('div'),
     }))
