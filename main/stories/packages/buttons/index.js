@@ -3,15 +3,10 @@
  */
 
 import {storiesOf} from '@storybook/vue'
-import {action, decorate} from '@storybook/addon-actions'
-import {object, number, boolean, text, withKnobs} from '@storybook/addon-knobs'
+import {action} from '@storybook/addon-actions'
+import {object, text, withKnobs} from '@storybook/addon-knobs'
 import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'
 import buttonNotes from './button.md'
-
-// 装饰器：返回第一个参数
-const firstArgDecorate = decorate([args => {
-    return Array.isArray(args[0]) ? args[0] : [args[0]]
-}]);
 
 storiesOf('组件|elfinButtons 按钮区', module)
     .addDecorator(withKnobs)
@@ -40,10 +35,16 @@ storiesOf('组件|elfinButtons 按钮区', module)
             buttonsConfig() {
                 return [{
                     type: ElfinButtonsItemType.BUTTON,
-                    title: '基础按钮',
-                    props: {type: 'primary', icon: 'el-icon-plus'},
-                    on: {
-                        click: this.handleClick.bind(this),
+                    itemOptions: {
+                        props: {type: 'primary', icon: 'el-icon-plus'},
+                        on: {
+                            click: this.handleClick.bind(this),
+                        },
+                        scopedSlots: {
+                            default() {
+                                return '基础按钮'
+                            },
+                        },
                     },
                 }]
             },
@@ -68,10 +69,16 @@ storiesOf('组件|elfinButtons 按钮区', module)
             buttonsConfig() {
                 return [{
                     type: ElfinButtonsItemType.BUTTON,
-                    title: this.title,
-                    props: this.props,
-                    on: {
-                        click: this.handleClick.bind(this),
+                    itemOptions: {
+                        props: this.props,
+                        on: {
+                            click: this.handleClick.bind(this),
+                        },
+                        scopedSlots: {
+                            default: () => {
+                                return this.title
+                            },
+                        },
                     },
                 }]
             },
@@ -84,7 +91,9 @@ storiesOf('组件|elfinButtons 按钮区', module)
                 <p slot="subDocs">
                     可以更改props内容，观察按钮的变化;
                 </p>
-                <elfin-buttons :buttonsConfig="buttonsConfig"></elfin-buttons>
+                <elfin-buttons
+                    :buttonsConfig="buttonsConfig">
+                </elfin-buttons>
             </generic-container>
         `,
     }), {notes: buttonNotes})

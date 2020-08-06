@@ -2,8 +2,13 @@ import Render from './_render'
 
 export default class ButtonRender extends Render {
     render() {
-        const {title, ...options} = this.config
-        this.appendClass(options, Render.DefaultClassName)
-        return this.h('el-button', {...options}, title)
+        const {itemOptions = {}} = this.config
+        // 添加默认 Class
+        this.appendClass(itemOptions, Render.DefaultClassName)
+        // 获取 defaultSlot
+        // tips: el-button未实现 作用域插槽ScopedSlots
+        const defaultSlot = this.getScopedSlotsByName()
+
+        return this.h('el-button', {...itemOptions}, defaultSlot(this.h))
     }
 }

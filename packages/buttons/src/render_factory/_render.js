@@ -1,3 +1,5 @@
+import {noop} from '../__utils'
+
 /**
  * Created by rengar on 2018/4/16.
  */
@@ -30,5 +32,11 @@ export default class Render {
         } else {
             throw new Error('class should string or object')
         }
+    }
+
+    getScopedSlotsByName(slotName = 'default') {
+        const {itemOptions = {}} = this.config
+
+        return (itemOptions.scopedSlots && itemOptions.scopedSlots[slotName]) || noop
     }
 }
