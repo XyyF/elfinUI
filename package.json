@@ -15,6 +15,7 @@
     "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
   },
   "dependencies": {
+    "element-ui": "^2.13.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -41,6 +42,9 @@
     "babel-loader": "^8.1.0",
     "babel-preset-vue": "^2.0.2",
     "vue-loader": "^15.9.3",
+    "qn-webpack": "^2.0.3",
+    "sass": "^1.26.7",
+    "sass-loader": "^7.0.1",
     "html-webpack-plugin": "^4.0.0-beta.2",
     "vue-template-compiler": "^2.6.11"
   },
