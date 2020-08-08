@@ -4,6 +4,7 @@
 |------------- |---------------- |---------------- |---------------------- |-------- |
 | buttonsConfig | 按钮组配置信息 | Array | -- | [] |
 | buttonsConfig.type | 按钮渲染类型 | Number | -- | ElfinButtonsItemType.BUTTON |
+| buttonsConfig.label | 按钮前缀说明 | string | -- | '' |
 | buttonsConfig.itemOptions | 传递给底层按钮组件的配置项 | Object | -- | {} |
 | buttonsConfig.itemOptions.props | 传递给底层按钮的props | Object | -- | null |
 | buttonsConfig.itemOptions.on | 传递给底层按钮的on | Object | -- | null |

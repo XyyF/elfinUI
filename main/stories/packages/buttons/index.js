@@ -56,19 +56,24 @@ storiesOf('组件|elfinButtons 按钮区', module)
     .add('基础按钮', () => ({
         components: {ElfinButtons},
         props: {
-            title: {
+            slotString: {
                 type: String,
-                default: text('title', '按钮'),
+                default: text('slotString', '按钮'),
             },
             props: {
                 type: Object,
                 default: object('props', {type: 'primary', icon: 'el-icon-plus'}),
+            },
+            label: {
+                type: String,
+                default: text('label', '按钮前缀说明:'),
             },
         },
         computed: {
             buttonsConfig() {
                 return [{
                     type: ElfinButtonsItemType.BUTTON,
+                    label: this.label,
                     itemOptions: {
                         props: this.props,
                         on: {
@@ -76,7 +81,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         },
                         scopedSlots: {
                             default: () => {
-                                return this.title
+                                return this.slotString
                             },
                         },
                     },
