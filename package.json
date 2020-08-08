@@ -7,8 +7,8 @@
   "author": "rengar",
   "license": "ISC",
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "server": "start-storybook -p 8001 -c .storybook",
+    "build-pre-release": "build-storybook -c .storybook -o dist"
   },
   "repository": {
     "type": "git",
