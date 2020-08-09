@@ -71,21 +71,36 @@ storiesOf('组件|elfinButtons 按钮区', module)
         },
         computed: {
             buttonsConfig() {
-                return [{
-                    type: ElfinButtonsItemType.BUTTON,
-                    label: this.label,
-                    itemOptions: {
-                        props: this.props,
-                        on: {
-                            click: this.handleClick.bind(this),
-                        },
-                        scopedSlots: {
-                            default: () => {
-                                return this.slotString
+                return [
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        label: this.label,
+                        itemOptions: {
+                            props: this.props,
+                            on: {
+                                click: this.handleClick.bind(this),
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return this.slotString
+                                },
                             },
                         },
                     },
-                }]
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {
+                                type: 'text',
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return '文本按钮'
+                                },
+                            },
+                        },
+                    },
+                ]
             },
         },
         methods: {

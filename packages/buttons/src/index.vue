@@ -53,6 +53,11 @@
         box-sizing: border-box;
     }
 
+    /*TODO: 布局组件*/
+    .elfin-buttons-item {
+        padding: 0 10px;
+    }
+
     /*el-button统一样式控制*/
     .elfin-buttons-root ::v-deep .el-button {
         height: 35px;
