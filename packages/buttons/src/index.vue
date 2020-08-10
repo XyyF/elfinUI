@@ -49,13 +49,12 @@
         vertical-align: middle;
         font-size: 14px;
         color: #606266;
-        padding-right: 12px;
+        padding-right: 8px;
         box-sizing: border-box;
     }
 
-    /*TODO: 布局组件*/
-    .elfin-buttons-item {
-        padding: 0 10px;
+    .elfin-buttons-item:not(:last-child) {
+        margin-right: 12px;
     }
 
     /*el-button统一样式控制*/

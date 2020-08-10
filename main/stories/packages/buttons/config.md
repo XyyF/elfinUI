@@ -7,9 +7,7 @@
 | buttonsConfig.label | 按钮前缀说明 | string | -- | '' |
 | buttonsConfig.hidden | 按钮是否隐藏 | Boolean | -- | false |
 | buttonsConfig.itemOptions | 传递给底层按钮组件的配置项 | Object | -- | {} |
-| buttonsConfig.itemOptions.props | 传递给底层按钮的props | Object | -- | null |
-| buttonsConfig.itemOptions.on | 传递给底层按钮的on | Object | -- | null |
-| buttonsConfig.itemOptions.scopedSlots | 底层按钮的静态插槽 | Object | -- | null |
+
 
 ```js
 import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'

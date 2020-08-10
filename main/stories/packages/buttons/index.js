@@ -6,6 +6,7 @@ import {storiesOf} from '@storybook/vue'
 import {action} from '@storybook/addon-actions'
 import {object, text, withKnobs} from '@storybook/addon-knobs'
 import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'
+import configNotes from './config.md'
 import buttonNotes from './button.md'
 
 storiesOf('组件|elfinButtons 按钮区', module)
@@ -53,6 +54,72 @@ storiesOf('组件|elfinButtons 按钮区', module)
             handleClick: action('handleClick'),
         },
     }))
+    .add('通用配置', () => ({
+        components: {ElfinButtons},
+        computed: {
+            buttonsConfig() {
+                return [
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        label: '按钮前缀说明:',
+                        itemOptions: {
+                            props: {type: 'primary', icon: 'el-icon-plus'},
+                            on: {
+                                click: this.handleClick.bind(this),
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return '按钮'
+                                },
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {type: 'primary', icon: 'el-icon-plus'},
+                            scopedSlots: {
+                                default: () => {
+                                    return '按钮2'
+                                },
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        hidden: true,
+                        itemOptions: {
+                            props: {
+                                type: 'text',
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return '文本按钮2'
+                                },
+                            },
+                        },
+                    },
+                ]
+            },
+        },
+        methods: {
+            handleClick: action('handleClick'),
+        },
+        template: `
+            <generic-container title="通用配置">
+                <p slot="subDocs">
+                    - type 指定按钮的类型<br/>
+                    - label 按钮的前缀说明文本<br/>
+                    - hidden 按钮是否隐藏<br/>
+                    - itemOptions 按钮配置JSX配置项<br/>
+                    具体请查看Notes
+                </p>
+                <elfin-buttons
+                    :buttonsConfig="buttonsConfig">
+                </elfin-buttons>
+            </generic-container>
+        `,
+    }), {notes: configNotes})
     .add('基础按钮', () => ({
         components: {ElfinButtons},
         props: {
