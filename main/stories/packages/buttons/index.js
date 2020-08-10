@@ -4,7 +4,7 @@
 
 import {storiesOf} from '@storybook/vue'
 import {action} from '@storybook/addon-actions'
-import {object, text, withKnobs} from '@storybook/addon-knobs'
+import {boolean, object, text, withKnobs} from '@storybook/addon-knobs'
 import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'
 import configNotes from './config.md'
 import buttonNotes from './button.md'
@@ -56,12 +56,22 @@ storiesOf('组件|elfinButtons 按钮区', module)
     }))
     .add('通用配置', () => ({
         components: {ElfinButtons},
+        props: {
+            label: {
+                type: String,
+                default: text('label', '按钮前缀说明:'),
+            },
+            hidden: {
+                type: String,
+                default: boolean('hidden', true),
+            },
+        },
         computed: {
             buttonsConfig() {
                 return [
                     {
                         type: ElfinButtonsItemType.BUTTON,
-                        label: '按钮前缀说明:',
+                        label: this.label,
                         itemOptions: {
                             props: {type: 'primary', icon: 'el-icon-plus'},
                             on: {
@@ -87,7 +97,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                     },
                     {
                         type: ElfinButtonsItemType.BUTTON,
-                        hidden: true,
+                        hidden: this.hidden,
                         itemOptions: {
                             props: {
                                 type: 'text',
