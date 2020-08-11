@@ -15,7 +15,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
         components: {ElfinButtons},
         template: `
             <div>
-                <generic-container title="xjlButtons">
+                <generic-container title="elfinButtons">
                     <p slot="subDocs">
                         按钮交互区域<br/>
                     </p>
