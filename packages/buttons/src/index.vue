@@ -41,6 +41,9 @@
         width: 100%;
         display: flex;
         flex-shrink: 0;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: -12px;
     }
 
     /*组件 的 label样式*/
@@ -53,18 +56,16 @@
         box-sizing: border-box;
     }
 
+    .elfin-buttons-item {
+        margin-bottom: 12px;
+    }
+
     .elfin-buttons-item:not(:last-child) {
         margin-right: 12px;
     }
 
-    /*el-button统一样式控制*/
-    .elfin-buttons-root ::v-deep .el-button {
-        height: 35px;
-        border-radius: 2px;
-    }
-
     /*所有的按钮宽度控制  -- 非文本的按钮*/
     .elfin-buttons-root ::v-deep .el-button:not(.el-button--text) {
-        min-width: 115px;
+        min-width: 90px;
     }
 </style>

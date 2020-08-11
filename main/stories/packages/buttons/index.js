@@ -179,18 +179,83 @@ storiesOf('组件|elfinButtons 按钮区', module)
                     },
                 ]
             },
+            buttonsConfig2() {
+                return [
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            scopedSlots: {
+                                default: () => {
+                                    return '默认'
+                                },
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {
+                                size: 'medium',
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return 'medium'
+                                },
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {
+                                size: 'small',
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return 'small'
+                                },
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {
+                                size: 'mini',
+                            },
+                            scopedSlots: {
+                                default: () => {
+                                    return 'mini'
+                                },
+                            },
+                        },
+                    },
+                ]
+            },
         },
         methods: {
             handleClick: action('handleClick'),
         },
         template: `
-            <generic-container title="基础按钮">
-                <p slot="subDocs">
-                    可以更改props内容，观察按钮的变化;
-                </p>
-                <elfin-buttons
-                    :buttonsConfig="buttonsConfig">
-                </elfin-buttons>
-            </generic-container>
+            <div>
+                <generic-container title="基础按钮">
+                    <p slot="subDocs">
+                        可以更改props内容，观察按钮的变化;
+                    </p>
+                    <elfin-buttons
+                        :buttonsConfig="buttonsConfig">
+                    </elfin-buttons>
+                </generic-container>
+                <generic-container title="不同尺寸">
+                    <p slot="subDocs">
+                        按钮未设置固定高度，通过padding撑开，默认padding: 10px 15px; <br/>
+                        默认尺寸和 medium 相同 <br/>
+                        全部尺寸包含：medium、small、mini，通过设置size属性来配置它们。
+                    </p>
+                    <elfin-buttons
+                        :buttonsConfig="buttonsConfig2">
+                    </elfin-buttons>
+                </generic-container>
+            </div>
         `,
     }), {notes: buttonNotes})
