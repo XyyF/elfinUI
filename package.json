@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "element-ui": "^2.13.2",
+    "photoswipe": "^4.1.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
