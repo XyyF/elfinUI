@@ -6,7 +6,7 @@ export default {
         Object.defineProperty(Vue.prototype, '$previewImages', {
             get() {
                 const preview = new Preview()
-                return preview.show.bind(this, Vue)
+                return preview.show.bind(preview, Vue)
             },
             set() {
                 throw new Error('disallow modify $create-contract')
