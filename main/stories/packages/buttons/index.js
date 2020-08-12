@@ -22,7 +22,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                 </generic-container>
                 <generic-container title="组件设计">
                     <p slot="subDocs">
-                        通过工厂模式设计，无需自己书写繁琐的代码，只需要通过 ElfinButtonsItemType 指定具体的按钮类型，并提供必要的数据即可<br/>
+                        通过高度集中的工厂模式设计，无需关心底层实现，只需要通过 ElfinButtonsItemType 指定具体的按钮类型，并提供必要的数据即可<br/>
                     </p>
                 </generic-container>
                 <generic-container title="基本使用">
@@ -250,7 +250,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                     <p slot="subDocs">
                         按钮未设置固定高度，通过padding撑开，默认padding: 10px 15px; <br/>
                         默认尺寸和 medium 相同 <br/>
-                        全部尺寸包含：medium、small、mini，通过设置size属性来配置它们。
+                        全部尺寸包含：medium、small、mini，通过设置size属性来配置它们。<br/>
+                        整个按钮区的高度由内部按钮撑开，默认居中对齐
                     </p>
                     <elfin-buttons
                         :buttonsConfig="buttonsConfig2">
