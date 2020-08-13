@@ -1,8 +1,10 @@
 import ItemType from '../item-type'
 import ButtonRender from './button'
+import CheckboxRender from './checkbox'
 
 const renderMap = {
     [ItemType.BUTTON]: ButtonRender,
+    [ItemType.CHECKBOX]: CheckboxRender,
 }
 
 // 渲染render

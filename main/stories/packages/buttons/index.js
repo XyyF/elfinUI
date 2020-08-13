@@ -8,6 +8,7 @@ import {boolean, object, text, withKnobs} from '@storybook/addon-knobs'
 import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'
 import configNotes from './config.md'
 import buttonNotes from './button.md'
+import checkboxNotes from './checkbox.md'
 
 storiesOf('组件|elfinButtons 按钮区', module)
     .addDecorator(withKnobs)
@@ -18,10 +19,6 @@ storiesOf('组件|elfinButtons 按钮区', module)
                 <generic-container title="elfinButtons">
                     <p slot="subDocs">
                         按钮交互区域<br/>
-                    </p>
-                </generic-container>
-                <generic-container title="组件设计">
-                    <p slot="subDocs">
                         通过高度集中的工厂模式设计，无需关心底层实现，只需要通过 ElfinButtonsItemType 指定具体的按钮类型，并提供必要的数据即可<br/>
                     </p>
                 </generic-container>
@@ -34,24 +31,30 @@ storiesOf('组件|elfinButtons 按钮区', module)
         `,
         computed: {
             buttonsConfig() {
-                return [{
-                    type: ElfinButtonsItemType.BUTTON,
-                    itemOptions: {
-                        props: {type: 'primary', icon: 'el-icon-plus'},
-                        on: {
-                            click: this.handleClick.bind(this),
-                        },
-                        scopedSlots: {
-                            default() {
-                                return '基础按钮'
+                return [
+                    {
+                        type: ElfinButtonsItemType.BUTTON,
+                        itemOptions: {
+                            props: {type: 'primary', icon: 'el-icon-plus'},
+                            scopedSlots: {
+                                default() {
+                                    return '基础按钮'
+                                },
                             },
                         },
                     },
-                }]
+                    {
+                        type: ElfinButtonsItemType.CHECKBOX,
+                        itemOptions: {
+                            scopedSlots: {
+                                default() {
+                                    return '单选框'
+                                },
+                            },
+                        },
+                    },
+                ]
             },
-        },
-        methods: {
-            handleClick: action('handleClick'),
         },
     }))
     .add('通用配置', () => ({
@@ -260,3 +263,52 @@ storiesOf('组件|elfinButtons 按钮区', module)
             </div>
         `,
     }), {notes: buttonNotes})
+    .add('单选框', () => ({
+        components: {ElfinButtons},
+        props: {
+            slotString: {
+                type: String,
+                default: text('slotString', '单选框'),
+            },
+            props: {
+                type: Object,
+                default: object('props', {disabled: false, border: false}),
+            },
+            label: {
+                type: String,
+                default: text('label', '按钮前缀说明:'),
+            },
+        },
+        computed: {
+            buttonsConfig() {
+                return [{
+                    type: ElfinButtonsItemType.CHECKBOX,
+                    label: this.label,
+                    itemOptions: {
+                        props: this.props,
+                        on: {
+                            change: this.handleChgCheckBox.bind(this),
+                        },
+                        scopedSlots: {
+                            default: () => {
+                                return this.slotString
+                            },
+                        },
+                    },
+                }]
+            },
+        },
+        methods: {
+            handleChgCheckBox: action('handleChgCheckBox'),
+        },
+        template: `
+            <generic-container title="基础按钮">
+                <p slot="subDocs">
+                    可以更改props内容，观察按钮的变化;
+                </p>
+                <elfin-buttons
+                    :buttonsConfig="buttonsConfig">
+                </elfin-buttons>
+            </generic-container>
+        `,
+    }), {notes: checkboxNotes})

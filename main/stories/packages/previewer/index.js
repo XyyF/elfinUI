@@ -19,18 +19,14 @@ storiesOf('组件|previewer 图片预览', module)
             <div>
                 <generic-container title="previewer">
                     <p slot="subDocs">
-                        统一的图片预览调用方式
+                        统一的图片预览调用方式<br/>
+                        previewer以单例模式进行设计，通过Vue.use()在prototype注册实例方法$previewImages<br/>
+                        在第一次使用前不会进行任何的DOM操作<br/>
                     </p>
                 </generic-container>
                 <generic-container title="适用场景">
                     <p slot="subDocs">
                         在图片列表中，点击图片进行预览
-                    </p>
-                </generic-container>
-                <generic-container title="组件设计">
-                    <p slot="subDocs">
-                        previewer以单例模式进行设计，通过Vue.use()在prototype注册实例方法$previewImages<br/>
-                        在第一次使用前不会进行任何的DOM操作<br/>
                     </p>
                 </generic-container>
                 <generic-container title="基本使用">
