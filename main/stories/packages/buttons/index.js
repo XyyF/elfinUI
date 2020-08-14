@@ -27,10 +27,10 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         :buttonsConfig="buttonsConfig">
                     </elfin-buttons>
                 </generic-container>
-                <generic-container title="扩展方向">
+                <generic-container title="兼容向上扩展">
                     <p slot="subDocs">
                         缺点:<br/>
-                        由于高度集中，导致 item 只能横向、向下扩展，向上扩展不足<br/>
+                        由于组件内部高度集中，导致 item 只能横向扩展、向下扩展，向上扩展能力只能兼容<br/>
                     </p>
                     <elfin-buttons
                         :buttonsConfig="buttonsConfig2">
@@ -45,20 +45,29 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         type: ElfinButtonsItemType.BUTTON,
                         itemOptions: {
                             props: {type: 'primary', icon: 'el-icon-plus'},
-                            scopedSlots: {
-                                default() {
-                                    return '基础按钮'
-                                },
+                            renderSlot() {
+                                return '基础按钮'
                             },
                         },
                     },
                     {
                         type: ElfinButtonsItemType.CHECKBOX,
                         itemOptions: {
-                            scopedSlots: {
-                                default() {
-                                    return '单选框'
-                                },
+                            renderSlot() {
+                                return '单选框'
+                            },
+                        },
+                    },
+                    {
+                        type: ElfinButtonsItemType.BADGE,
+                        itemOptions: {
+                            props: {
+                                value: 12,
+                            },
+                            renderSlot(h) {
+                                return [
+                                    h('el-button', 'badge按钮'),
+                                ]
                             },
                         },
                     },
@@ -72,10 +81,10 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 value: 12,
                             },
-                            scopedSlots: {
-                                default(h) {
-                                    return h('el-button', '基础按钮')
-                                },
+                            renderSlot(h) {
+                                return [
+                                    h('el-button', 'badge按钮'),
+                                ]
                             },
                         },
                     },
@@ -106,10 +115,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             on: {
                                 click: this.handleClick.bind(this),
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return '按钮'
-                                },
+                            renderSlot() {
+                                return '按钮'
                             },
                         },
                     },
@@ -117,10 +124,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         type: ElfinButtonsItemType.BUTTON,
                         itemOptions: {
                             props: {type: 'primary', icon: 'el-icon-plus'},
-                            scopedSlots: {
-                                default: () => {
-                                    return '按钮2'
-                                },
+                            renderSlot() {
+                                return '按钮2'
                             },
                         },
                     },
@@ -131,10 +136,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 type: 'text',
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return '文本按钮2'
-                                },
+                            renderSlot() {
+                                return '文本按钮2'
                             },
                         },
                     },
@@ -186,10 +189,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             on: {
                                 click: this.handleClick.bind(this),
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return this.slotString
-                                },
+                            renderSlot: () => {
+                                return this.slotString
                             },
                         },
                     },
@@ -199,10 +200,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 type: 'text',
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return '文本按钮'
-                                },
+                            renderSlot() {
+                                return '文本按钮'
                             },
                         },
                     },
@@ -213,10 +212,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                     {
                         type: ElfinButtonsItemType.BUTTON,
                         itemOptions: {
-                            scopedSlots: {
-                                default: () => {
-                                    return '默认'
-                                },
+                            renderSlot() {
+                                return '默认'
                             },
                         },
                     },
@@ -226,10 +223,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 size: 'medium',
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return 'medium'
-                                },
+                            renderSlot() {
+                                return 'medium'
                             },
                         },
                     },
@@ -239,10 +234,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 size: 'small',
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return 'small'
-                                },
+                            renderSlot() {
+                                return 'small'
                             },
                         },
                     },
@@ -252,10 +245,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             props: {
                                 size: 'mini',
                             },
-                            scopedSlots: {
-                                default: () => {
-                                    return 'mini'
-                                },
+                            renderSlot() {
+                                return 'mini'
                             },
                         },
                     },
@@ -315,10 +306,8 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         on: {
                             change: this.handleChgCheckBox.bind(this),
                         },
-                        scopedSlots: {
-                            default: () => {
-                                return this.slotString
-                            },
+                        renderSlot: () => {
+                            return this.slotString
                         },
                     },
                 }]

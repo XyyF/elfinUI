@@ -17,9 +17,9 @@ export default class Render {
     // console.log('need override')
     render() {}
 
-    getScopedSlotsByName(slotName = 'default') {
+    getRenderSlot() {
         const {itemOptions = {}} = this.config
 
-        return (itemOptions.scopedSlots && itemOptions.scopedSlots[slotName]) || noop
+        return itemOptions.renderSlot || noop
     }
 }
