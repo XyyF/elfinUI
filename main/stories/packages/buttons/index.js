@@ -27,6 +27,15 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         :buttonsConfig="buttonsConfig">
                     </elfin-buttons>
                 </generic-container>
+                <generic-container title="扩展方向">
+                    <p slot="subDocs">
+                        缺点:<br/>
+                        由于高度集中，导致 item 只能横向、向下扩展，向上扩展不足<br/>
+                    </p>
+                    <elfin-buttons
+                        :buttonsConfig="buttonsConfig2">
+                    </elfin-buttons>
+                </generic-container>
             </div>
         `,
         computed: {
@@ -49,6 +58,23 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             scopedSlots: {
                                 default() {
                                     return '单选框'
+                                },
+                            },
+                        },
+                    },
+                ]
+            },
+            buttonsConfig2() {
+                return [
+                    {
+                        type: ElfinButtonsItemType.BADGE,
+                        itemOptions: {
+                            props: {
+                                value: 12,
+                            },
+                            scopedSlots: {
+                                default(h) {
+                                    return h('el-button', '基础按钮')
                                 },
                             },
                         },
