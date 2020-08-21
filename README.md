@@ -5,12 +5,16 @@
 ## 组件设计形式
 - 如果一个组件可以 **独立出业务组件的DOM结构，将组件挂载在body下使用**，可以考虑通过 <u>单例模式</u> 设计
     - 如果需要拿到组件的实例this，可以在 Vue.prototype 上挂载function
+    - [单例模式](https://github.com/XyyF/elfinUI/blob/master/summary/singleton-mode.md)
+    - [注册、解绑方案](https://github.com/XyyF/elfinUI/blob/master/summary/on-and-off-program.md)
 - 如果一个组件有 **多种形态，由外部控制切换**，可以通过 <u>工厂模式</u> 设计
+    - [工厂模式](https://github.com/XyyF/elfinUI/blob/master/summary/factory-mode.md)
 
 ## 设计原则
 - 职责单一：针对功能块，组件的职责应该尽可能的单一，拆分出 Component + ComponentItem 形式拆分组件内部逻辑
 - 最少知识：考虑props、$emit应该尽可能的方便使用者
 - 组件隔离：组件内部的状态应该尽可能由自己来维护
+    - [可控与不可控](https://github.com/XyyF/elfinUI/blob/master/summary/controllable.md)
 - 通用性考虑：组件是小而可复用
 
 ## 组件实例
