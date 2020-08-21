@@ -15,15 +15,15 @@ vue-router
 ```js
 let sheet = null
 Object.defineProperty(Vue.prototype, '$actionSheet', {
-	get() {
-		if (!sheet) {
-			sheet = new ActionSheetClass()
-		}
-		return sheet
-	},
-	set() {
-		throw new Error('disallow modify $create-contract')
-	},
+    get() {
+        if (!sheet) {
+            sheet = new ActionSheetClass()
+        }
+        return sheet
+    },
+    set() {
+        throw new Error('disallow modify $create-contract')
+    },
 })
 ```
 
@@ -31,18 +31,18 @@ Object.defineProperty(Vue.prototype, '$actionSheet', {
 
 ```js
 class ActionSheetClass {
-	constructor() {
-		// actionSheetInstance 用来实现在Class中与Options进行交互
-		this.actionSheetInstance = this.init()
-	}
+    constructor() {
+        // actionSheetInstance 用来实现在Class中与Options进行交互
+        this.actionSheetInstance = this.init()
+    }
 
-	init() {
-		// 初始化组件 & 挂载组件
-		const instanceRoot = Vue.extend(actionSheetOptions)
-		const root = new InstanceRoot().$mount()
-		document.querySelector('body').appendChild(root.$el)
-		return root
-	}
+    init() {
+        // 初始化组件 & 挂载组件
+        const instanceRoot = Vue.extend(actionSheetOptions)
+        const root = new InstanceRoot().$mount()
+        document.querySelector('body').appendChild(root.$el)
+        return root
+    }
 }
 ```
 
@@ -51,7 +51,7 @@ class ActionSheetClass {
 ```js
 // 可以通过实例 actionSheetInstance 进行交互
 const actionSheetOptions = {
-	name: 'action-sheet-wrapper',
-	render() {},
+    name: 'action-sheet-wrapper',
+    render() {},
 }
 ```
