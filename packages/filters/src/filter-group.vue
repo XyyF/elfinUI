@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'xjl-filter-group',
+        name: 'elfin-filters-group',
         inject: ['injRoot'],
         props: {
             label: {
@@ -8,9 +8,9 @@
                 default: '',
             },
         },
-        render(h) {
+        render() {
             return (
-                <div class="xjl-filter-group">
+                <div class="elfin-filters-group">
                     {this.label && <span class="label">{this.label}:</span>}
                     <div class="group">
                         {this.$slots.default}
@@ -22,7 +22,7 @@
 </script>
 
 <style scoped>
-    .xjl-filter-group {
+    .elfin-filters-group {
         display: flex;
         flex-direction: row;
     }
