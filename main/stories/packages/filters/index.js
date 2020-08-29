@@ -2,14 +2,9 @@
  * Created by rengar on 2020/08/29.
  */
 import {storiesOf} from '@storybook/vue'
-import {array, boolean, color, date, number, object, radios, select, text, withKnobs} from '@storybook/addon-knobs';
-import {action, decorate} from '@storybook/addon-actions'
-import {
-    ElfinFilters,
-    ElfinFilterGroup,
-    ElfinFilterItem,
-    ElfinFilterItemType,
-} from '@packages/filters'
+import {text, withKnobs} from '@storybook/addon-knobs';
+import {decorate} from '@storybook/addon-actions'
+import {ElfinFilterGroup, ElfinFilterItem, ElfinFilterItemType, ElfinFilters,} from '@packages/filters'
 import notes from './index.md'
 
 // 装饰器：返回第一个参数
@@ -18,7 +13,7 @@ const firstArgDecorate = decorate([args => {
 }]);
 
 storiesOf('组件|ElfinFilters 筛选区', module)
-    // 注册props knobs插件
+// 注册props knobs插件
     .addDecorator(withKnobs)
     .add('组件介绍', () => ({
         components: {ElfinFilters, ElfinFilterGroup, ElfinFilterItem},
