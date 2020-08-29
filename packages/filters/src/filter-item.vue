@@ -1,26 +1,17 @@
 <script>
-    import _ from 'lodash'
-    import asserts from '@external/edu-saas-utils/typeof'
-    import {getPropByPath} from '@external/edu-saas-utils/utils-form'
-    import {XjlFilterItemType} from '@external/edu_sass_fe_ui/packages/xjl-filter'
+    import asserts from '../__utils/typeof'
+    import {getPropByPath} from '../__utils'
 
-    import RenderFactory from './render_factory/index'
+    import RenderFactory from './render_factory'
 
     export default {
-        name: 'xjl-filter-item',
+        name: 'elfin-filters-item',
         inject: ['injRoot'],
         props: {
             /**
              * 过滤数据项的显示名
              */
             label: {
-                type: String,
-                default: '',
-            },
-            /**
-             * 过滤项说明
-             */
-            description: {
                 type: String,
                 default: '',
             },
@@ -119,7 +110,7 @@
                         const includeSummary = this.injRoot.filterSummary.filter(item => item.prop === this.prop)
                         const isNeedUpdate = includeSummary.length !== newVal.length
                         if (!isNeedUpdate) return
-                        // tips: 这里直接赋值会触发xjl-selects的更新，导致item更新，所以上面会进行判断以免循环
+                        // tips: 这里直接赋值会触发elfin-filters的更新，导致item更新，所以上面会进行判断以免循环
                         this.injRoot.filterSummary = this.injRoot.filterSummary
                             .filter(item => item.prop !== this.prop)
                             .concat(newVal.map(e => ({
@@ -128,7 +119,6 @@
                                 value: this.formaterInRenderFactor ? this.formaterInRenderFactor(e, row) : e,
                                 optionKey: e, // 作为标识的字段
                                 isMultiple: true, // 是多选
-                                clearable: _.get(this.renderOptions, 'props.clearable', true),
                             })))
                         return
                     }
@@ -143,18 +133,12 @@
                             summaryItem.value = formatValue
                             summaryItem.optionKey = newVal
                         } else {
-                            // let clearable = true
-                            // // el-date-picker中clearable默认值true
-                            // if (this.render === XjlFilterItemType.SELECT) {
-                            //     clearable = true
-                            // }
                             this.injRoot.filterSummary.push({
                                 prop: this.prop,
                                 label: this.label,
                                 value: formatValue,
                                 optionKey: newVal,
                                 isMultiple: false,
-                                clearable: _.get(this.renderOptions, 'props.clearable', true),
                             })
                         }
                         return
@@ -208,7 +192,7 @@
             } else if (asserts.isNumber(render)) {
                 itemContent = RenderFactory.render(h, renderOptions, vmodel, this._props, render)
             } else {
-                const options = _.cloneDeep(renderOptions) || {}
+                const options = glodash.cloneDeep(renderOptions) || {}
                 options.props = Object.assign({}, options.props, vmodel.props)
                 options.on = Object.assign({}, options.on, vmodel.on)
                 itemContent = h(render, {...options})
@@ -218,14 +202,6 @@
                     {this.label && (
                             <span class="item-label">
                                 {inline ? (label ? `${label}:` : '') : label}
-                                {this.description && (
-                                    <el-tooltip
-                                        effect="dark"
-                                        content={this.description}
-                                        placement="top">
-                                        <i class="el-icon-info" style="margin-left: 2px; color: #606266;"></i>
-                                    </el-tooltip>
-                                )}
                             </span>
                     )}
                     {itemContent}
