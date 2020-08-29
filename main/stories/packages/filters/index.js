@@ -12,7 +12,7 @@ const firstArgDecorate = decorate([args => {
     return Array.isArray(args[0]) ? args[0] : [args[0]]
 }]);
 
-storiesOf('组件|ElfinFilters 筛选区', module)
+storiesOf('组件|elfinFilters 筛选区', module)
 // 注册props knobs插件
     .addDecorator(withKnobs)
     .add('组件介绍', () => ({
@@ -33,7 +33,7 @@ storiesOf('组件|ElfinFilters 筛选区', module)
                 <generic-container title="组件设计">
                     <p slot="subDocs">
                         区域分为：outer高频筛选区、default默认收缩筛选区<br/>
-                        包含：单选下拉框、单选框、时间范围筛选、时间筛选、数字范围筛选
+                        包含：单选下拉框、时间范围筛选、时间筛选
                     </p>
                 </generic-container>
                 <generic-container title="基本使用">
@@ -53,14 +53,6 @@ storiesOf('组件|ElfinFilters 筛选区', module)
                         <elfin-filter-group label="选择字段">
                             <elfin-filter-item
                                 v-for="field in selectFields"
-                                :key="field.prop"
-                                v-bind="field">
-                            </elfin-filter-item>
-                        </elfin-filter-group>
-
-                        <elfin-filter-group label="范围字段">
-                            <elfin-filter-item
-                                v-for="field in rangeFields"
                                 :key="field.prop"
                                 v-bind="field">
                             </elfin-filter-item>

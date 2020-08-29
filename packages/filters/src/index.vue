@@ -66,7 +66,7 @@
             },
             // 初始化 elfin-filters__arrow 元素的offsetLeft
             initialArrowOffset() {
-                const moreBtnEl = this.$el.querySelector('.elfin-filter__button--more')
+                const moreBtnEl = this.$el.querySelector('.elfin-filters__button--more')
                 if (!moreBtnEl) return
                 const filterWrapLeft = this.$el.querySelector('.filters-detail').offsetLeft
                 const moreBtnWidth = moreBtnEl.offsetWidth
@@ -102,7 +102,6 @@
 
                     <el-collapse-transition>
                         <div v-show={this.localVisible} class="filters-detail">
-                            <div class="placeholder-content"></div>
                             <div class="elfin-filters__arrow"></div>
                             <div class="filters-detail-container">
                                 {this.$slots.default}
@@ -120,7 +119,7 @@
         margin-bottom: 10px;
     }
 
-    .elfin-filters-root ::v-deep .elfin-filters-group + .elfin-filters-group {
+    .elfin-filters-root ::v-deep .elfin-filter-group + .elfin-filter-group {
         margin-top: 25px;
     }
 
@@ -135,12 +134,6 @@
         border: 1px solid #E5E9F2;
     }
 
-    /* 为了让动画更顺滑，避免使用margin，使用这个div做占位 */
-    .placeholder-content {
-        width: 100%;
-        height: 8px;
-    }
-
     .outer-section {
         display: inline-flex;
         align-items: center;
@@ -149,27 +142,17 @@
     }
 
     /*强行横向排列*/
-    .outer-section ::v-deep .filters-item-root {
+    .outer-section ::v-deep .filter-item-root {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
-
-        margin-right: 10px;
-    }
-
-    .outer-section ::v-deep .elfin-filters-group {
-        padding-bottom: 5px;
-    }
-
-    .outer-section ::v-deep .filters-item-root .item-label {
-        margin-right: 10px;
     }
 
     .elfin-filters__button--more {
         position: relative;
     }
 
-    .elfin-filter__button--more ::v-deep i {
+    .elfin-filters__button--more ::v-deep i {
         margin-left: 2px;
     }
 
@@ -179,7 +162,7 @@
         width: 10px;
         height: 10px;
         left: 0;
-        top: 3px;
+        top: -5px;
         border: none;
         border-top: 1px solid #E5E9F2;
         border-left: 1px solid #E5E9F2;
