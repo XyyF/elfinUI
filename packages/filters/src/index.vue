@@ -39,7 +39,7 @@
         methods: {
             watchLocalData() {
                 const handleChange = (val) => {
-                    this.$emit('input', _.cloneDeep(val))
+                    this.$emit('input', glodash.cloneDeep(val))
                 }
                 this.unwatch = this.$watch('localData', handleChange, {deep: true})
             },
@@ -82,7 +82,7 @@
                 immediate: true,
                 handler(val) {
                     this.unwatch && this.unwatch()
-                    this.localData = _.cloneDeep(val) || {}
+                    this.localData = glodash.cloneDeep(val) || {}
                     this.watchLocalData()
                 },
             },
