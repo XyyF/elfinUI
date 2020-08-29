@@ -19,5 +19,6 @@
 
 ## 组件实例
 
-- elfinButtons 工厂模式设计
+- elfinButtons 组件内部状态高度集中 + 工厂模式设计
+- elfinFilters 通过组件拆分将内部状态解藕 + 工厂模式设计
 - previewer 单例模式挂载function，优势：可以在function中获取组件实例this
