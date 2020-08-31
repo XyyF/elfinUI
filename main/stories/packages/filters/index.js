@@ -6,7 +6,6 @@ import {text, withKnobs} from '@storybook/addon-knobs';
 import {action, decorate} from '@storybook/addon-actions'
 import {ElfinFilterGroup, ElfinFilterItem, ElfinFilterItemType, ElfinFilters,} from '@packages/filters'
 import notes from './index.md'
-import {boolean} from '@storybook/addon-knobs/dist/index';
 
 // 装饰器：返回第一个参数
 const firstArgDecorate = decorate([args => {
@@ -171,8 +170,8 @@ storiesOf('组件|elfinFilters 筛选区', module)
             <div>
                 <generic-container title="通用配置">
                     <p slot="subDocs">
-                        - value 选项绑定的值<br/>
-                        - visible 是否展开选项<br/>
+                        - value 选项绑定的值，可控变量<br/>
+                        - visible 是否展开选项，可控变量<br/>
                         具体请查看Notes
                     </p>
                     <elfin-filters
