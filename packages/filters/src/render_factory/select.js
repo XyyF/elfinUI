@@ -39,7 +39,7 @@ export function renderSelect(h, renderOptions, vmodel, {extra}) {
             renderOptions.on,
             // 覆盖 input事件
             vmodel.on,
-        )
+        ),
     }
 
     const options = extra.options || []

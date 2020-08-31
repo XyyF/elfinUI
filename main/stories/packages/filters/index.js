@@ -32,15 +32,12 @@ storiesOf('组件|elfinFilters 筛选区', module)
                 </generic-container>
                 <generic-container title="组件设计">
                     <p slot="subDocs">
-                        区域分为：outer高频筛选区、default默认收缩筛选区<br/>
-                        包含：单选下拉框、时间范围筛选、时间筛选
+                        区域通过分为：outer高频筛选区、default默认收缩筛选区<br/>
+                        包含：单选下拉框、时间筛选、时间范围筛选
                     </p>
                 </generic-container>
-                <generic-container title="基本使用">
-                    <p slot="subDocs">
-                        使用高频筛选区 + 筛选开关按钮
-                    </p>
-                    <elfin-filters v-model="filterData">
+                <generic-container title="高频筛选区">
+                    <elfin-filters v-model="filterData1">
                          <elfin-filter-group slot="outer">
                             <elfin-filter-item
                                 v-for="field in outerFields"
@@ -49,11 +46,36 @@ storiesOf('组件|elfinFilters 筛选区', module)
                                 v-bind="field">
                             </elfin-filter-item>
                         </elfin-filter-group>
-
-                        <elfin-filter-group label="选择字段">
+                    </elfin-filters>
+                </generic-container>
+                <generic-container title="低频筛选区">
+                    <elfin-filters v-model="filterData2">
+                         <elfin-filter-group>
                             <elfin-filter-item
                                 v-for="field in selectFields"
                                 :key="field.prop"
+                                :inline="true"
+                                v-bind="field">
+                            </elfin-filter-item>
+                        </elfin-filter-group>
+                    </elfin-filters>
+                </generic-container>
+                <generic-container title="组合筛选区">
+                    <elfin-filters v-model="filterData3">
+                         <elfin-filter-group slot="outer">
+                            <elfin-filter-item
+                                v-for="field in outerFields"
+                                :key="field.prop"
+                                :inline="true"
+                                v-bind="field">
+                            </elfin-filter-item>
+                        </elfin-filter-group>
+                        
+                         <elfin-filter-group>
+                            <elfin-filter-item
+                                v-for="field in selectFields"
+                                :key="field.prop"
+                                :inline="true"
                                 v-bind="field">
                             </elfin-filter-item>
                         </elfin-filter-group>
@@ -63,7 +85,9 @@ storiesOf('组件|elfinFilters 筛选区', module)
         `,
         data() {
             return {
-                filterData: {},
+                filterData1: {},
+                filterData2: {},
+                filterData3: {},
             }
         },
         computed: {
@@ -76,25 +100,6 @@ storiesOf('组件|elfinFilters 筛选区', module)
                         renderOptions: {
                             props: {
                                 placeholder: '请选择',
-                                clearable: true,
-                            },
-                        },
-                        extra: {
-                            options: [
-                                {label: '一月', value: 1},
-                                {label: '二月', value: 2},
-                                {label: '三月', value: 3},
-                            ],
-                        },
-                    },
-                    {
-                        prop: 'unClearable',
-                        label: '不可清空',
-                        render: ElfinFilterItemType.SELECT,
-                        renderOptions: {
-                            props: {
-                                placeholder: '请选择',
-                                clearable: false,
                             },
                         },
                         extra: {
@@ -111,12 +116,11 @@ storiesOf('组件|elfinFilters 筛选区', module)
                 return [
                     {
                         prop: 'age',
-                        label: '年龄',
+                        label: '月份',
                         render: ElfinFilterItemType.SELECT,
                         renderOptions: {
                             props: {
                                 placeholder: '请选择',
-                                clearable: true,
                             },
                         },
                         extra: {
@@ -125,6 +129,16 @@ storiesOf('组件|elfinFilters 筛选区', module)
                                 {label: '二月', value: 2},
                                 {label: '三月', value: 3},
                             ],
+                        },
+                    },
+                    {
+                        prop: 'time',
+                        label: '时间',
+                        render: ElfinFilterItemType.DATE,
+                        renderOptions: {
+                            props: {
+                                placeholder: '请选择',
+                            },
                         },
                     },
                     {
@@ -143,6 +157,11 @@ storiesOf('组件|elfinFilters 筛选区', module)
                     },
                 ]
             },
+        },
+        watch: {
+            filterData1: firstArgDecorate.action('高频筛选'),
+            filterData2: firstArgDecorate.action('低频筛选'),
+            filterData3: firstArgDecorate.action('组合频筛选'),
         },
     }), {notes})
     .add('filter-group', () => ({
