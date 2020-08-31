@@ -43,9 +43,10 @@
                 }
                 this.unwatch = this.$watch('localData', handleChange, {deep: true})
             },
-            handleSwitchVisible() {
-                this.localVisible = !this.localVisible
-                this.$emit('update:visible', this.localVisible)
+            handleSwitchVisible(visibleState) {
+                if (this.localVisible === visibleState) return
+                this.localVisible = visibleState
+                this.$emit('update:visible', visibleState)
                 if (this.localVisible) {
                     this.$nextTick(() => {
                         this.initialArrowOffset()
@@ -58,7 +59,7 @@
                     <el-button
                         type="text"
                         class="elfin-filters__button--more"
-                        onClick={this.handleSwitchVisible}>
+                        onClick={() => this.handleSwitchVisible(!this.localVisible)}>
                         更多筛选
                         <i class={this.localVisible ? 'el-icon-arrow-up' : 'el-icon-arrow-down'}></i>
                     </el-button>
@@ -88,7 +89,7 @@
             },
             visible: {
                 handler(v) {
-                    this.localVisible = v
+                    this.handleSwitchVisible(v)
                 },
             },
         },

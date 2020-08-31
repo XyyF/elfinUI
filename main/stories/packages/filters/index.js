@@ -3,9 +3,10 @@
  */
 import {storiesOf} from '@storybook/vue'
 import {text, withKnobs} from '@storybook/addon-knobs';
-import {decorate} from '@storybook/addon-actions'
+import {action, decorate} from '@storybook/addon-actions'
 import {ElfinFilterGroup, ElfinFilterItem, ElfinFilterItemType, ElfinFilters,} from '@packages/filters'
 import notes from './index.md'
+import {boolean} from '@storybook/addon-knobs/dist/index';
 
 // 装饰器：返回第一个参数
 const firstArgDecorate = decorate([args => {
@@ -162,6 +163,119 @@ storiesOf('组件|elfinFilters 筛选区', module)
             filterData1: firstArgDecorate.action('高频筛选'),
             filterData2: firstArgDecorate.action('低频筛选'),
             filterData3: firstArgDecorate.action('组合频筛选'),
+        },
+    }), {notes})
+    .add('通用配置', () => ({
+        components: {ElfinFilters, ElfinFilterGroup, ElfinFilterItem},
+        template: `
+            <div>
+                <generic-container title="通用配置">
+                    <p slot="subDocs">
+                        - value 选项绑定的值<br/>
+                        - visible 是否展开选项<br/>
+                        具体请查看Notes
+                    </p>
+                    <elfin-filters
+                        :value="filterData"
+                        @input="handleInput"
+                        @update:visible="handleVisible">
+                        <elfin-filter-group slot="outer">
+                            <elfin-filter-item
+                                v-for="field in outerFields"
+                                :key="field.prop"
+                                :inline="true"
+                                v-bind="field">
+                            </elfin-filter-item>
+                        </elfin-filter-group>
+                        
+                         <elfin-filter-group>
+                            <elfin-filter-item
+                                v-for="field in selectFields"
+                                :key="field.prop"
+                                :inline="true"
+                                v-bind="field">
+                            </elfin-filter-item>
+                        </elfin-filter-group>
+                    </elfin-filters>
+                </generic-container>
+            </div>
+        `,
+        data() {
+            return {
+                filterData: {},
+            }
+        },
+        computed: {
+            outerFields() {
+                return [
+                    {
+                        prop: 'highFrequency',
+                        label: '高频字段',
+                        render: ElfinFilterItemType.SELECT,
+                        renderOptions: {
+                            props: {
+                                placeholder: '请选择',
+                            },
+                        },
+                        extra: {
+                            options: [
+                                {label: '一月', value: 1},
+                                {label: '二月', value: 2},
+                                {label: '三月', value: 3},
+                            ],
+                        },
+                    },
+                ]
+            },
+            selectFields() {
+                return [
+                    {
+                        prop: 'age',
+                        label: '月份',
+                        render: ElfinFilterItemType.SELECT,
+                        renderOptions: {
+                            props: {
+                                placeholder: '请选择',
+                            },
+                        },
+                        extra: {
+                            options: [
+                                {label: '一月', value: 1},
+                                {label: '二月', value: 2},
+                                {label: '三月', value: 3},
+                            ],
+                        },
+                    },
+                    {
+                        prop: 'time',
+                        label: '时间',
+                        render: ElfinFilterItemType.DATE,
+                        renderOptions: {
+                            props: {
+                                placeholder: '请选择',
+                            },
+                        },
+                    },
+                    {
+                        label: '时间范围',
+                        prop: 'timeRange',
+                        render: ElfinFilterItemType.DATE_RANGE,
+                        renderOptions: {
+                            props: {
+                                pickerOptions: {
+                                    disabledDate(time) {
+                                        return time.getTime() > Date.now()
+                                    },
+                                },
+                            },
+                        },
+                    },
+                ]
+            },
+        },
+        methods: {
+            handleInput: action('handleInput'),
+            handleVisible: action('handleVisible'),
         },
     }), {notes})
     .add('filter-group', () => ({
