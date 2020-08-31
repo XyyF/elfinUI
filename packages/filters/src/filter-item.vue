@@ -200,9 +200,9 @@
             return (
                 <div class={['filter-item-root', inline && 'is-inline']}>
                     {this.label && (
-                            <span class="item-label">
-                                {inline ? (label ? `${label}:` : '') : label}
-                            </span>
+                        <span class="item-label">
+                            {inline ? (label ? `${label}:` : '') : label}
+                        </span>
                     )}
                     {itemContent}
                 </div>
@@ -222,6 +222,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-right: 20px;
     }
 
     .item-label {
@@ -232,13 +233,5 @@
     .filter-item-root.is-inline .item-label {
         margin: 0 10px 0 0;
         flex-shrink: 0;
-    }
-
-    .filter-item-root.is-inline {
-        margin-right: 20px;
-    }
-
-    .item-label + .el-select {
-        min-width: 200px;
     }
 </style>

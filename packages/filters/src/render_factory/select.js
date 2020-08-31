@@ -1,6 +1,7 @@
 /**
  * Created by rengar on 2020/08/29.
  */
+import './styles/select.css'
 
 /**
  * 使用示例
@@ -24,11 +25,22 @@
  * @param row
  */
 export function renderSelect(h, renderOptions, vmodel, {extra}) {
-    const selectOptions = {}
-    selectOptions.props = Object.assign({
-        clearable: true,
-    }, renderOptions.props, vmodel.props)
-    selectOptions.on = Object.assign({}, renderOptions.on, vmodel.on)
+    const selectOptions = {
+        class: 'elfin-filters__select',
+        props: Object.assign(
+            {clearable: true},
+            // 覆盖clearable
+            renderOptions.props,
+            // 覆盖 value
+            vmodel.props,
+        ),
+        on: Object.assign(
+            {},
+            renderOptions.on,
+            // 覆盖 input事件
+            vmodel.on,
+        )
+    }
 
     const options = extra.options || []
 
@@ -43,7 +55,7 @@ export function renderSelect(h, renderOptions, vmodel, {extra}) {
                     value: option.value,
                     disabled: option.disabled,
                 },
-                key: option.label + idx,
+                key: option.value + idx,
             },
         )),
     )
