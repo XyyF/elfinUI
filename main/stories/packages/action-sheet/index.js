@@ -28,8 +28,8 @@ storiesOf('组件|actionSheet 动作面板', module)
                 </generic-container>
                 <generic-container title="基本使用">
                     <p slot="subDocs">
-                        this.$actionSheet.openSheet(options)<br/>
-                        - options: 动作面板的列表内容<br/>
+                        this.$actionSheet(options)<br/>
+                        - options: 动作面板的jsx渲染内容，详细请查看Notes<br/>
                     </p>
                     <el-button @click="handleClick">点击调起动作面板</el-button>
                 </generic-container>
@@ -37,7 +37,14 @@ storiesOf('组件|actionSheet 动作面板', module)
         `,
         methods: {
             handleClick() {
-                this.$actionSheet.openSheet([])
+                this.$actionSheet({
+                    props: {
+                        actions: [
+                            {name: '选项1'},
+                            {name: '选项2'},
+                        ],
+                    },
+                })
             },
         },
     }), {notes})

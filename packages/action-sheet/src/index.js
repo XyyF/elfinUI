@@ -3,6 +3,7 @@
  */
 import Vue from 'vue'
 import {ActionSheet} from 'vant'
+import 'vant/lib/action-sheet/style'
 
 export default {
     install(Vue) {
