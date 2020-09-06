@@ -6,6 +6,7 @@ import {storiesOf} from '@storybook/vue'
 import {withKnobs} from '@storybook/addon-knobs'
 import {ElfinActionSheet} from '@packages/action-sheet'
 import notes from './index.md'
+import {action} from '@storybook/addon-actions/dist/index';
 
 Vue.use(ElfinActionSheet)
 
@@ -30,8 +31,12 @@ storiesOf('组件|actionSheet 动作面板', module)
                     <p slot="subDocs">
                         this.$actionSheet(options)<br/>
                         - options: 动作面板的jsx渲染内容，详细请查看Notes<br/>
+                        - options.props: 动作面板的props内容，详细请查看Notes<br/>
+                        - options.on: 动作面板的on内容，可以在Actions面板查看事件<br/>
                     </p>
-                    <el-button @click="handleClick">点击调起动作面板</el-button>
+                    <el-button @click="handleClick">基本使用</el-button>
+                    <el-button @click="handleClick1">展示取消按钮</el-button>
+                    <el-button @click="handleClick2">展示描述信息</el-button>
                 </generic-container>
             </div>
         `,
@@ -44,7 +49,45 @@ storiesOf('组件|actionSheet 动作面板', module)
                             {name: '选项2'},
                         ],
                     },
+                    on: {
+                        select: this.handleSelect.bind(this),
+                    },
                 })
             },
+            handleClick1() {
+                this.$actionSheet({
+                    props: {
+                        actions: [
+                            {name: '选项1'},
+                            {name: '选项2'},
+                        ],
+                        cancelText: '取消',
+                        closeOnClickAction: true,
+                    },
+                    on: {
+                        select: this.handleSelect.bind(this),
+                        cancel: this.handleCancel.bind(this),
+                    },
+                })
+            },
+            handleClick2() {
+                this.$actionSheet({
+                    props: {
+                        actions: [
+                            {name: '选项1'},
+                            {name: '选项2'},
+                        ],
+                        cancelText: '取消',
+                        description: '这是一段描述信息',
+                        closeOnClickAction: true,
+                    },
+                    on: {
+                        select: this.handleSelect.bind(this),
+                        cancel: this.handleCancel.bind(this),
+                    },
+                })
+            },
+            handleCancel: action('handleCancel'),
+            handleSelect: action('handleSelect'),
         },
     }), {notes})
