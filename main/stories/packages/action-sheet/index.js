@@ -38,6 +38,12 @@ storiesOf('组件|actionSheet 动作面板', module)
                     <el-button @click="handleClick1">展示取消按钮</el-button>
                     <el-button @click="handleClick2">展示描述信息</el-button>
                 </generic-container>
+                <generic-container title="选项状态">
+                    <p slot="subDocs">
+                        可以通过 loading 和 disabled 将选项设置为加载状态或禁用状态，或者通过color设置选项的颜色
+                    </p>
+                    <el-button @click="handleClick3">选项状态</el-button>
+                </generic-container>
             </div>
         `,
         methods: {
@@ -84,6 +90,19 @@ storiesOf('组件|actionSheet 动作面板', module)
                     on: {
                         select: this.handleSelect.bind(this),
                         cancel: this.handleCancel.bind(this),
+                    },
+                })
+            },
+            handleClick3() {
+                this.$actionSheet({
+                    props: {
+                        actions: [
+                            {name: '着色选项', color: '#ee0a24'},
+                            {name: '禁用选项', disabled: true},
+                            {name: '加载选项', loading: true},
+                        ],
+                        cancelText: '取消',
+                        closeOnClickAction: true,
                     },
                 })
             },
