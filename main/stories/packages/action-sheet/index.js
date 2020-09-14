@@ -10,7 +10,7 @@ import {action} from '@storybook/addon-actions/dist/index';
 
 Vue.use(ElfinActionSheet)
 
-storiesOf('组件|actionSheet 动作面板', module)
+storiesOf('组件|elfinActionSheet 动作面板', module)
     .addDecorator(withKnobs)
     .add('组件介绍', () => ({
         template: `

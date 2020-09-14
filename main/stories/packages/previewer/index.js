@@ -12,7 +12,7 @@ import notes from './index.md'
 
 Vue.use(ElfinPreviewer)
 
-storiesOf('组件|previewer 图片预览', module)
+storiesOf('组件|elfinPreviewer 图片预览', module)
     .addDecorator(withKnobs)
     .add('组件介绍', () => ({
         template: `
