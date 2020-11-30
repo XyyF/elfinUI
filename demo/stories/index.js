@@ -1,15 +1,6 @@
-/**
- * Created by rengar on 2020/8/6.
- */
-import {storiesOf} from '@storybook/vue';
-import {withOptions} from '@storybook/addon-options';
+// import all
+function importAll(r) {
+    r.keys().forEach(r);
+}
 
-storiesOf('Demo', module)
-    .addDecorator(
-        withOptions({
-            showPanel: false,
-        })
-    )
-    .add('欢迎页', () => ({
-        render: h => h('div'),
-    }));
+importAll(require.context('./', true, /\.js$/));
