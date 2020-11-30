@@ -1,7 +1,7 @@
-import preview from './src/index'
+import preview from './src/index';
 
-export const ElfinPreviewer = preview
+export const ElfinPreviewer = preview;
 
 export default {
     ElfinPreviewer,
-}
+};

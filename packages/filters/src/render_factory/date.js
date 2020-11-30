@@ -1,4 +1,4 @@
-import './styles/date.css'
+import './styles/date.css';
 /**
  * 使用示例
  {
@@ -22,18 +22,18 @@ import './styles/date.css'
 export function render(h, renderOptions, vmodel) {
     const options = {
         class: 'elfin-filters__date-picker',
-    }
+    };
     options.props = Object.assign({
         type: 'date',
         clearable: true,
         placeholder: '请选择时间',
-    }, vmodel.props, renderOptions.props)
-    options.on = Object.assign({}, options.on, vmodel.on)
+    }, vmodel.props, renderOptions.props);
+    options.on = Object.assign({}, options.on, vmodel.on);
 
     return h(
         'el-date-picker',
         options,
-    )
+    );
 }
 
 /**
@@ -41,15 +41,15 @@ export function render(h, renderOptions, vmodel) {
  * @param val
  * @param extra
  */
-export function formater(val, {extra}) {
+export function formater(val) {
     if (!val) {
-        return ''
+        return '';
     }
     // TODO 转化时间
-    return val
+    return val;
 }
 
 export default {
     render,
     formater,
-}
+};

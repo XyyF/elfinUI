@@ -7,8 +7,7 @@
   "author": "rengar",
   "license": "ISC",
   "scripts": {
-    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue",
-    "lint.fix": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix",
+    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx",
     "server": "start-storybook -p 8001 -c .storybook",
     "build-pre-release": "build-storybook -c .storybook -o dist"
   },

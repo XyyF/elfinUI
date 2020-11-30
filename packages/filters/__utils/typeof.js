@@ -1,5 +1,5 @@
-const toCamel = constName => Array.from(constName).map((char, index) => index === 0 ? char : char.toLowerCase()).join('')
-const assertsGenerator = dataType => target => typeOf(target) === dataType
+const toCamel = constName => Array.from(constName).map((char, index) => index === 0 ? char : char.toLowerCase()).join('');
+const assertsGenerator = dataType => target => typeOf(target) === dataType;
 
 /**
  * @typedef {object} Asserts
@@ -13,7 +13,7 @@ const assertsGenerator = dataType => target => typeOf(target) === dataType
  * @property {Function} isPromise
  * @type {Asserts}
  */
-const asserts = {}
+const asserts = {};
 
 /**
  * 返回一个类型字符串
@@ -21,7 +21,7 @@ const asserts = {}
  * @returns {string}
  */
 export function typeOf(target) {
-    return Object.prototype.toString.call(target)
+    return Object.prototype.toString.call(target);
 }
 
 /**
@@ -37,10 +37,10 @@ export const DATA_TYPE = {
     FUNCTION: '[object Function]',
     PROMISE: '[object Promise]',
     ASYNC_FUNCTION: '[object AsyncFunction]',
-}
+};
 
 for (const name of Reflect.ownKeys(DATA_TYPE)) {
-    asserts[`is${toCamel(name)}`] = assertsGenerator(DATA_TYPE[name])
+    asserts[`is${toCamel(name)}`] = assertsGenerator(DATA_TYPE[name]);
 }
 
-export default asserts
+export default asserts;

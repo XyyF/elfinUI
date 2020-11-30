@@ -1,8 +1,8 @@
-import {addParameters, configure} from '@storybook/vue'
-import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
+import {addParameters, configure} from '@storybook/vue';
+import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
 
-import './plugins/element'
-import './plugins/inject-components'
+import './plugins/element';
+import './plugins/inject-components';
 
 addParameters({
     viewport: {
@@ -17,12 +17,12 @@ addParameters({
             brandTitle: 'elfin-ui',
         },
     },
-})
+});
 
 // 加载story
 function loadStories() {
-    require('../main/stories')
-    require('../demo/stories')
+    require('../main/stories');
+    require('../demo/stories');
 }
 
-configure(loadStories, module)
+configure(loadStories, module);

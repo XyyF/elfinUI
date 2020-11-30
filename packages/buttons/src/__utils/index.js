@@ -3,6 +3,6 @@
  */
 export default {
     noop,
-}
+};
 
 export function noop() {}

@@ -1,15 +1,15 @@
 /**
  * Created by rengar on 2020/08/29.
  */
-import {storiesOf} from '@storybook/vue'
+import {storiesOf} from '@storybook/vue';
 import {text, withKnobs} from '@storybook/addon-knobs';
-import {action, decorate} from '@storybook/addon-actions'
-import {ElfinFilterGroup, ElfinFilterItem, ElfinFilterItemType, ElfinFilters,} from '@packages/filters'
-import notes from './index.md'
+import {action, decorate} from '@storybook/addon-actions';
+import {ElfinFilterGroup, ElfinFilterItem, ElfinFilterItemType, ElfinFilters, } from '@packages/filters';
+import notes from './index.md';
 
 // 装饰器：返回第一个参数
 const firstArgDecorate = decorate([args => {
-    return Array.isArray(args[0]) ? args[0] : [args[0]]
+    return Array.isArray(args[0]) ? args[0] : [args[0]];
 }]);
 
 storiesOf('组件|elfinFilters 筛选区', module)
@@ -88,7 +88,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
                 filterData1: {},
                 filterData2: {},
                 filterData3: {},
-            }
+            };
         },
         computed: {
             outerFields() {
@@ -110,7 +110,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             ],
                         },
                     },
-                ]
+                ];
             },
             selectFields() {
                 return [
@@ -149,13 +149,13 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             props: {
                                 pickerOptions: {
                                     disabledDate(time) {
-                                        return time.getTime() > Date.now()
+                                        return time.getTime() > Date.now();
                                     },
                                 },
                             },
                         },
                     },
-                ]
+                ];
             },
         },
         watch: {
@@ -202,7 +202,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
         data() {
             return {
                 filterData: {},
-            }
+            };
         },
         computed: {
             outerFields() {
@@ -224,7 +224,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             ],
                         },
                     },
-                ]
+                ];
             },
             selectFields() {
                 return [
@@ -263,13 +263,13 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             props: {
                                 pickerOptions: {
                                     disabledDate(time) {
-                                        return time.getTime() > Date.now()
+                                        return time.getTime() > Date.now();
                                     },
                                 },
                             },
                         },
                     },
-                ]
+                ];
             },
         },
         methods: {
@@ -306,7 +306,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
         data() {
             return {
                 filterData: {},
-            }
+            };
         },
         computed: {
             selectFields() {
@@ -329,7 +329,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             ],
                         },
                     },
-                ]
+                ];
             },
         },
     }), {notes})
@@ -354,7 +354,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
         data() {
             return {
                 filterData: {},
-            }
+            };
         },
         computed: {
             selectFields() {
@@ -395,7 +395,7 @@ storiesOf('组件|elfinFilters 筛选区', module)
                             ],
                         },
                     },
-                ]
+                ];
             },
         },
     }), {notes});

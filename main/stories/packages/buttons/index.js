@@ -2,13 +2,13 @@
  * Created by rengar on 2020/4/23.
  */
 
-import {storiesOf} from '@storybook/vue'
-import {action} from '@storybook/addon-actions'
-import {boolean, object, text, withKnobs} from '@storybook/addon-knobs'
-import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons'
-import configNotes from './config.md'
-import buttonNotes from './button.md'
-import checkboxNotes from './checkbox.md'
+import {storiesOf} from '@storybook/vue';
+import {action} from '@storybook/addon-actions';
+import {boolean, object, text, withKnobs} from '@storybook/addon-knobs';
+import {ElfinButtons, ElfinButtonsItemType} from '@packages/buttons';
+import configNotes from './config.md';
+import buttonNotes from './button.md';
+import checkboxNotes from './checkbox.md';
 
 storiesOf('组件|elfinButtons 按钮区', module)
     .addDecorator(withKnobs)
@@ -46,7 +46,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         itemOptions: {
                             props: {type: 'primary', icon: 'el-icon-plus'},
                             renderSlot() {
-                                return '基础按钮'
+                                return '基础按钮';
                             },
                         },
                     },
@@ -54,7 +54,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         type: ElfinButtonsItemType.CHECKBOX,
                         itemOptions: {
                             renderSlot() {
-                                return '单选框'
+                                return '单选框';
                             },
                         },
                     },
@@ -67,11 +67,11 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             renderSlot(h) {
                                 return [
                                     h('el-button', 'badge按钮'),
-                                ]
+                                ];
                             },
                         },
                     },
-                ]
+                ];
             },
             buttonsConfig2() {
                 return [
@@ -84,11 +84,11 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             renderSlot(h) {
                                 return [
                                     h('el-button', 'badge按钮'),
-                                ]
+                                ];
                             },
                         },
                     },
-                ]
+                ];
             },
         },
     }))
@@ -116,7 +116,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 click: this.handleClick.bind(this),
                             },
                             renderSlot() {
-                                return '按钮'
+                                return '按钮';
                             },
                         },
                     },
@@ -125,7 +125,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         itemOptions: {
                             props: {type: 'primary', icon: 'el-icon-plus'},
                             renderSlot() {
-                                return '按钮2'
+                                return '按钮2';
                             },
                         },
                     },
@@ -137,11 +137,11 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 type: 'text',
                             },
                             renderSlot() {
-                                return '文本按钮2'
+                                return '文本按钮2';
                             },
                         },
                     },
-                ]
+                ];
             },
         },
         methods: {
@@ -190,7 +190,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 click: this.handleClick.bind(this),
                             },
                             renderSlot: () => {
-                                return this.slotString
+                                return this.slotString;
                             },
                         },
                     },
@@ -201,11 +201,11 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 type: 'text',
                             },
                             renderSlot() {
-                                return '文本按钮'
+                                return '文本按钮';
                             },
                         },
                     },
-                ]
+                ];
             },
             buttonsConfig2() {
                 return [
@@ -213,7 +213,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                         type: ElfinButtonsItemType.BUTTON,
                         itemOptions: {
                             renderSlot() {
-                                return '默认'
+                                return '默认';
                             },
                         },
                     },
@@ -224,7 +224,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 size: 'medium',
                             },
                             renderSlot() {
-                                return 'medium'
+                                return 'medium';
                             },
                         },
                     },
@@ -235,7 +235,7 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 size: 'small',
                             },
                             renderSlot() {
-                                return 'small'
+                                return 'small';
                             },
                         },
                     },
@@ -246,11 +246,11 @@ storiesOf('组件|elfinButtons 按钮区', module)
                                 size: 'mini',
                             },
                             renderSlot() {
-                                return 'mini'
+                                return 'mini';
                             },
                         },
                     },
-                ]
+                ];
             },
         },
         methods: {
@@ -307,10 +307,10 @@ storiesOf('组件|elfinButtons 按钮区', module)
                             change: this.handleChgCheckBox.bind(this),
                         },
                         renderSlot: () => {
-                            return this.slotString
+                            return this.slotString;
                         },
                     },
-                }]
+                }];
             },
         },
         methods: {
@@ -326,4 +326,4 @@ storiesOf('组件|elfinButtons 按钮区', module)
                 </elfin-buttons>
             </generic-container>
         `,
-    }), {notes: checkboxNotes})
+    }), {notes: checkboxNotes});

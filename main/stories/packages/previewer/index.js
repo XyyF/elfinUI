@@ -1,16 +1,16 @@
 /**
  * Created by rengar on 2020/4/23.
  */
-import Vue from 'vue'
-import {storiesOf} from '@storybook/vue'
-import {withKnobs} from '@storybook/addon-knobs'
-import {ElfinPreviewer} from '@packages/previewer'
-import assets1 from '../../../assets/assets1.jpg'
-import assets2 from '../../../assets/assets2.jpg'
-import assets3 from '../../../assets/assets3.jpg'
-import notes from './index.md'
+import Vue from 'vue';
+import {storiesOf} from '@storybook/vue';
+import {withKnobs} from '@storybook/addon-knobs';
+import {ElfinPreviewer} from '@packages/previewer';
+import assets1 from '../../../assets/assets1.jpg';
+import assets2 from '../../../assets/assets2.jpg';
+import assets3 from '../../../assets/assets3.jpg';
+import notes from './index.md';
 
-Vue.use(ElfinPreviewer)
+Vue.use(ElfinPreviewer);
 
 storiesOf('组件|elfinPreviewer 图片预览', module)
     .addDecorator(withKnobs)
@@ -41,7 +41,7 @@ storiesOf('组件|elfinPreviewer 图片预览', module)
         `,
         methods: {
             handleClick() {
-                this.$previewImages([assets1, assets2, assets3])
+                this.$previewImages([assets1, assets2, assets3]);
             },
         },
-    }), {notes})
+    }), {notes});

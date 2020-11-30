@@ -1,7 +1,7 @@
 /**
  * Created by rengar on 2020/08/29.
  */
-import './styles/select.css'
+import './styles/select.css';
 
 /**
  * 使用示例
@@ -40,9 +40,9 @@ export function renderSelect(h, renderOptions, vmodel, {extra}) {
             // 覆盖 input事件
             vmodel.on,
         ),
-    }
+    };
 
-    const options = extra.options || []
+    const options = extra.options || [];
 
     return h(
         'el-select',
@@ -58,7 +58,7 @@ export function renderSelect(h, renderOptions, vmodel, {extra}) {
                 key: option.value + idx,
             },
         )),
-    )
+    );
 }
 
 /**
@@ -67,11 +67,11 @@ export function renderSelect(h, renderOptions, vmodel, {extra}) {
  * @param extra
  */
 export function formater(val, {extra}) {
-    const item = extra.options.find(item => item.value === val)
-    return item ? item.label : val
+    const item = extra.options.find(item => item.value === val);
+    return item ? item.label : val;
 }
 
 export default {
     render: renderSelect,
     formater,
-}
+};

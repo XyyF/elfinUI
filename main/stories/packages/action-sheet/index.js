@@ -1,14 +1,14 @@
 /**
  * Created by rengar on 2020/9/2.
  */
-import Vue from 'vue'
-import {storiesOf} from '@storybook/vue'
-import {withKnobs} from '@storybook/addon-knobs'
-import {ElfinActionSheet} from '@packages/action-sheet'
-import notes from './index.md'
+import Vue from 'vue';
+import {storiesOf} from '@storybook/vue';
+import {withKnobs} from '@storybook/addon-knobs';
+import {ElfinActionSheet} from '@packages/action-sheet';
+import notes from './index.md';
 import {action} from '@storybook/addon-actions/dist/index';
 
-Vue.use(ElfinActionSheet)
+Vue.use(ElfinActionSheet);
 
 storiesOf('组件|elfinActionSheet 动作面板', module)
     .addDecorator(withKnobs)
@@ -58,7 +58,7 @@ storiesOf('组件|elfinActionSheet 动作面板', module)
                     on: {
                         select: this.handleSelect.bind(this),
                     },
-                })
+                });
             },
             handleClick1() {
                 this.$actionSheet({
@@ -74,7 +74,7 @@ storiesOf('组件|elfinActionSheet 动作面板', module)
                         select: this.handleSelect.bind(this),
                         cancel: this.handleCancel.bind(this),
                     },
-                })
+                });
             },
             handleClick2() {
                 this.$actionSheet({
@@ -91,7 +91,7 @@ storiesOf('组件|elfinActionSheet 动作面板', module)
                         select: this.handleSelect.bind(this),
                         cancel: this.handleCancel.bind(this),
                     },
-                })
+                });
             },
             handleClick3() {
                 this.$actionSheet({
@@ -104,9 +104,9 @@ storiesOf('组件|elfinActionSheet 动作面板', module)
                         cancelText: '取消',
                         closeOnClickAction: true,
                     },
-                })
+                });
             },
             handleCancel: action('handleCancel'),
             handleSelect: action('handleSelect'),
         },
-    }), {notes})
+    }), {notes});

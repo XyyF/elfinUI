@@ -1,4 +1,4 @@
-import './styles/date-range.css'
+import './styles/date-range.css';
 /**
  * 使用示例
  {
@@ -22,34 +22,34 @@ import './styles/date-range.css'
 export function render(h, renderOptions, vmodel) {
     const options = {
         class: 'elfin-filters__date-range',
-    }
+    };
     const pickerOptions = {
         shortcuts: [{
             text: '最近一周',
             onClick(picker) {
-                const end = new Date()
-                const start = new Date()
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-                picker.$emit('pick', [start, end])
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                picker.$emit('pick', [start, end]);
             },
         }, {
             text: '最近一个月',
             onClick(picker) {
-                const end = new Date()
-                const start = new Date()
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-                picker.$emit('pick', [start, end])
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                picker.$emit('pick', [start, end]);
             },
         }, {
             text: '最近三个月',
             onClick(picker) {
-                const end = new Date()
-                const start = new Date()
-                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-                picker.$emit('pick', [start, end])
+                const end = new Date();
+                const start = new Date();
+                start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                picker.$emit('pick', [start, end]);
             },
         }],
-    }
+    };
     options.props = Object.assign({
         type: 'daterange',
         clearable: true,
@@ -57,13 +57,13 @@ export function render(h, renderOptions, vmodel) {
         endPlaceholder: '结束日期',
     }, vmodel.props, renderOptions.props, {
         pickerOptions: Object.assign(pickerOptions, renderOptions.props && renderOptions.props.pickerOptions),
-    })
-    options.on = Object.assign({}, renderOptions.on, vmodel.on)
+    });
+    options.on = Object.assign({}, renderOptions.on, vmodel.on);
 
     return h(
         'el-date-picker',
         options,
-    )
+    );
 }
 
 /**
@@ -71,15 +71,15 @@ export function render(h, renderOptions, vmodel) {
  * @param val
  * @param extra
  */
-export function formater(val, {extra}) {
+export function formater(val) {
     if (!val | val.length !== 2) {
-        return ''
+        return '';
     }
     // TODO 转化时间
-    return val
+    return val;
 }
 
 export default {
     render,
     formater,
-}
+};

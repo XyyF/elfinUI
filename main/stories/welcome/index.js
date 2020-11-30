@@ -1,8 +1,8 @@
 /**
  * Created by rengar on 2020/8/6.
  */
-import {storiesOf} from '@storybook/vue'
-import {withOptions} from '@storybook/addon-options'
+import {storiesOf} from '@storybook/vue';
+import {withOptions} from '@storybook/addon-options';
 
 storiesOf('导航|Welcome', module)
     .addDecorator(
@@ -12,4 +12,4 @@ storiesOf('导航|Welcome', module)
     )
     .add('欢迎页', () => ({
         render: h => h('div'),
-    }))
+    }));
