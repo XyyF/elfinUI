@@ -1,5 +1,5 @@
 {
-  "name": "elfinUI",
+  "name": "elfin-ui",
   "version": "1.0.0",
   "description": "elfin组件UI",
   "main": "lib/index.js",
