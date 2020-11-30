@@ -7,8 +7,16 @@
   "author": "rengar",
   "license": "ISC",
   "scripts": {
+    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue",
+    "lint.fix": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "server": "start-storybook -p 8001 -c .storybook",
     "build-pre-release": "build-storybook -c .storybook -o dist"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "elfincmd hooks commit-msg"
+    }
   },
   "repository": {
     "type": "git",
@@ -41,10 +49,14 @@
     "@vue/cli-plugin-unit-jest": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-glodash": "^1.0.5",
     "babel-preset-vue": "^2.0.2",
+    "eslint": "^7.14.0",
+    "eslint-plugin-import": "^2.22.1",
     "html-webpack-plugin": "^4.0.0-beta.2",
+    "husky": "^4.3.0",
     "qn-webpack": "^2.0.3",
     "sass": "^1.26.7",
     "sass-loader": "^7.0.1",
