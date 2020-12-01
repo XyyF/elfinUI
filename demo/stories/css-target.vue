@@ -3,27 +3,51 @@
     <div class="nav">
       <div class="nav-tree">
         <ul class="nav-tree-node-list">
-          <li class="nav-tree-node" @click="handleClick('CSSTarget1')">
+          <li
+            class="nav-tree-node"
+            @click="handleClick('CSSTarget1')"
+          >
             <div class="nav-tree-node-content">
-              <span class="nav-tree-node-caret-none"></span>
+              <span class="nav-tree-node-caret-none" />
               <span class="nav-tree-node-label">CSSTarget1</span>
             </div>
             <div class="nav-collapse">
-              <div class="nav-collapse-body" aria-hidden="false"></div>
+              <div
+                class="nav-collapse-body"
+                aria-hidden="false"
+              />
             </div>
           </li>
-          <li class="nav-tree-node" @click="handleClick('CSSTarget2')">
-            <div class="nav-tree-node-content"><span
-                class="nav-tree-node-caret-none"></span><span class="nav-tree-node-label">CSSTarget2</span></div>
+          <li
+            class="nav-tree-node"
+            @click="handleClick('CSSTarget2')"
+          >
+            <div class="nav-tree-node-content">
+              <span
+                class="nav-tree-node-caret-none"
+              /><span class="nav-tree-node-label">CSSTarget2</span>
+            </div>
             <div class="nav-collapse">
-              <div class="nav-collapse-body" aria-hidden="false"></div>
+              <div
+                class="nav-collapse-body"
+                aria-hidden="false"
+              />
             </div>
           </li>
-          <li class="nav-tree-node" @click="handleClick('CSSTarget3')">
-            <div class="nav-tree-node-content"><span
-                class="nav-tree-node-caret-none"></span><span class="nav-tree-node-label">CSSTarget3</span></div>
+          <li
+            class="nav-tree-node"
+            @click="handleClick('CSSTarget3')"
+          >
+            <div class="nav-tree-node-content">
+              <span
+                class="nav-tree-node-caret-none"
+              /><span class="nav-tree-node-label">CSSTarget3</span>
+            </div>
             <div class="nav-collapse">
-              <div class="nav-collapse-body" aria-hidden="false"></div>
+              <div
+                class="nav-collapse-body"
+                aria-hidden="false"
+              />
             </div>
           </li>
         </ul>
@@ -31,15 +55,24 @@
     </div>
 
     <div class="content">
-      <div id="CSSTarget1" class="content-target">
+      <div
+        id="CSSTarget1"
+        class="content-target"
+      >
         开启后，在浏览器中打开 PDF 文件时会自动跳转到划词翻译的内置 PDF 阅读器。
 
         打开此选项后，无法在 Gmail、百度网盘等网站下载 PDF 文件的 bug 已修复。如果你仍然遇到了这个问题，可以反馈给我。
       </div>
-      <div id="CSSTarget2" class="content-target">
+      <div
+        id="CSSTarget2"
+        class="content-target"
+      >
         支持用黑 / 白名单规则控制在某些网址下是否启用网页划词。禁用了网页划词的页面在用鼠标划词后不会显示翻译按钮或翻译窗口，而且扩展图标上会有“off”字样。
       </div>
-      <div id="CSSTarget3" class="content-target">
+      <div
+        id="CSSTarget3"
+        class="content-target"
+      >
         通常情况下，你不需要手动修改黑 / 白名单规则，因为你可以在点击扩展图标后出现的弹窗中便捷的禁用 / 启用网页划词。
       </div>
     </div>
@@ -53,7 +86,7 @@ export default {
       window.location.hash = title;
     },
   },
-}
+};
 </script>
 
 <style scoped>

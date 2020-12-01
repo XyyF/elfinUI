@@ -1,17 +1,22 @@
 <template>
-    <iframe id="ifra" name="ifra" class="iframe-element" :src="src"></iframe>
+  <iframe
+    id="ifra"
+    name="ifra"
+    class="iframe-element"
+    :src="src"
+  />
 </template>
 
 <script>
     export default {
-        name: 'element-component',
+        name: 'ElementComponent',
         props: {
             src: {
                 type: String,
                 default: '',
             }
         },
-    }
+    };
 </script>
 
 <style lang="scss" scoped>

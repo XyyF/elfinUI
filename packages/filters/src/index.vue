@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'elfin-filters',
+        name: 'ElfinFilters',
         provide() {
             return {
                 /**
@@ -10,20 +10,7 @@
                  * }
                  */
                 injRoot: this,
-            }
-        },
-        data() {
-            return {
-                // 组件自管理的过滤数据
-                // provide 给子组件
-                localData: {},
-                // 过滤数据的摘要，独立显示
-                // provide 给子组件
-                filterSummary: [],
-                unwatch: null,
-                // 是否展示 slot.default
-                localVisible: false,
-            }
+            };
         },
         props: {
             // 使用 v-mode 维护数据
@@ -36,21 +23,50 @@
                 default: false,
             },
         },
+        data() {
+            return {
+                // 组件自管理的过滤数据
+                // provide 给子组件
+                localData: {},
+                // 过滤数据的摘要，独立显示
+                // provide 给子组件
+                filterSummary: [],
+                unwatch: null,
+                // 是否展示 slot.default
+                localVisible: false,
+            };
+        },
+        watch: {
+            value: {
+                deep: true,
+                immediate: true,
+                handler(val) {
+                    this.unwatch && this.unwatch();
+                    this.localData = glodash.cloneDeep(val) || {};
+                    this.watchLocalData();
+                },
+            },
+            visible: {
+                handler(v) {
+                    this.handleSwitchVisible(v);
+                },
+            },
+        },
         methods: {
             watchLocalData() {
                 const handleChange = (val) => {
-                    this.$emit('input', glodash.cloneDeep(val))
-                }
-                this.unwatch = this.$watch('localData', handleChange, {deep: true})
+                    this.$emit('input', glodash.cloneDeep(val));
+                };
+                this.unwatch = this.$watch('localData', handleChange, {deep: true});
             },
             handleSwitchVisible(visibleState) {
-                if (this.localVisible === visibleState) return
-                this.localVisible = visibleState
-                this.$emit('update:visible', visibleState)
+                if (this.localVisible === visibleState) return;
+                this.localVisible = visibleState;
+                this.$emit('update:visible', visibleState);
                 if (this.localVisible) {
                     this.$nextTick(() => {
-                        this.initialArrowOffset()
-                    })
+                        this.initialArrowOffset();
+                    });
                 }
             },
             // 渲染更多筛选按钮
@@ -63,34 +79,18 @@
                         更多筛选
                         <i class={this.localVisible ? 'el-icon-arrow-up' : 'el-icon-arrow-down'}></i>
                     </el-button>
-                )
+                );
             },
             // 初始化 elfin-filters__arrow 元素的offsetLeft
             initialArrowOffset() {
-                const moreBtnEl = this.$el.querySelector('.elfin-filters__button--more')
-                if (!moreBtnEl) return
-                const filterWrapLeft = this.$el.querySelector('.filters-detail').offsetLeft
-                const moreBtnWidth = moreBtnEl.offsetWidth
-                const moreBtnLeft = moreBtnEl.offsetLeft
-                const el = this.$el.querySelector('.elfin-filters__arrow')
-                const left = moreBtnLeft - filterWrapLeft + (moreBtnWidth / 2) - 5
-                el.style.left = `${left}px`
-            },
-        },
-        watch: {
-            value: {
-                deep: true,
-                immediate: true,
-                handler(val) {
-                    this.unwatch && this.unwatch()
-                    this.localData = glodash.cloneDeep(val) || {}
-                    this.watchLocalData()
-                },
-            },
-            visible: {
-                handler(v) {
-                    this.handleSwitchVisible(v)
-                },
+                const moreBtnEl = this.$el.querySelector('.elfin-filters__button--more');
+                if (!moreBtnEl) return;
+                const filterWrapLeft = this.$el.querySelector('.filters-detail').offsetLeft;
+                const moreBtnWidth = moreBtnEl.offsetWidth;
+                const moreBtnLeft = moreBtnEl.offsetLeft;
+                const el = this.$el.querySelector('.elfin-filters__arrow');
+                const left = moreBtnLeft - filterWrapLeft + (moreBtnWidth / 2) - 5;
+                el.style.left = `${left}px`;
             },
         },
         render() {
@@ -110,9 +110,9 @@
                         </div>
                     </el-collapse-transition>
                 </div>
-            )
+            );
         },
-    }
+    };
 </script>
 
 <style lang="scss" scoped>

@@ -4,4 +4,4 @@
 import Vue from 'vue';
 import GenericContainer from '../../main/components/generic-container';
 
-Vue.component('generic-container', GenericContainer);
+Vue.component('GenericContainer', GenericContainer);

@@ -7,7 +7,7 @@
   "author": "rengar",
   "license": "ISC",
   "scripts": {
-    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "server": "start-storybook -p 8001 -c .storybook",
     "build-pre-release": "build-storybook -c .storybook -o dist"
   },
@@ -54,6 +54,7 @@
     "babel-preset-vue": "^2.0.2",
     "eslint": "^7.14.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.1.0",
     "html-webpack-plugin": "^4.0.0-beta.2",
     "husky": "^4.3.0",
     "qn-webpack": "^2.0.3",

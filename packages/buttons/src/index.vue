@@ -1,8 +1,8 @@
 <script>
-    import renderFactory from './render_factory'
+    import renderFactory from './render_factory';
 
     export default {
-        name: 'elfin-buttons',
+        name: 'ElfinButtons',
         props: {
             /* Notice: 写下props数据的描述、用途 */
             /* Notice: props 里面的定义，使用此结构，type、default */
@@ -14,11 +14,11 @@
         render(h) {
             const {
                 buttonsConfig,
-            } = this
+            } = this;
 
             // 如果buttons为空 && 在button为空不渲染
             if (buttonsConfig.length === 0) {
-                return null
+                return null;
             }
             return (
                 <div class="elfin-buttons-root">
@@ -28,12 +28,12 @@
                                 {config.label && (<label>{config.label}</label>)}
                                 {renderFactory.render(h, config)}
                             </div>
-                        )
+                        );
                     })}
                 </div>
-            )
+            );
         },
-    }
+    };
 </script>
 
 <style lang="scss" scoped>

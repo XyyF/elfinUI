@@ -1,28 +1,32 @@
 <template>
-    <div class="generic-container-root">
-        <!-- Block-Element--Modifier-->
-        <h3 v-if="title">{{ title }}</h3>
-        <div v-if="subDocs || $slots.subDocs" class="sub_docs">
-            <slot name="subDocs">
-                {{ subDocs }}
-            </slot>
-        </div>
-        <div v-if="$slots.default" class="demo">
-            <slot></slot>
-        </div>
+  <div class="generic-container-root">
+    <!-- Block-Element--Modifier-->
+    <h3 v-if="title">
+      {{ title }}
+    </h3>
+    <div
+      v-if="subDocs || $slots.subDocs"
+      class="sub_docs"
+    >
+      <slot name="subDocs">
+        {{ subDocs }}
+      </slot>
     </div>
+    <div
+      v-if="$slots.default"
+      class="demo"
+    >
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script>
     export default {
-        name: 'generic-container',
+        name: 'GenericContainer',
         directives: {},
         components: {},
         mixins: [],
-        data() {
-            /* Notice: 给data里面的变量留下说明文字 */
-            return {}
-        },
         props: {
             /* Notice: 写下props数据的描述、用途 */
             /* Notice: props 里面的定义，使用此结构，type、default */
@@ -35,7 +39,11 @@
                 default: '',
             },
         },
-    }
+        data() {
+            /* Notice: 给data里面的变量留下说明文字 */
+            return {};
+        },
+    };
 </script>
 
 <style lang="scss" rel='stylesheet/scss' scoped>

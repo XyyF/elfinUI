@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: 'elfin-filters-group',
+        name: 'ElfinFiltersGroup',
         inject: ['injRoot'],
         props: {
             label: {
@@ -16,9 +16,9 @@
                         {this.$slots.default}
                     </div>
                 </div>
-            )
+            );
         },
-    }
+    };
 </script>
 
 <style scoped>
