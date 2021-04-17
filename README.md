@@ -21,7 +21,9 @@
 
 - elfinButtons 组件内部状态高度集中 + 工厂模式设计
 - elfinFilters 通过组件拆分将内部状态解藕 + 工厂模式设计
-- previewer 单例模式挂载function，优势：可以在function中获取组件实例this
-- actionSheet 单例模式挂载属性，优势：尽可能的降低对业务的干扰，动态挂载组件
+- previewer 单例模式挂载function，优势：可以在function中获取组件实例this，JSAPI模式动态挂载组件
+- actionSheet 单例模式挂载属性，优势：尽可能的降低对业务的干扰，JSAPI模式动态挂载组件
 
-TODO：参照VSCODE 的插件动态注册功能 的实现demo
+## 计划
+
+1. 参照VSCODE 的插件动态注册功能 的实现demo
