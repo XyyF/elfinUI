@@ -1,72 +1,7 @@
 {
-  "name": "elfin-ui",
-  "version": "1.0.0",
-  "description": "elfin组件UI",
-  "main": "lib/index.js",
+  "name": "root",
   "private": true,
-  "author": "rengar",
-  "license": "ISC",
-  "scripts": {
-    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "server": "start-storybook -p 8001 -c .storybook",
-    "build-pre-release": "build-storybook -c .storybook -o dist"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "elfincmd hooks commit-msg"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
-  },
-  "dependencies": {
-    "element-ui": "^2.13.2",
-    "lodash": "^4.17.20",
-    "photoswipe": "^4.1.3",
-    "vant": "^2.10.3",
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/helper-module-imports": "7.0.0",
-    "@babel/preset-env": "^7.10.3",
-    "@storybook/addon-actions": "5.3.14",
-    "@storybook/addon-knobs": "5.3.14",
-    "@storybook/addon-links": "5.3.14",
-    "@storybook/addon-notes": "5.3.14",
-    "@storybook/addon-options": "5.3.14",
-    "@storybook/addon-storysource": "5.3.14",
-    "@storybook/addon-viewport": "5.3.14",
-    "@storybook/vue": "5.3.14",
-    "@vue/babel-plugin-transform-vue-jsx": "^1.0.0-beta.2",
-    "@vue/babel-preset-jsx": "^1.0.0-beta.2",
-    "@vue/babel-sugar-functional-vue": "^1.0.0-beta.2",
-    "@vue/cli-plugin-babel": "^3.0.1",
-    "@vue/cli-plugin-eslint": "^3.0.1",
-    "@vue/cli-plugin-unit-jest": "^3.0.1",
-    "@vue/cli-service": "^3.0.1",
-    "@vue/test-utils": "^1.0.0-beta.20",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-glodash": "^1.0.5",
-    "babel-preset-vue": "^2.0.2",
-    "eslint": "^7.14.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-vue": "^7.1.0",
-    "html-webpack-plugin": "^4.0.0-beta.2",
-    "husky": "^4.3.0",
-    "qn-webpack": "^2.0.3",
-    "sass": "^1.26.7",
-    "sass-loader": "^7.0.1",
-    "storybook-vue-router": "^1.0.7",
-    "vue-loader": "^15.9.3",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "lerna": "^4.0.0"
+  }
 }
