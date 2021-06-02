@@ -1,6 +1,12 @@
 {
   "name": "root",
   "private": true,
+  "author": "rengar",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }
