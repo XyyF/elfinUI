@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['../elfin-eslint/.vue.eslintrc.js'],
+  extends: ['../../../elfin-eslint/.vue.eslintrc.js'],
 };
