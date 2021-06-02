@@ -1,5 +1,7 @@
 # elfinUI
 
+基于 StoryBook展示 + lerna管理 的UI库；
+
 [在线demo](https://codesandbox.io/s/elfinui-yndtm)
 
 ## 组件设计形式
