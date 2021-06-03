@@ -3,10 +3,8 @@ import Render from './_render';
 
 export default class BadgeRender extends Render {
     render() {
-        const { itemOptions = {} } = this.config;
-        // 获取 defaultSlot
-        const defaultSlot = this.getRenderSlot();
+        const { itemOptions = {}, itemSlots = {} } = this.config;
 
-        return h(<el-badge />, { ...itemOptions }, defaultSlot(h));
+        return h(<el-badge />, itemOptions, itemSlots);
     }
 }

@@ -1,12 +1,15 @@
+import { h } from 'vue';
 import { ElfinButtons, ElfinButtonsItemType } from '../../packages/buttons';
 
 export default {
   title: 'Example/ElfinButtons',
   component: ElfinButtons,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    onClick: {},
+    buttonsConfig: {
+      control: {
+        type: 'array',
+      },
+    },
   },
 };
 
@@ -29,30 +32,26 @@ Primary.args = {
       itemOptions: {
         type: 'primary',
         icon: 'el-icon-plus',
-        slot: () => {
-          return '基础按钮';
-        },
+      },
+      itemSlots() {
+        return '基础按钮';
       },
     },
     {
       type: ElfinButtonsItemType.CHECKBOX,
-      itemOptions: {
-        renderSlot() {
-          return '单选框';
-        },
+      itemSlots() {
+        return '单选框';
       },
     },
     {
       type: ElfinButtonsItemType.BADGE,
       itemOptions: {
-        props: {
-          value: 12,
-        },
-        renderSlot(h) {
-          return [
-            h(<el-button/>, 'badge按钮'),
-          ];
-        },
+        value: 12,
+      },
+      itemSlots() {
+        return [
+          h(<el-button />, 'badge按钮'),
+        ];
       },
     },
   ],
