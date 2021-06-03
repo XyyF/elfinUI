@@ -1,4 +1,5 @@
 <script>
+import { reactive } from "vue";
 import renderFactory from "./render_factory";
 
 export default {
@@ -12,12 +13,9 @@ export default {
     },
   },
   setup(props) {
-    const buttonsConfig = props.buttonsConfig;
+    const buttonsConfig = reactive(props.buttonsConfig);
 
     return () => {
-      if (buttonsConfig.length === 0) {
-        return null;
-      }
       return (
         <div class="elfin-buttons-root">
           {buttonsConfig

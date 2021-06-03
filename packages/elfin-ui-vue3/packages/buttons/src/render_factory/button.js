@@ -7,7 +7,6 @@ export default class ButtonRender extends Render {
         // 获取 defaultSlot
         // tips: el-button未实现 作用域插槽ScopedSlots
         const defaultSlot = this.getRenderSlot();
-
-        return h('div', { ...itemOptions }, defaultSlot());
+        return h(<el-button />, { ...itemOptions }, defaultSlot(h));
     }
 }

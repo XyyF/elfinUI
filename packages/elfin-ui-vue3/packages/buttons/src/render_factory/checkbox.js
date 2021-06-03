@@ -7,6 +7,6 @@ export default class CheckBoxRender extends Render {
         // 获取 defaultSlot
         const defaultSlot = this.getRenderSlot();
 
-        return h('el-checkbox', { ...itemOptions }, defaultSlot(this.h));
+        return h(<el-checkbox />, { ...itemOptions }, defaultSlot(h));
     }
 }

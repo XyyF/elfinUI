@@ -27,9 +27,31 @@ Primary.args = {
     {
       type: ElfinButtonsItemType.BUTTON,
       itemOptions: {
-        props: { type: 'primary', icon: 'el-icon-plus' },
-        renderSlot() {
+        type: 'primary',
+        icon: 'el-icon-plus',
+        slot: () => {
           return '基础按钮';
+        },
+      },
+    },
+    {
+      type: ElfinButtonsItemType.CHECKBOX,
+      itemOptions: {
+        renderSlot() {
+          return '单选框';
+        },
+      },
+    },
+    {
+      type: ElfinButtonsItemType.BADGE,
+      itemOptions: {
+        props: {
+          value: 12,
+        },
+        renderSlot(h) {
+          return [
+            h(<el-button/>, 'badge按钮'),
+          ];
         },
       },
     },

@@ -7,6 +7,6 @@ export default class BadgeRender extends Render {
         // 获取 defaultSlot
         const defaultSlot = this.getRenderSlot();
 
-        return h('el-badge', { ...itemOptions }, defaultSlot(this.h));
+        return h(<el-badge />, { ...itemOptions }, defaultSlot(h));
     }
 }
