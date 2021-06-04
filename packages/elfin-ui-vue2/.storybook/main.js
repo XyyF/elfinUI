@@ -1,5 +1,5 @@
 const path = require('path');
-const QiniuPlugin = require('qn-webpack');
+// const QiniuPlugin = require('qn-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const secret = require('../secret');
 

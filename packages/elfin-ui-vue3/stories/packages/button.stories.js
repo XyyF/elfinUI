@@ -1,4 +1,5 @@
 import { h } from 'vue';
+import { action } from '@storybook/addon-actions';
 import { ElfinButtons, ElfinButtonsItemType } from '../../packages/buttons';
 
 export default {
@@ -6,6 +7,8 @@ export default {
   component: ElfinButtons,
   argTypes: {
     buttonsConfig: {
+      default: [],
+      description: '123',
       control: {
         type: 'array',
       },
@@ -39,6 +42,9 @@ Primary.args = {
     },
     {
       type: ElfinButtonsItemType.CHECKBOX,
+      itemOptions: {
+        modelValue: null,
+      },
       itemSlots() {
         return '单选框';
       },
@@ -55,4 +61,99 @@ Primary.args = {
       },
     },
   ],
+};
+
+export const Button = (args) => ({
+  // Components used in your story `template` are defined in the `components` object
+  components: { ElfinButtons },
+  // The story's `args` need to be mapped into the template through the `setup()` method
+  setup() {
+    const buttonsConfig = [
+      {
+        type: ElfinButtonsItemType.BUTTON,
+        label: '按钮前缀说明:',
+        itemOptions: {
+          ...args,
+          onClick: ButtonOnClick,
+        },
+        itemSlots() {
+          return '按钮';
+        },
+      }
+    ];
+    return () => {
+      return (
+        <elfin-buttons buttonsConfig={buttonsConfig}></elfin-buttons>
+      );
+    };
+  },
+});
+const ButtonOnClick = action('click');
+Button.argTypes = {
+  size: {
+    defaultValue: '',
+    description: '123',
+    options: ['medium', 'small', 'mini'],
+    control: {
+      type: 'select',
+    },
+  },
+  type: {
+    options: ['primary', 'success', 'warning', 'danger', 'info', 'text'],
+    control: {
+      type: 'select',
+    },
+  },
+  plain: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+  round: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+  circle: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+  loading: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+  disabled: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+  icon: {
+    control: {
+      type: 'input',
+    },
+  },
+  autofocus: {
+    options: [true, false],
+    control: {
+      type: 'select',
+    },
+  },
+};
+Button.args = {
+  size: '',
+  type: 'primary',
+  plain: false,
+  round: false,
+  circle: false,
+  loading: false,
+  disabled: false,
+  icon: 'el-icon-plus',
+  autofocus: false,
 };

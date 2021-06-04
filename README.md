@@ -4,6 +4,13 @@
 
 [在线demo](https://codesandbox.io/s/elfinui-yndtm)
 
+## 运行
+```bash
+npm install --global lerna
+lerna bootstrap
+lerna add elfin-ui@1.0.0
+```
+
 ## 组件设计形式
 - 如果一个组件可以 **独立出业务组件的DOM结构，将组件挂载在body下使用**，可以考虑通过 <u>单例模式</u> 设计
     - 如果需要拿到组件的实例this，可以在 Vue.prototype 上挂载function

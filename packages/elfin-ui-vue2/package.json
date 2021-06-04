@@ -7,19 +7,8 @@
   "author": "rengar",
   "license": "ISC",
   "scripts": {
-    "lint": "eslint ./.storybook ./demo ./main ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "server": "start-storybook -p 8001 -c .storybook",
     "build-pre-release": "build-storybook -c .storybook -o dist"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "elfincmd hooks commit-msg"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
   },
   "dependencies": {
     "element-ui": "2.13.2",
@@ -44,19 +33,13 @@
     "@vue/babel-preset-jsx": "1.0.0-beta.2",
     "@vue/babel-sugar-functional-vue": "1.0.0-beta.2",
     "@vue/cli-plugin-babel": "3.0.1",
-    "@vue/cli-plugin-eslint": "3.0.1",
     "@vue/cli-plugin-unit-jest": "3.0.1",
     "@vue/cli-service": "3.0.1",
     "@vue/test-utils": "1.0.0-beta.20",
-    "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
     "babel-plugin-glodash": "1.0.5",
     "babel-preset-vue": "2.0.2",
-    "eslint": "7.14.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-vue": "7.1.0",
     "html-webpack-plugin": "4.0.0-beta.2",
-    "husky": "4.3.0",
     "node-sass": "4.12.0",
     "qn-webpack": "2.0.3",
     "sass": "1.26.7",

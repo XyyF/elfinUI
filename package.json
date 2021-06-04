@@ -7,7 +7,22 @@
     "type": "git",
     "url": "git@code.aliyun.com:meetin_web/edu_sass_fe_ui.git"
   },
+  "scripts": {
+    "lint": "eslint ./packages --ext .js,.jsx,.ts,.tsx,.vue --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "elfincmd hooks commit-msg"
+    }
+  },
   "devDependencies": {
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "babel-eslint": "^10.1.0",
+    "eslint": "7.14.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-vue": "^7.10.0",
+    "husky": "4.3.0",
     "lerna": "^4.0.0"
   }
 }
