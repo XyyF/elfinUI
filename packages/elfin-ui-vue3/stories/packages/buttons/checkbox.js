@@ -1,9 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { ElfinButtons, ElfinButtonsItemType } from '../../../packages/buttons';
 
-const ButtonOnClick = action('click');
+const OnClick = action('click');
+const OnChange = action('change');
 
-const Button = (args) => ({
+const Checkbox = (args) => ({
   // Components used in your story `template` are defined in the `components` object
   components: { ElfinButtons },
   // The story's `args` need to be mapped into the template through the `setup()` method
@@ -13,7 +14,7 @@ const Button = (args) => ({
       Object.assign({}, buttonsConfig[0], {
         itemOptions: {
           ...params,
-          onClick: ButtonOnClick,
+          onChange: OnChange,
         },
       }),
     ]
@@ -24,37 +25,25 @@ const Button = (args) => ({
     };
   },
 });
-Button.argTypes = {
-  size: {
-    options: ['medium', 'small', 'mini'],
-    control: {
-      type: 'select',
-    },
-  },
-  type: {
-    options: ['primary', 'success', 'warning', 'danger', 'info', 'text'],
-    control: {
-      type: 'select',
-    },
-  },
-  plain: {
+Checkbox.argTypes = {
+  modelValue: {
     control: {
       type: 'boolean',
     },
   },
-  round: {
+  label: {
     control: {
-      type: 'boolean',
+      type: 'text',
     },
   },
-  circle: {
+  trueLabel: {
     control: {
-      type: 'boolean',
+      type: 'text',
     },
   },
-  loading: {
+  falseLabel: {
     control: {
-      type: 'boolean',
+      type: 'text',
     },
   },
   disabled: {
@@ -62,48 +51,46 @@ Button.argTypes = {
       type: 'boolean',
     },
   },
-  icon: {
+  checked: {
     control: {
-      type: 'text',
+      type: 'boolean',
     },
   },
-  autofocus: {
-    options: [true, false],
+  border: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  size: {
+    options: ['medium', 'small', 'mini'],
     control: {
       type: 'select',
     },
   },
 };
-Button.args = {
+Checkbox.args = {
+  modelValue: null,
+  label: '选项',
+  checked: true,
+  falseLabel: '0',
+  trueLabel: '1',
+  border: false,
   size: '',
-  type: 'primary',
-  plain: false,
-  round: false,
-  circle: false,
-  loading: false,
-  disabled: false,
-  icon: 'el-icon-plus',
-  autofocus: false,
   buttonsConfig: [
     {
-      type: ElfinButtonsItemType.BUTTON,
-      label: '按钮前缀说明:',
+      type: ElfinButtonsItemType.CHECKBOX,
+      label: 'Checkbox前缀说明:',
       itemOptions: {
+        modelValue: null,
+        label: '选项',
+        checked: true,
+        falseLabel: '0',
+        trueLabel: '1',
+        border: false,
         size: '',
-        type: 'primary',
-        plain: false,
-        round: false,
-        circle: false,
-        loading: false,
-        disabled: false,
-        icon: 'el-icon-plus',
-        autofocus: false,
-      },
-      itemSlots() {
-        return '按钮';
       },
     }
   ],
 };
 
-export default Button;
+export default Checkbox;
