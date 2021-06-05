@@ -4,7 +4,7 @@ import Primary_ from './primary';
 import Button_ from './button';
 
 export default {
-  title: 'Example/ElfinButtons',
+  title: 'ElfinUI/ElfinButtons',
   component: ElfinButtons,
   argTypes: {
     buttonsConfig: {
