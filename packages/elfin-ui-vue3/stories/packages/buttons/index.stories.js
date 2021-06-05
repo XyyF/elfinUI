@@ -6,7 +6,7 @@ import Checkbox_ from './checkbox';
 import Badge_ from './badge';
 
 export default {
-  title: 'ElfinUI/ElfinButtons',
+  title: 'ElfinUI/Buttons',
   component: ElfinButtons,
   argTypes: {
     buttonsConfig: {
