@@ -5,7 +5,7 @@ export default class Preview {
         this.preInstance = null;
     }
 
-    initView(images, picIndex, options) {
+    initView(CImages, CPicIndex, COptions) {
         // 动态加载组件
         const PreviewerComponentAsync = defineAsyncComponent(() =>
             import('./previewer.vue'/* webpackChunkName: "elfin_previewer" */)
@@ -21,16 +21,24 @@ export default class Preview {
             },
             setup() {
                 const previewerRef = ref();
+                const images = ref(CImages);
+                const picIndex = ref(CPicIndex);
+                const options = ref(COptions);
                 // 等待异步组件初始化完成
                 const onInit = () => {
-                    showPreviewer(picIndex);
+                    previewerRef.value.show(picIndex.value);
                 };
                 // 对外暴露的接口
-                function showPreviewer(picIndex) {
-                    previewerRef.value.show(picIndex);
+                function showPreviewer(TImages = [], TPicIndex = 0, TOptions) {
+                    images.value = TImages;
+                    options.value = TOptions;
+                    previewerRef.value.show(TPicIndex);
                 }
 
                 return {
+                    images,
+                    options,
+                    picIndex,
                     previewerRef,
                     onInit,
                     showPreviewer,
@@ -39,9 +47,9 @@ export default class Preview {
             render() {
                 return h(PreviewerComponentAsync, {
                     ref: 'previewerRef',
-                    list: images,
-                    index: picIndex,
-                    options,
+                    list: this.images,
+                    index: this.picIndex,
+                    options: this.options,
                     onInit: this.onInit,
                 });
             },
@@ -62,13 +70,7 @@ export default class Preview {
             this.initView(images, picIndex, options);
             return;
         }
-        // 图片列表
-        this.preInstance.imageList = images;
-        // 配置参数
-        if (options) {
-            this.preInstance.options = options;
-        }
         // 展示图片
-        this.preInstance.showPreviewer(picIndex);
+        this.preInstance.showPreviewer(images, picIndex, options);
     }
 }

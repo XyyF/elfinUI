@@ -17,12 +17,23 @@ export const Primary = (args) => ({
   methods: {
     openPreviewer() {
       this.$previewImages([assets1, assets2, assets3], 1);
-    }
+    },
+    openPreviewer2() {
+      this.$previewImages([assets1, assets2], 0);
+    },
+    openPreviewer3() {
+      this.$previewImages([assets1], 0);
+    },
   },
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<div @click="openPreviewer">123</div>',
+  template: `
+    <div>
+      <el-button @click="openPreviewer">点击打开Previewer</el-button>
+      <el-button @click="openPreviewer2">点击打开Previewer2</el-button>
+      <el-button @click="openPreviewer3">点击打开Previewer3</el-button>
+    </div>
+  `,
 });
 Primary.args = {};
