@@ -72,14 +72,6 @@ import "photoswipe/dist/default-skin/default-skin.css";
 
 export default {
   props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    index: {
-      type: Number,
-      default: 0,
-    },
     options: {
       type: Object,
       default: () => ({}),
@@ -87,13 +79,12 @@ export default {
   },
   data() {
     return {
-      res: null,
+      res: [],
     };
   },
   computed: {
     picList() {
-      const list = this.res || this.list;
-      return list.map((src) => ({
+      return this.res.map((src) => ({
         src,
         w: 200,
         h: 200,
@@ -131,7 +122,10 @@ export default {
       });
     },
     show(index, list) {
-      this.res = list || null;
+      if (list && Object.prototype.toString.call(list) !== '[object Array]') {
+        throw new Error('list: 错误的格式', list);
+      }
+      this.res = list || [];
       this.init(index);
     },
     close() {

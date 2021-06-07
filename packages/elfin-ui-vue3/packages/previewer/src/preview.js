@@ -1,4 +1,4 @@
-import { h, defineAsyncComponent, createVNode, ref, render } from 'vue';
+import { h, defineAsyncComponent, createVNode, ref, render, nextTick } from 'vue';
 
 export default class Preview {
     constructor() {
@@ -6,13 +6,13 @@ export default class Preview {
     }
 
     initView(CImages, CPicIndex, COptions) {
-        // 动态加载组件
+        // 动态加载异步组件
         const PreviewerComponentAsync = defineAsyncComponent(() =>
             import('./previewer.vue'/* webpackChunkName: "elfin_previewer" */)
         )
         // 容器
         const container = document.createElement('div');
-        container.className = `container_previewer`;
+        container.className = 'container_previewer';
 
         // Vnode
         const PreviewerComponent = {
@@ -21,24 +21,22 @@ export default class Preview {
             },
             setup() {
                 const previewerRef = ref();
-                const images = ref(CImages);
-                const picIndex = ref(CPicIndex);
                 const options = ref(COptions);
                 // 等待异步组件初始化完成
                 const onInit = () => {
-                    previewerRef.value.show(picIndex.value);
+                    previewerRef.value.show(CPicIndex, CImages);
                 };
                 // 对外暴露的接口
                 function showPreviewer(TImages = [], TPicIndex = 0, TOptions) {
-                    images.value = TImages;
                     options.value = TOptions;
-                    previewerRef.value.show(TPicIndex);
+                    // 等待参数更新
+                    nextTick(() => {
+                        previewerRef.value.show(TPicIndex, TImages);
+                    });
                 }
 
                 return {
-                    images,
                     options,
-                    picIndex,
                     previewerRef,
                     onInit,
                     showPreviewer,
@@ -47,8 +45,6 @@ export default class Preview {
             render() {
                 return h(PreviewerComponentAsync, {
                     ref: 'previewerRef',
-                    list: this.images,
-                    index: this.picIndex,
                     options: this.options,
                     onInit: this.onInit,
                 });
@@ -70,7 +66,7 @@ export default class Preview {
             this.initView(images, picIndex, options);
             return;
         }
-        // 展示图片
+        // 在初始化是后续，展示图片
         this.preInstance.showPreviewer(images, picIndex, options);
     }
 }

@@ -31,8 +31,8 @@ export const Primary = (args) => ({
   template: `
     <div>
       <el-button @click="openPreviewer">点击打开Previewer</el-button>
-      <el-button @click="openPreviewer2">点击打开Previewer2</el-button>
-      <el-button @click="openPreviewer3">点击打开Previewer3</el-button>
+      <el-button @click="openPreviewer2">点击打开Previewer(2张图)</el-button>
+      <el-button @click="openPreviewer3">点击打开Previewer(1张图)</el-button>
     </div>
   `,
 });
