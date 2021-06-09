@@ -5,8 +5,9 @@ export default class Preview {
         this.preInstance = null;
     }
 
-    initView(CImages, CPicIndex, COptions) {
+    initView() {
         // 动态加载异步组件
+        // TODO: loading状态
         const PreviewerComponentAsync = defineAsyncComponent(() =>
             import('./previewer.vue'/* webpackChunkName: "elfin_previewer" */)
         )
@@ -20,33 +21,40 @@ export default class Preview {
                 PreviewerComponentAsync,
             },
             setup() {
-                const previewerRef = ref();
-                const options = ref(COptions);
-                // 等待异步组件初始化完成
-                const onInit = () => {
-                    previewerRef.value.show(CPicIndex, CImages);
+                const isShow = ref(false); // 是否显示
+                const images = ref([]); // 图片列表
+                const picIndex = ref(0); // 下标
+                const options = ref({}); // 选项
+                const onClose = () => {
+                    isShow.value = false;
                 };
                 // 对外暴露的接口
                 function showPreviewer(TImages = [], TPicIndex = 0, TOptions) {
+                    images.value = TImages;
+                    picIndex.value = TPicIndex;
                     options.value = TOptions;
                     // 等待参数更新
                     nextTick(() => {
-                        previewerRef.value.show(TPicIndex, TImages);
+                        isShow.value = true;
                     });
                 }
 
                 return {
+                    isShow,
+                    images,
+                    picIndex,
                     options,
-                    previewerRef,
-                    onInit,
+                    onClose,
                     showPreviewer,
                 };
             },
             render() {
                 return h(PreviewerComponentAsync, {
-                    ref: 'previewerRef',
+                    isShow: this.isShow,
+                    list: this.images,
+                    index: this.picIndex,
                     options: this.options,
-                    onInit: this.onInit,
+                    onClose: this.onClose,
                 });
             },
         };
@@ -62,9 +70,7 @@ export default class Preview {
     show(images = [], picIndex = 0, options) {
         // 只在第一次的时候去动态加载实例
         if (!this.preInstance) {
-            // TODO: loading状态
-            this.initView(images, picIndex, options);
-            return;
+            this.initView();
         }
         // 在初始化是后续，展示图片
         this.preInstance.showPreviewer(images, picIndex, options);

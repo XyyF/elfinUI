@@ -72,19 +72,32 @@ import "photoswipe/dist/default-skin/default-skin.css";
 
 export default {
   props: {
+    list: {
+      type: Array,
+      default: () => [],
+    },
+    index: {
+      type: Number,
+      default: 0,
+    },
     options: {
       type: Object,
       default: () => ({}),
     },
+    isShow: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      res: [],
+      res: null,
     };
   },
   computed: {
     picList() {
-      return this.res.map((src) => ({
+      const list = this.res || this.list;
+      return list.map((src) => ({
         src,
         w: 200,
         h: 200,
@@ -118,14 +131,11 @@ export default {
       this.photoswipe.init();
       this.photoswipe.listen("close", () => {
         this.res = null;
-        this.$emit("on-close");
+        this.$emit("close");
       });
     },
     show(index, list) {
-      if (list && Object.prototype.toString.call(list) !== '[object Array]') {
-        throw new Error('list: 错误的格式', list);
-      }
-      this.res = list || [];
+      this.res = list || null;
       this.init(index);
     },
     close() {
@@ -150,8 +160,17 @@ export default {
       img.src = slide.src;
     },
   },
+  watch: {
+    isShow() {
+      if (this.isShow) {
+        this.show(this.index);
+      }
+    },
+  },
   mounted() {
-    this.$emit('init');
+    if (this.isShow) {
+      this.show(this.index);
+    }
   },
 };
 </script>
