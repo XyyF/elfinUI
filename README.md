@@ -36,3 +36,4 @@ lerna add elfin-ui@1.0.0
 ## 计划
 
 1. 参照VSCODE 的插件动态注册功能 的实现demo
+2. 新建component，通过脚本run
