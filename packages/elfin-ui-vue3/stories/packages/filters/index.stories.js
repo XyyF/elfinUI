@@ -27,68 +27,19 @@ export const Primary = (args) => ({
     };
   },
   computed: {
-    outerFields() {
-      return [
-        {
-          prop: 'highFrequency',
-          label: '高频字段',
-          render: ElfinFilterItemType.SELECT,
-          renderOptions: {
-            props: {
-              placeholder: '请选择',
-            },
-          },
-          extra: {
-            options: [
-              { label: '一月', value: 1 },
-              { label: '二月', value: 2 },
-              { label: '三月', value: 3 },
-            ],
-          },
-        },
-      ];
-    },
     selectFields() {
       return [
         {
+          type: ElfinFilterItemType.SELECT,
           prop: 'age',
           label: '月份',
-          render: ElfinFilterItemType.SELECT,
-          renderOptions: {
-            props: {
-              placeholder: '请选择',
-            },
-          },
-          extra: {
+          itemOptions: {
+            placeholder: '请选择',
             options: [
               { label: '一月', value: 1 },
               { label: '二月', value: 2 },
               { label: '三月', value: 3 },
             ],
-          },
-        },
-        {
-          prop: 'time',
-          label: '时间',
-          render: ElfinFilterItemType.DATE,
-          renderOptions: {
-            props: {
-              placeholder: '请选择',
-            },
-          },
-        },
-        {
-          label: '时间范围',
-          prop: 'timeRange',
-          render: ElfinFilterItemType.DATE_RANGE,
-          renderOptions: {
-            props: {
-              pickerOptions: {
-                disabledDate(time) {
-                  return time.getTime() > Date.now();
-                },
-              },
-            },
           },
         },
       ];

@@ -1,4 +1,5 @@
 <script>
+import {h} from 'vue';
 import cloneDeep from 'lodash.clonedeep';
 import asserts from "../__utils/typeof";
 import { getPropByPath } from "../__utils";
@@ -170,7 +171,7 @@ export default {
       this.$set(result.o, result.k, val);
     },
   },
-  render(h) {
+  render() {
     const {
       label,
       render,
@@ -197,7 +198,6 @@ export default {
         },
       },
     };
-
     // itemContent 是 filter-item 的主体
     let itemContent = null;
     if (asserts.isFunction(render)) {

@@ -102,7 +102,6 @@ export default {
     },
   },
   render() {
-    console.log(11, this.$slots.default())
     return (
       <div class="elfin-filters-root">
         <div class="outer-section">

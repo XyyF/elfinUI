@@ -1,0 +1,5 @@
+```js
+type: '',
+itemOptions: {},
+itemSlots() {},
+```
