@@ -3,11 +3,13 @@ import assets1 from './assets/assets1.jpg';
 import assets2 from './assets/assets2.jpg';
 import assets3 from './assets/assets3.jpg';
 import { ElfinPreviewer } from '../../../packages/previewer';
+import Previewer from '../../../packages/previewer/src/previewer.vue';
 
 app.use(ElfinPreviewer);
 
 export default {
   title: 'ElfinUI/Previewer',
+  component: Previewer,
   argTypes: {},
 };
 

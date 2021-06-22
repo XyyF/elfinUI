@@ -26,7 +26,8 @@
     "vue-loader": "^16.2.0"
   },
   "dependencies": {
-    "element-plus": "^1.0.2-beta.45",
+    "element-plus": "^1.0.2-beta.48",
+    "lodash.clonedeep": "^4.5.0",
     "vue": "^3.0.11"
   }
 }
